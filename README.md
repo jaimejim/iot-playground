@@ -9,3 +9,4 @@ IPSO Objects define data models with the basic resources per device. Their main 
 *  ... to provide the building blocks to semantically define more complex devices.
 
 This type of object model was firstly introduced by LWM2M, you can test IPSO objects with [Wakamaa](https://github.com/eclipse/wakaama) and Leshan implementations. 
+
