@@ -8,7 +8,7 @@ I use [Wakamaa](https://github.com/eclipse/wakaama) for testing.
 
 ### IPSO
 IPSO Objects define data models and resources per device. Their main purpose is to provide application interoperability. They make it simple to add new resources in case you don't find what you want on the existing subset.
-More here [IAB Position Paper](https://github.com/jaimejim/iot-playground/blob/master/Documentation/IPSO/Paper_IAB_2016/Paper_IAB_2016.md)
+More here [IAB Position Paper 2016](https://github.com/jaimejim/iot-playground/blob/master/Documentation/IPSO/Paper_IAB_2016/Paper_IAB_2016.md)
 
 ### W3C
 TBD
