@@ -2,26 +2,26 @@
 Personal repository for documentation on stuff I am working on. 
 For access to the private repo please contact me.
 
-## OMA LWM2M 
+### OMA LWM2M 
 A device management protocol, provides interfaces for basic management operations as well as service enablement. Built on top of CoAP introduces the object model was used by IPSO. Therefore can be used as application protocol as well, for the sensor readings and whichever actuation they have.
 I use [Wakamaa](https://github.com/eclipse/wakaama) for testing.
 
-## IPSO
+### IPSO
 IPSO Objects define data models and resources per device. Their main purpose is to provide application interoperability. They make it simple to add new resources in case you don't find what you want on the existing subset. 
 
-## W3C
+### W3C
 TBD
 
 ## OIC
 TBD
 
-# Implementations:
+### Implementations:
 
 * [Wakamaa](https://github.com/eclipse/wakaama)
 * [mBed](https://en.wikipedia.org/wiki/Mbed)
 * [MQ message broker](http://mosquitto.org/)
 
-# Relevant drafts and RFCs:
+### Relevant drafts and RFCs:
 * [Consolidated slides IETF Yokohama](https://www.ietf.org/proceedings/93/slides/slides-93-core-0.pdf)
 * [Distributed CoAP RD](https://datatracker.ietf.org/doc/rfc7650/)
 * [Constrained RESTful Environments (CoRE) Link Format](https://tools.ietf.org/html/rfc6690)
