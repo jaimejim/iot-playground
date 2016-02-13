@@ -1,6 +1,3 @@
-# Purpose
-Personal repository for documentation on stuff I am working on. 
-For access to the private repo please contact me.
 
 ### OMA LWM2M 
 A device management protocol, provides interfaces for basic management operations as well as service enablement. Built on top of CoAP introduces the object model was used by IPSO. Therefore can be used as application protocol as well, for the sensor readings and whichever actuation they have.
