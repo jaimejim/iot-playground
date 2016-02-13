@@ -1,3 +1,5 @@
+# IoT Playground
+This is a personal repo where I commit code and documentation on various IoT technologies. Most of the documentation is public, for access to the private side of repo just ask me.
 
 ### OMA LWM2M 
 A device management protocol, provides interfaces for basic management operations as well as service enablement. Built on top of CoAP introduces the object model was used by IPSO. Therefore can be used as application protocol as well, for the sensor readings and whichever actuation they have.
@@ -7,7 +9,7 @@ I use [Wakamaa](https://github.com/eclipse/wakaama) for testing.
 IPSO Objects define data models and resources per device. Their main purpose is to provide application interoperability. They make it simple to add new resources in case you don't find what you want on the existing subset.
 More here [IAB Position Paper 2016](https://github.com/jaimejim/iot-playground/blob/master/Documentation/IPSO/Paper_IAB_2016/Paper_IAB_2016.md)
 
-### W3C
+### W3C-WoT-IG
 TBD
 
 ## OIC
