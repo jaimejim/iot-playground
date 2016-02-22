@@ -1,11 +1,5 @@
-<<<<<<< HEAD
-# Purpose
-Personal repository for documentation on things I am working on. 
-For access to the private repo please contact me.
-=======
 # IoT Playground
 This is a personal repo where I commit code and documentation on various IoT technologies. Most of the documentation is public, for access to the private side of repo just ask me.
->>>>>>> origin/master
 
 ### OMA LWM2M 
 A device management protocol, provides interfaces for basic management operations as well as service enablement. Built on top of CoAP introduces the object model was used by IPSO. Therefore can be used as application protocol as well, for the sensor readings and whichever actuation they have.
@@ -17,16 +11,12 @@ Links:
 
 ### IPSO
 IPSO Objects define data models and resources per device. Their main purpose is to provide application interoperability. They make it simple to add new resources in case you don't find what you want on the existing subset.
-<<<<<<< HEAD
-Links:
 
-### W3C
-=======
-More here [IAB Position Paper 2016](https://github.com/jaimejim/iot-playground/blob/master/Documentation/IPSO/Paper_IAB_2016/Paper_IAB_2016.md)
+Links:
+* [Github IPSO](https://github.com/IPSO-Alliance/StartHere)
 
 ### W3C-WoT-IG
 TBD
->>>>>>> origin/master
 
 Links:
 * [Charter](http://www.w3.org/2014/12/wot-ig-charter.html)
@@ -73,7 +63,4 @@ Links:
 * [Websockets CoAP](http://tools.ietf.org/html/draft-savolainen-core-coap-websockets-04)
 * [TCP CoAP](http://tools.ietf.org/html/draft-tschofenig-core-coap-tcp-tls-04)
 * [HTTP CoAP](http://tools.ietf.org/html/draft-ietf-core-http-mapping-07)
-<<<<<<< HEAD
 * [Secure Group Comm](https://tools.ietf.org/html/draft-tiloca-dice-secure-groupcomm-00)
-=======
->>>>>>> origin/master
