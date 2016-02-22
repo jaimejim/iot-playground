@@ -1,0 +1,52 @@
+The ZigBee Cluster Library over IP
+==================================
+
+Robert Cragie
+February 19 2016
+
+Introduction
+------------
+
+The ZigBee Cluster Library (ZCL) is the name for the application layer used by the ZigBee Alliance in ZigBee products. Recently, the ZigBee Alliance consolidated all the efforts of the previous application working groups into a single library. The combination of the amalgamated clusters (the ZCL) and the underlying ZigBee PRO stack is called ZigBee 3.0. Specific clusters are grouped together on a product representing a ZigBee device. The product's ZigBee device communication ability is tested and certified before it is given the ZigBee stamp of approval.
+
+The ZCL documentation is open and available for download: http://www.zigbee.org/download/standards-zigbee-cluster-library/. There are restrictions on its usage and any company wishing to produce a product based on the ZCL must become a ZigBee member and undergo certification of the product as a ZigBee device to ensure basic interoperability with counterpart ZigBee devices. 
+
+The Internet of Things
+----------------------
+
+"Internet of Things" is now a well-known and widely used term to generally described adding connectivity to devices (things) which up until now have generally not had (or had very limited) communication ability. The advent of cheap and ubiquitous wireless technology has accelerated the addition of such communication capabilities to such device and the challenge now is to ensure such devices can form networks and collaborate with each other and with other services to provide a useful function to the end user. The application layer of these devices is generally what determines its functionality from a communications point of view and numerous application layer technologies have been developed for this purpose.
+
+The ZCL can be considered such an application layer and represents fourteen years of work undertaken by market leaders in home automation, commercial building automation, energy management, lighting and health care, bringing their expertise and knowledge into the ZCL. There are currently a number of application layer initiatives which claim to be the application layer for the Internet of Things but few, if any, have the longevity of the ZCL and can claim the same effort and level of expertise which has gone into producing the ZCL. 
+
+The ZigBee Alliance recognises that, going forward, there is a complex and emerging landscape of networking technologies for the Internet of Things in both home and commercial environments and that such systems may inevitably end up being configured in a complex way. However, from a networking perspective it is apparent that the Internet Protocol (IP) suite is commonly used. This is primarily driven by the ubiquity of the Internet and web-based technologies and the desire for end-to-end communication between not only peer devices but devices to cloud-based services. For this reason, there is an initiative within the ZigBee Alliance to take the ZCL and make its use applicable to systems networked using the IP suite.
+
+What is a cluster?
+------------------
+
+The definition of a "cluster" is a group of functionally related attributes and commands. Each cluster is given a particular enumerated identity (ID) by the ZigBee Alliance. The cluster ID'a value determines its functional domain. Within the cluster, each attribute is given a specific enumerated 16-bit identity and each cluster command (as opposed to the general ZCL commands) is also given a specific enumerated 8-bit identity. It is possible for vendors to define their own clusters using manufacturer extension identities allocated by the ZigBee Alliance. It is also possible to define extensions to the attributes and commands using the same manufacturer extension identity. Due to the enumeration, the collection of attributes forms a flat space, unlike the typical hierarchically arranged resources associated with URIs.
+
+All transactions are defined as ZCL commands carried in ZCL frames, which use the APS transport layer defined by ZigBee PRO. There are 23 general ZCL commands, 17 of which are mandatory to support. The general commands are used to manipulate attributes and perform other tasks not specific to a particular cluster. Cluster-specific commands generally represent actions on a device but are also used for atomic attribute updates on a device and model a remote procedure call (RPC) transaction.
+
+ZigBee PRO offers a service discovery mechanism whereby devices can discover which clusters other devices support and subsequently bind to the other device's cluster. A well-known example is a light switch device discovering a light bulb device. Through additional user interaction, the light switch can bind its client on/off cluster to the counterpart light bulb's server on/off cluster.
+
+ZCL over IP
+-----------
+
+The ZigBee Alliance formed a working group with a working name of "ZCL-over-IP" to undertake the work of mapping the ZCL to an equivalent protocol, which can be used effectively with the IP suite. There are a number of potential approaches to undertaking the work:
+
+1. Take the ZCL as is and simply transport it over e.g. UDP datagrams, with appropriate address mapping
+2. Model the current ZCL and completely rewrite the protocol based on a REST architectural style
+3. Use transaction and data representations typically in use in conjunction with IP and map the existing ZCL to these transactions and data representations
+
+(1) has been done in proprietary implementations and there was an internet draft (draft-tolle-cap-00, now expired) which showed how this could be done. However, the main issue with this approach is that, while it may satisfy the requirement for a device network where the devices are connected using an IP-based network, the solution does not scale well to cloud-based systems and would still require a middlebox for translation purposes. For this reason, it has never been pursued for constrained device networks as it lacks the protocol efficiency of the existing ZCL and ZigBee PRO networks and offers no obvious advantage except for the ability to be routed across different network segments using IP. For this reason. this approach was used in the ZigBee Alliance-specified ZigBee Bridge Device, which uses IP networks to bridge two ZigBee PRO networks.
+
+(2) is the approach which was more or less taken for the Smart Energy 2 (now IEEE P2030.5) initiative, where the existing ZigBee Smart Energy clusters were modeled in UML and then a completely new protocol based on HTTP and XML was produced. This approach has many advantages and is most likely the best approach for true end-to-end systems, where devices interact with cloud-based services. However, there is a large gap between the existing and the new protocols the two are only semantically compatible at the highest layer. Also, this approach generally puts resource demands on the devices both in terms of code and data storage and in the size of the messages transacted in the network.
+
+(3) is a middle-ground approach where there is an effort to keep close to the existing ZCL but remodel transactions and data representations into something more typically used in conjunction with IP. This is the approach most preferred by the product vendors in the ZigBee Alliance and thus the approach decided on by the ZCL-over-IP working group.
+
+Current status of the work
+--------------------------
+
+The ZCL-over-IP working group has defined a schedule for development of a base device specification, cluster documentation and a PICS and test specification. It has also defined a proof-of-concept and interoperability testing program, commencing in mid-March 2016. The specification work undertaken so far has been to identify the structure of the base device specification, considering all aspects of the protocol. The development of the base device specification has also started, with definition of the transfer protocol (CoAP) and data representation format (CBOR) and a URI structure which maps onto the existing ZCL cluster, attribute and commands. The group has also identified a small set of clusters to take to the initial PoC events and produced documentation surrounding these.
+
+The paper will go into more detail on the working group activities and describe how a simple ZCL cluster is mapped to the equivalent ZCL-over-IP cluster and how devices will typically perform the equivalent transactions.
