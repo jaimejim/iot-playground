@@ -4,8 +4,8 @@
 
 Internet Engineering Task Force                                 J. Arkko
 Internet-Draft                                                  Ericsson
-Intended status: Informational                         February 22, 2016
-Expires: August 25, 2016
+Intended status: Informational                         February 23, 2016
+Expires: August 26, 2016
 
 
            Gadgets and Protocols Come and Go, Data Is Forever
@@ -36,7 +36,7 @@ Status of This Memo
    time.  It is inappropriate to use Internet-Drafts as reference
    material or to cite them other than as "work in progress."
 
-   This Internet-Draft will expire on August 25, 2016.
+   This Internet-Draft will expire on August 26, 2016.
 
 Copyright Notice
 
@@ -53,7 +53,7 @@ Copyright Notice
 
 
 
-Arkko                    Expires August 25, 2016                [Page 1]
+Arkko                    Expires August 26, 2016                [Page 1]
 
 Internet-Draft               Data Is Forever               February 2016
 
@@ -109,7 +109,7 @@ Table of Contents
 
 
 
-Arkko                    Expires August 25, 2016                [Page 2]
+Arkko                    Expires August 26, 2016                [Page 2]
 
 Internet-Draft               Data Is Forever               February 2016
 
@@ -120,76 +120,77 @@ Internet-Draft               Data Is Forever               February 2016
    o  commonly used data formats
 
    While much of the early efforts in this area were focused on simply
-   enabling basic IP-based communications, more recent efforts have
-   moved up the stack.  This is consistent with the ability to
-   communicate becoming available and needs for building more complex
-   and interoperable systems starting to dominate [RFC7452].  For
-   instance, at the IETF there has been work on defining application and
-   transport framework tools such as CoAP [RFC7252], security solutions,
-   and data formats such CBOR [RFC7049] or JSON/SENML
+   enabling basic IP-based communications, more recent focus has been
+   higher on the stack.  As the basic ability to communicate is now
+   generally available, the focus is shifting.  The needs for building
+   more complex and interoperable systems are starting to dominate
+   [RFC7452].  For instance, at the IETF there has been work on defining
+   application and transport framework tools such as CoAP [RFC7252],
+   security solutions such as DTLS profiles [I-D.ietf-dice-profile], and
+   data formats such as CBOR [RFC7049] or JSON/SENML
    [I-D.jennings-core-senml].
 
    While the IETF usually works on the lower parts of the protocol
    stack, there has also been efforts to specify infrastructure
-   components for the Internet of Things, such as
-   [I-D.ietf-core-resource-directory].
+   components for the Internet of Things, such as the CoRE Resource
+   Directory [I-D.ietf-core-resource-directory].
 
    The W3C has recently created the Web-of-Things (WoT) group, which
    looks at building specifications around how the lower-level web
-   protocols can be used to build Internet of Things systems, including
-   standards related to common web-based APIs, or the semantic
-   descriptions of objects and their capabilities.  IPSO Alliance, OMA,
-   and others have also worked to define interfaces.  Most of these
-   efforts are about defining interfaces for a class of devices (such as
-   lights), with the details of how to access or manipulate the light
-   being provided as part of machine-readable description such as W3C
-   Thing Descriptions [TD] or even IETF core links [RFC6690].
+   protocols and common web-based APIs can be used to build Internet of
+   Things systems.  The group is also working the semantic descriptions
+   of objects and their capabilities.  IPSO Alliance, OMA, and others
+   have also worked to define interfaces.  Most of these efforts are
+   about defining interfaces for a class of devices (such as lights).
+   The details of how to access or manipulate the light are provided as
+   part of machine-readable description such as W3C Thing Descriptions
+   [TD] or even IETF core links [RFC6690].
 
    The security (or lack thereof) for the Internet of Things systems has
    been under increasing attention in recent years.  While much of the
    discussion focuses on specific vulnerabilities that have been
-   uncovered, the underlying issue is that more data gets collected as a
-   part of the Internet of Things, and providing information to more
-   parties than you have done before exposes the risk of accidental or
-   malicious misuse of that data.
+   uncovered, the underlying issue is that more data gets collected.
+   Information passed to other parties exposes the risk of accidental or
+   malicious misuse of that information.
 
 3.  General Networking Trends
 
    A general trend in the last decade has been about making networking
-   as software-defined as possible, through a generally useful but
-   minimal framework that allows building new features on top without
-   having to, for instance, have the vendor providing a node do the
-   programming.  The most obvious example of this trend is in the area
-   of "Software-Defined Networking" (SDN), but the same principles have
+   as software-defined as possible.  Software-defined architectures
+   typically have a minimal framework that allows building new features
+   without having to, for instance, have the vendor providing a node do
+   the programming.  The most obvious example of this trend is in the
+   area of "Software-Defined Networking" (SDN), but the same principles
 
 
 
 
-Arkko                    Expires August 25, 2016                [Page 3]
+Arkko                    Expires August 26, 2016                [Page 3]
 
 Internet-Draft               Data Is Forever               February 2016
 
 
-   applied also in many other cases.  For instance, WebRTC provides a
-   minimal framework that can be easily tailored.
+   have applied also in many other cases.  For instance, WebRTC provides
+   a minimal framework that can be easily tailored.
 
    While the SDN and WebRTC models are about the ability to program
    devices, there are other approaches that rely on more limited
-   facilities.  One example of these is controlling the device through
-   powerful data models that direct its behavior (often specified in
-   YANG [RFC6020]).  Like SDN, data-driven architectures help decouple
-   complex or business-specific behavior from what commodity devices do.
+   facilities.  For instance, devices can be controlled through powerful
+   data models that direct the behavior of the device.  These models are
+   often specified in YANG [RFC6020].  Like SDN, data-driven
+   architectures help decouple complex or business-specific behavior
+   from what commodity devices provide.
 
 4.  Future Directions
 
    But what does this have to do with future directions for the Internet
    of Things?  The author believes that the market needs both better
    interoperability within an application, and a more open framework for
-   innovations.  Obviously, there are thousands and thousands of
-   exciting innovations in this field, but there is potential for more,
-   if information and systems for different applications could be used
-   better together, and if third parties could build components that
-   plug seamlessly into the rest of system.
+   innovations.  Obviously, there exists already thousands and thousands
+   of exciting innovations in this field.  However, there is potential
+   for more if information and systems for different applications could
+   be used better together, and if third parties could build components
+   that plug seamlessly into the rest of system.
 
    This is less of an issue lower in the stack.  Development in the
    lower parts continues to be necessary, but the ability to integrate
@@ -198,13 +199,13 @@ Internet-Draft               Data Is Forever               February 2016
 
    Today, this vision is not yet possible.  While many protocols that we
    use are standards, too often data formats or object models differ in
-   ways that make putting larger systems together difficult.  This is of
-   course partially driven by economics, where it makes commercial sense
-   for vendors to provide vertically integrated solutions.  The same
-   applies to some broader ecosystems as well, such as the some types of
-   ZigBee and Bluetooth devices.  But vertically integrated solutions
-   are just like other special solutions -- often with time, general
-   solutions tend to win.
+   ways that makes it difficult to integrate individual pieces into
+   larger systems.  This is of course partially driven by economics,
+   where it makes commercial sense for vendors to provide vertically
+   integrated solutions.  The same applies to some broader ecosystems as
+   well, such as some types of ZigBee and Bluetooth devices.  But
+   vertically integrated solutions are just like other special solutions
+   -- often with time, general solutions tend to win.
 
    Current solutions are also excessively focused on connectivity and
    transport.  As an example, security solutions may be focused solely
@@ -220,8 +221,7 @@ Internet-Draft               Data Is Forever               February 2016
 
 
 
-
-Arkko                    Expires August 25, 2016                [Page 4]
+Arkko                    Expires August 26, 2016                [Page 4]
 
 Internet-Draft               Data Is Forever               February 2016
 
@@ -258,26 +258,26 @@ Internet-Draft               Data Is Forever               February 2016
    Dynamic behavior
 
       The ability to avoid hard-coded behavior.  At the simplest level
-      this is about weblinking or HATEOAS-style communication [HATEOAS].
-      But it should also be about the ability to link a new type of an
-      object to new code (perhaps indirectly).
+      this is about weblinking or Hypermedia as the Engine of
+      Application State (HATEOAS) -style communication [RFC5988]
+      [HATEOAS].  But it should also be about the ability to link a new
+      type of an object to new code (perhaps indirectly).
 
-      Example: Lets assume a system of system lights and controls.  At
-      one point in time the system has only light sources that can be
-      turned on or off.  As the controls, a touch screen device acts a
-      user interface.  Then at some later time a new light source is
-      added that offers also colour temperature control.  Ideally, the
-      ability to adjust color temperature should now appear on the user
-      interface without a need to modify the firmware in any of the
-      devices.
+      Example: Lets assume a system of lights and controls.  At one
+      point in time the system has only light sources that can be turned
+      on or off.  A touch screen is used as the user interface to
+      control the lighting system.  Then at some later time a new light
+      source is added that offers also colour temperature control.
+      Ideally, the ability to adjust color temperature should now appear
+      on the user interface without a need to modify the firmware in any
+      of the devices.
 
    Data-Object Security
 
 
 
 
-
-Arkko                    Expires August 25, 2016                [Page 5]
+Arkko                    Expires August 26, 2016                [Page 5]
 
 Internet-Draft               Data Is Forever               February 2016
 
@@ -303,20 +303,19 @@ Internet-Draft               Data Is Forever               February 2016
 
    An additional consideration is access to data.  Today, only
    applications with special knowledge about specific devices can access
-   those devices.  And even this requires the installation of
-   intermediaries in some cases.  It would be useful to build an
-   architecture that allows applications to access data that they have
-   been granted access to.  While the details for another paper, the
-   general idea is that access control can be associated directly with
-   the data itself, as opposed to building specific entities that are in
-   charge.  The latter would require those entities to have access to
-   all of the data, defeating much of the purpose of protecting the
-   data.
+   those devices.  In some cases, even this requires the installation of
+   intermediaries.  It would be useful to build an architecture that
+   allows applications to access data that they have been granted access
+   to.  While we leave the details of this to another paper, the general
+   idea is that access control can be associated directly with the data
+   itself as opposed to building specific entities that are in charge.
+   The latter would require those entities to have access to all of the
+   data, defeating much of the purpose of protecting the data.
 
 5.  Work Ahead
 
-   The future vision from the previous section is of course partially
-   already realisable through existing technologies.  This section
+   Existing technology can be used to realize the future vision
+   described in the previous section, at least partially.  This section
    discusses the work that would be needed for it to be fully realized.
 
    Interface descriptions is clearly one area where some additional
@@ -330,15 +329,15 @@ Internet-Draft               Data Is Forever               February 2016
 
    Within data protection there are already many basic formats, but not
    enough practical experience or application experience from using
+   these formats in Internet of Things systems.  More work is needed.
 
 
 
-Arkko                    Expires August 25, 2016                [Page 6]
+Arkko                    Expires August 26, 2016                [Page 6]
 
 Internet-Draft               Data Is Forever               February 2016
 
 
-   these formats in Internet of Things systems.  More work is needed.
    Also, it would be useful to change the focus of standards efforts to
    look more at the data than transport, for instance in current IETF
    working groups.
@@ -365,6 +364,11 @@ Internet-Draft               Data Is Forever               February 2016
               Resource Directory", draft-ietf-core-resource-directory-05
               (work in progress), October 2015.
 
+   [I-D.ietf-dice-profile]
+              Tschofenig, H. and T. Fossati, "TLS/DTLS Profiles for the
+              Internet of Things", draft-ietf-dice-profile-17 (work in
+              progress), October 2015.
+
    [I-D.jennings-core-senml]
               Jennings, C., Shelby, Z., Arkko, J., and A. Keranen,
               "Media Types for Sensor Markup Language (SENML)", draft-
@@ -385,11 +389,7 @@ Internet-Draft               Data Is Forever               February 2016
 
 
 
-
-
-
-
-Arkko                    Expires August 25, 2016                [Page 7]
+Arkko                    Expires August 26, 2016                [Page 7]
 
 Internet-Draft               Data Is Forever               February 2016
 
@@ -405,6 +405,10 @@ Internet-Draft               Data Is Forever               February 2016
               and N. Venkatasubramanian, "A Software Defined Networking
               architecture for the Internet-of-Things", NOMS2014, May,
               2014.
+
+   [RFC5988]  Nottingham, M., "Web Linking", RFC 5988,
+              DOI 10.17487/RFC5988, October 2010,
+              <http://www.rfc-editor.org/info/rfc5988>.
 
    [RFC6020]  Bjorklund, M., Ed., "YANG - A Data Modeling Language for
               the Network Configuration Protocol (NETCONF)", RFC 6020,
@@ -435,21 +439,21 @@ Internet-Draft               Data Is Forever               February 2016
 Appendix A.  Acknowledgments
 
    The author would like to thank Jaime Jimenez, Ari Keranen, Mohit
-   Sethi, Ines Robles, Stephen Farrell, and Cullen Jennings for
-   interesting discussions in this problem space.
+   Sethi, Ines Robles, Stephen Farrell, Petri Jokela, and Cullen
+   Jennings for interesting discussions in this problem space.
+
+
+
+
+Arkko                    Expires August 26, 2016                [Page 8]
+
+Internet-Draft               Data Is Forever               February 2016
+
 
    The Software-Defined Things term has appeared in literature, and
    there are also other variations of this general theme.  But at least
    some of the publications on this topic seem focused on the
    traditional SDN topics, such as management of flows rathen than the
-
-
-
-Arkko                    Expires August 25, 2016                [Page 8]
-
-Internet-Draft               Data Is Forever               February 2016
-
-
    ability to dynamically program new types of devices
    [CMU-SDIOT][IOT6][NOMS2014].
 
@@ -497,8 +501,4 @@ Author's Address
 
 
 
-
-
-
-
-Arkko                    Expires August 25, 2016                [Page 9]
+Arkko                    Expires August 26, 2016                [Page 9]
