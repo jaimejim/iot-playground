@@ -1,0 +1,38 @@
+
+From: Lixia Zhang <lixia@cs.ucla.edu>
+Subject: Position Paper to IAB IoT Semantic Interoperability Workshop 2016
+Date: 23 Feb 2016 09:28:21 EET
+To: <iotsi@iab.org>
+Cc: Burke Jeff <jburke@remap.ucla.edu>, Wentao Shang <wentao@cs.ucla.edu>
+
+
+Wentao Shang, Jeff Burke, Lixia Zhang, UCLA
+
+“It is widely accepted that creative design is not a matter of first fixing the problem and then searching for a satisfactory solution concept; instead it seems more to be a matter of developing and refining together both the formulation of the problem and ideas for its solution, with constant iteration of analysis, synthesis, and evaluation processes between the two `spaces'—problem and solution.” -- Nigel Cross and Kees Dorst, in “Co-evolution of Problem and Solution Spaces in Creative Design,” 1999.
+
+This position paper proposes that we take a fresh holistic view of the IoT interoperability challenges. We focus on two related issues.  
+
+The first concerns the basic communication model for IoT systems.  Although different IoT applications exist, they seem converging on a similar data centric model, e.g. collecting sensing data or issuing actuation commands. However the lower level communications are largely based on the existing Internet protocol stack in which communication is between two points identified by a pair of IP addresses.  Even other approaches that are not IP specific nonetheless share the same notion of point-to-point communication as the basis. 
+
+The address-based point-to-point model makes it difficult to support IoT communications that are ontology-sensitive. As stated in W3C's "Semantic Sensor Network XG Final Report" (https://www.w3.org/2005/Incubator/ssn/XGR-ssn-20110628/):
+
+Sensors are different to other technologies, such as services in service-oriented architectures, because of the event based nature of sensors and sensor networks and the temporal and spatial relationships that need to be considered. Further, when reasoning about sensors, complex physical constraints such as limited power availability, limited memory, variable data quality, and loose connectivity need to be taken into account. When these constraints are formally represented in an ontology, inference techniques are more readily applied.
+
+One can make two observations.  First, IoT events yield new data,  but because of the constraints of potentially intermittent connectivity, mobility, and limited power availability, simply using them to trigger host-to-host packet transmission using the conventional model of sessions between a pair of addresses no longer fits. Second,  packet delivery decisions should take into account the semantics of the data, as well as "complex physical constraints such as limited power availability, limited memory, variable data quality, and loose connectivity" in an ontology.
+
+We claim that because network addresses lack the expressive power to represent ontology at the network layer, point-to-point communication based on addresses cannot achieve the desired goals.  The practice today is handling ontology at the application level.  However, doing so loses the ability to for network delivery to reflect "complex physical constraints such as limited power availability, limited memory, variable data quality, and loose connectivity" in data delivery, as applications are decoupled from the network layer.
+
+The second issue concerns the security in an IoT system. The workshop CFP did not mention security. One may guess that the CFP takes the position that security has been handled by the lower communication layer such as through TLS or DTLS. This does not address, for example, security of the binding between application-layer ontologies and network addresses, a serious weakness. We believe that IoT applications should directly address the security concern themselves, rather than solely relying on the security of communication channels.  To achieve that, the security characteristics of the IoT applications should be part of the application semantics and expressible within the ontology framework.
+
+Our fresh holistic view is that IoT applications are data-centric, and an ideal IoT network design should be data-centric from the ground floor up.  Fortunately such a data-centric new networking model has been under development for the last five years: the Named Data Networking project (NDN).  A simple way to describe NDN is to imagine using HTTP request/response directly at network layer: data consumers send an interest packet with the name of requested data, the network finds and responds with that piece of data. Because names are expressive, they can encode ontology information.  Because network layer state can reflect "complex physical constraints such as limited power availability, limited memory, variable data quality, and loose connectivity" as forwarding metrics, delivering data with ontology-encoded names based on these forwarding metrics has the potential to achieve the goals stated in the W3C report.
+
+Use of NDN as network communication protocol also directly addresses security challenges.  NDN requires that every data packet carries a cryptographically verifiable signature (or, more generally, mechanism for verification - one can develop specific solutions to fit the IoT's resource constraints), that binds the name to the content.  Given the names are given by applications but operated on by the network, this enables applications to directly control their security, instead of solely relying on the underneath communication systems to guarantee it.
+
+By enabling a common communication layer that forwards based on application-provided ontologies, NDN opens up the opportunity for intercommunication among IoT systems that are currently isolated by incompatible "stove pipe" architectures attempting to map from ontologies to addresses.  This can serve as an important first step toward achieving interoperability of higher-level application semantics and building a unified IoT ecosystem.
+
+We have been applying the NDN approach to pilot IoT applications over the last few years.  The following paper contains a more comprehensive summary of our current results and lessons learned:
+
+W. Shang, A. Bannis, T. Liang, Z. Wang, Y. Yu, A. Afanasyev, J. Thompson, J. Burke, B. Zhang, and L. Zhang, "Named Data Networking of Things," in Proceedings of 1st IEEE International Conference on Internet-of-Things Design and Implementation, April 2016
+http://web.cs.ucla.edu/~lixia/papers/2016ndn-IOTDI.pdf
+
+

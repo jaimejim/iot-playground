@@ -1,7 +1,0 @@
-Marcello Lioy:
-
-In the spirit of “Representatives of IoT Standards Development Organizations or Alliances, who have published relevant specifications, and representatives of vendors who have shipped commercial IoT products supporting multiple schemas, may minimally submit a pointer to existing documentation.” I would like to submit the following :
-* https://wiki.allseenalliance.org/gateway/gateway provides specs and information on AllSeen Alliance experience with providing gateways to various other protocols
-* https://wiki.allseenalliance.org/irb/xmlv2 section 2 discusses some scenarios and requirements around data models
-* https://wiki.allseenalliance.org/irb/interface_design_guidelines_1.1 contains a set of guidelines for designing data models for AllJoyn.  Some of the guidelines are more general than just AllJoyn.
- 
