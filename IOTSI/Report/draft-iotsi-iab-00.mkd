@@ -19,7 +19,7 @@ author:
     email: jaime.jimenez@ericsson.com
 
 normative:
-   RFC2119:  
+ 
 
 informative:
    RFC3444:
@@ -27,7 +27,7 @@ informative:
 --- abstract
 
 
-This document provides a summary of the IAB Workshop on IoT Semantic Interoperability (IOTSI), which took place at Ericsson offices in Santa Clara, CA, on March 17-18, 2016.  The main goal of the workshop was to foster a discussion on the different Semantics used by multiple organizations to define IoT information.  This report summarizes the discussions and lists recommendations to the Internet Engineering Task Force (IETF) community. The views and positions in this report are those of the workshop participants and do not necessarily reflect the views and positions of the authors, the Internet Architecture Board (IAB).
+This document provides a summary of the IAB Workshop on IoT Semantic Interoperability (IOTSI), which took place in Santa Clara, CA, on March 17-18, 2016.  The main goal of the workshop was to foster a discussion on the different Semantics used by multiple organizations to define IoT information.  This report summarizes the discussions and lists recommendations to the Internet Engineering Task Force (IETF) community. The views and positions in this report are those of the workshop participants and do not necessarily reflect the views and positions of the authors, the Internet Architecture Board (IAB).
 
 --- middle
 
@@ -42,14 +42,6 @@ It was left out of the scope of this workshop to impose specific frameworks/solu
 
 
 Terminology
------------
-
-In this document, the key words "MUST", "MUST NOT", "REQUIRED",
-"SHALL", "SHALL NOT", "SHOULD", "SHOULD NOT", "RECOMMENDED", "MAY",
-and "OPTIONAL" are to be interpreted as described in BCP 14, RFC 2119
-{{RFC2119}}.
-
-Common Vocabulary
 ============
 
 The first roadblock to semantic interoperability is the lack of a common vocabulary to start the discussion. There is a need to align between participating organizations on a common set of basic terms. RFC3444 does a start by separating conceptual models for designers or Information Models (IMs) and concrete detailed models for implementors or Data Models (DMs). There are concepts that are undefined in that RFC and elsewhere, such as how is the interaction with the resources of an endpoint or Interaction Model. There are also terms that suffer the opposite problem and are overloaded with meaning, that meaning will vary depending on the context they are used on (i.e. semantics, models, encoding, serialization format, media types, encoding types...).
@@ -101,88 +93,88 @@ Agenda and Slides:
 Appendix C: Accepted Position Papers
 ============
 
- 1. Jari Arkko, Gadgets and Protocols Come and Go, Data Is Forever
- 1. Carsten Bormann, Noise in specifications hurts
- 1. Benoit Claise, YANG as the Data Modelling Language in the IoT space
- 1. Robert Cragie, The ZigBee Cluster Library over IP
- 1. Dee Denteneer, Michael Verschoor, Teresa Zotti, Fairhair: interoperable IoT services for major Building Automation and Lighting Control ecosystems
- 1. Universal Devices, Object Oriented Approach to IoT Interoperability
- 1. Bryant Eastham, Interoperability and the OpenDOF Project
- 1. Stephen Farrell, Alissa Cooper, It’s Often True: Security’s Ignored (IOTSI) – and Privacy too
- 1. Christian Groves, Lui Yan, ang Weiwei, Overview of IoT semantics landscape
- 1. Ted Hardie, Loci of Interoperability for the Internet of Things
- 1. Russ Housley, Vehicle-to-Vehicle and Vehicle-to-Infrastructure Communications
- 1. Jaime Jiménez, Michael Koster, Hannes Tschofenig, IPSO Smart Objects
- 1. David Jones, IOTDB – Interoperability Through Semantic Metastandards
- 1. Sebastian Käbisch, Darko Anicic, Thing Description as Enabler of Semantic Interoperability on the Web of Things 
- 1. Achilleas Kemos, Alliance for Internet of Things Innovation Semantic Interoperability Release 2.0, AIOTI WG03 – IoT Standardisation
- 1. Ari Keränen, Cullen Jennings, SenML: simple building block for IoT semantic interoperability
- 1. Dongmyoung Kim, Yunchul Choi, Yonggeun Hong, Research on Unified Data Model and Framework to Support Interoperability between IoT Applications
- 1. Michael Koster, Model-Based Hypertext Language
- 1. Matthias Kovatsch, Yassin N. Hassan, Klaus Hartke, Semantic Interoperability Requires Self-describing Interaction Models
- 1. Kai Kreuzer, A Pragmatic Approach to Interoperability in the Internet of Things
- 1. Barry Leiba, Position Paper
- 1. Marcello Lioy, AllJoyn
- 1. Kerry Lynn, Laird Dornin, Modeling RESTful APIs with JSON Hyper-Schema
- 1. Erik Nordmark, Thoughts on IoT Semantic Interoperability: Scope of security issues
- 1. Open Geospatial Consortium, OGC SensorThings API: Communicating “Where” in the Web of Things
- 1. Jean Paoli, Taqi Jaffri, IoT Information Model Interoperability: An Open, Crowd-Sourced Approach in Three Parallel Parti
- 1. Joaquin Prado, OMA Lightweight M2M Resource Model
- 1. Dave Raggett,  Soumya Kanti Datta, Input paper for IAB Semantic Interoperability Workshop
- 1. Pete Rai, Stephen Tallamy, Semantic Overlays Over Immutable Data to Facilitate Time and Context Specific Interoperability
- 1. Jasper Roes, Laura Daniele, Towards semantic interoperability in the IoT using the Smart Appliances REFerence ontology (SAREF) and its extensions
- 1. Max Senges, Submission for IAB IoT Sematic Interoperability workshop
- 1. Bill Silverajan, Mert Ocak, Jaime Jiménez, Implementation Experiences of Semantic Interoperability for RESTful Gateway Management
- 1. Ned Smith, Jeff Sedayao, Claire Vishik, Key Semantic Interoperability Gaps in the Internet-of-Things Meta-Models
- 1. Robert Sparks and Ben Campbell, Considerations for certain IoT based services
- 1. J. Clarke Stevens, Open Connectivity Foundation oneIoTa Tool
- 1. J. Clarke Stevens, Piper Merriam, Derived Models for Interoperability Between IoT Ecosystems
- 1. Ravi Subramaniam, Semantic Interoperability in Open Connectivity Foundation (OCF) – formerly Open Interconnect Consortium (OIC)
- 1. Andrew Sullivan, Position paper for IOTSI workshop
- 1. Darshak Thakore, IoT Security in the context of Semantic Interoperability
- 1. Dave Thaler, IoT Bridge Taxonomy
- 1. Dave Thaler, Summary of AllSeen Alliance Work Relevant to Semantic Interoperability
- 1. Mark Underwood, Michael Gruninger, Leo Obrst, Ken Baclawski, Mike Bennett, Gary Berg-Cross, Torsten Hahmann, Ram Sriram, Internet of Things: Toward Smart Networked Systems and Societies
- 1. Peter van der Stok, Andy Bierman, YANG-Based Constrained Management Interface (CoMI)
+ 0. Jari Arkko, "Gadgets and Protocols Come and Go, Data Is Forever"
+ 0. Carsten Bormann, "Noise in specifications hurts"
+ 0. Benoit Claise, "YANG as the Data Modelling Language in the IoT space"
+ 0. Robert Cragie, "The ZigBee Cluster Library over IP"
+ 0. Dee Denteneer, Michael Verschoor, Teresa Zotti, "Fairhair: interoperable IoT services for major Building Automation and Lighting Control ecosystems"
+ 0. Universal Devices, "Object Oriented Approach to IoT Interoperability"
+ 0. Bryant Eastham, "Interoperability and the OpenDOF Project"
+ 0. Stephen Farrell, Alissa Cooper, "It’s Often True: Security’s Ignored (IOTSI) – and Privacy too"
+ 0. Christian Groves, Lui Yan, ang Weiwei, "Overview of IoT semantics landscape"
+ 0. Ted Hardie, "Loci of Interoperability for the Internet of Things"
+ 0. Russ Housley, "Vehicle-to-Vehicle and Vehicle-to-Infrastructure Communications"
+ 0. Jaime Jiménez, Michael Koster, Hannes Tschofenig, "IPSO Smart Objects"
+ 0. David Jones, IOTDB – "Interoperability Through Semantic Metastandards"
+ 0. Sebastian Käbisch, Darko Anicic, "Thing Description as Enabler of Semantic Interoperability on the Web of Things" 
+ 0. Achilleas Kemos, "Alliance for Internet of Things Innovation Semantic Interoperability Release 2.0, AIOTI WG03 – IoT Standardisation"
+ 0. Ari Keränen, Cullen Jennings, "SenML: simple building block for IoT semantic interoperability"
+ 0. Dongmyoung Kim, Yunchul Choi, Yonggeun Hong, "Research on Unified Data Model and Framework to Support Interoperability between IoT Applications"
+ 0. Michael Koster, "Model-Based Hypertext Language"
+ 0. Matthias Kovatsch, Yassin N. Hassan, Klaus Hartke, "Semantic Interoperability Requires Self-describing Interaction Models"
+ 0. Kai Kreuzer, "A Pragmatic Approach to Interoperability in the Internet of Things"
+ 0. Barry Leiba, "Position Paper"
+ 0. Marcello Lioy, "AllJoyn"
+ 0. Kerry Lynn, Laird Dornin, "Modeling RESTful APIs with JSON Hyper-Schema"
+ 0. Erik Nordmark, "Thoughts on IoT Semantic Interoperability: Scope of security issues"
+ 0. Open Geospatial Consortium, "OGC SensorThings API: Communicating “Where” in the Web of Things"
+ 0. Jean Paoli, Taqi Jaffri, "IoT Information Model Interoperability: An Open, Crowd-Sourced Approach in Three Parallel Parti"
+ 0. Joaquin Prado, "OMA Lightweight M2M Resource Model"
+ 0. Dave Raggett,  Soumya Kanti Datta, "Input paper for IAB Semantic Interoperability Workshop"
+ 0. Pete Rai, Stephen Tallamy, "Semantic Overlays Over Immutable Data to Facilitate Time and Context Specific Interoperability"
+ 0. Jasper Roes, Laura Daniele, "Towards semantic interoperability in the IoT using the Smart Appliances REFerence ontology (SAREF) and its extensions"
+ 0. Max Senges, "Submission for IAB IoT Sematic Interoperability workshop"
+ 0. Bill Silverajan, Mert Ocak, Jaime Jiménez, "Implementation Experiences of Semantic Interoperability for RESTful Gateway Management"
+ 0. Ned Smith, Jeff Sedayao, Claire Vishik, "Key Semantic Interoperability Gaps in the Internet-of-Things Meta-Models"
+ 0. Robert Sparks and Ben Campbell, "Considerations for certain IoT based services"
+ 0. J. Clarke Stevens, "Open Connectivity Foundation oneIoTa Tool"
+ 0. J. Clarke Stevens, Piper Merriam, "Derived Models for Interoperability Between IoT Ecosystems"
+ 0. Ravi Subramaniam, "Semantic Interoperability in Open Connectivity Foundation (OCF) – formerly Open Interconnect Consortium (OIC)""
+ 0. Andrew Sullivan, "Position paper for IOTSI workshop"
+ 0. Darshak Thakore, "IoT Security in the context of Semantic Interoperability"
+ 0. Dave Thaler, "IoT Bridge Taxonomy"
+ 0. Dave Thaler, S"ummary of AllSeen Alliance Work Relevant to Semantic Interoperability"
+ 0. Mark Underwood, Michael Gruninger, Leo Obrst, Ken Baclawski, Mike Bennett, Gary Berg-Cross, Torsten Hahmann, Ram Sriram, "Internet of Things: Toward Smart Networked Systems and Societies"
+ 0. Peter van der Stok, Andy Bierman, "YANG-Based Constrained Management Interface (CoMI)"
 
 Appendix D: List of Participants
 ============
-
-  - Jaime Jiménez, Ericsson
-  - Matthias Kovatsch, Siemens
-  - Carsten Bormann, Uni Bremen/TZI
-  - Dave Thaler, Microsoft
-  - Ted Hardie, Google
-  - Erik Nordmenk, Arista
-  - Ari Keränen, Ericsson
-  - Dave Raggett, W3C
-  - Bryant Eastham, OpenDof
-  - Kerry Lynn, Verizon
-  - Barry Leiba, Huawei
-  - Ben Campbell, Oracle
-  - Kai Kreuzer, Deutsche Telekom
-  - Joaquin Prado, OMA
-  - Russ Housley, Vigil Security
-  - Andrew Sullivan, DIN
-  - Robert Sparks, Oracle
   - Andy Bierman, YumaWorks
-  - Laura Daniele, TNO
-  - Michael Koster, SmartThings
-  - Jean Paoli, Microsoft
-  - Clarke Stevens
-  - Yonggeun Hong, ETRI
-  - Christian Groves, Huawei
-  - Robert Cragie, ARM
-  - David Janes, IOTDB
-  - Ram Sriram, Nist
-  - Michael Verschoor. Philips Lightning
-  - Marcello Lioy, Qualcomm
-  - Steve Liang, Uni Calgary
-  - Ned Smith, Intel
-  - Darshak Thakore, Cablelabs
-  - Max Senges, Google
-  - Ram Subramanian, Intel
+  - Carsten Bormann, Uni Bremen/TZI
+  - Ben Campbell, Oracle
   - Benoit Claise, Cisco
-  - Shailendra Karody, Catalina Labs
-  - Mayan Mathen, Catalina Labs
   - Alissa Cooper, Cisco
+  - Robert Cragie, ARM
+  - Laura Daniele, TNO
+  - Bryant Eastham, OpenDof
+  - Christian Groves, Huawei
+  - Ted Hardie, Google
+  - Yonggeun Hong, ETRI
+  - Russ Housley, Vigil Security
+  - David Janes, IOTDB
+  - Jaime Jiménez, Ericsson
+  - Shailendra Karody, Catalina Labs
+  - Ari Keränen, Ericsson
+  - Michael Koster, SmartThings
+  - Matthias Kovatsch, Siemens
+  - Kai Kreuzer, Deutsche Telekom
+  - Barry Leiba, Huawei
+  - Steve Liang, Uni Calgary
+  - Marcello Lioy, Qualcomm
+  - Kerry Lynn, Verizon
+  - Mayan Mathen, Catalina Labs
+  - Erik Nordmenk, Arista
+  - Jean Paoli, Microsoft
+  - Joaquin Prado, OMA
+  - Dave Raggett, W3C
+  - Max Senges, Google
+  - Ned Smith, Intel
+  - Robert Sparks, Oracle
+  - Ram Sriram, Nist
+  - Clarke Stevens
+  - Ram Subramanian, Intel
+  - Andrew Sullivan, DIN
+  - Darshak Thakore, Cablelabs
+  - Dave Thaler, Microsoft
+  - Michael Verschoor, Philips Lightning
+
