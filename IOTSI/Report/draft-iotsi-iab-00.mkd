@@ -1,0 +1,188 @@
+---
+title: Report from the IAB Workshop on IoT Semantic Interoperability (IOTSI)
+abbrev: IOTSI
+docname: draft-iotsi-iab-00
+date: 2016-04-06
+category: info
+
+ipr: trust200902
+area:
+
+stand_alone: yes
+pi: [toc, sortrefs, symrefs]
+
+author:
+ -
+    ins: J. Jimenez
+    name: Jaime Jimenez
+    organization: Ericsson
+    email: jaime.jimenez@ericsson.com
+
+normative:
+   RFC2119:  
+
+informative:
+   RFC3444:
+
+--- abstract
+
+
+This document provides a summary of the IAB Workshop on IoT Semantic Interoperability (IOTSI), which took place at Ericsson offices in Santa Clara, CA, on March 17-18, 2016.  The main goal of the workshop was to foster a discussion on the different Semantics used by multiple organizations to define IoT information.  This report summarizes the discussions and lists recommendations to the Internet Engineering Task Force (IETF) community. The views and positions in this report are those of the workshop participants and do not necessarily reflect the views and positions of the authors, the Internet Architecture Board (IAB).
+
+--- middle
+
+Introduction
+============
+
+The Internet Architecture Board (IAB) holds occasional workshops designed to consider long-term issues and strategies for the Internet, and to suggest future directions for the Internet architecture. Some of those workshops required some cooperation effort between organizations. One of the target of the workshops is to bridge those organizations, specially when the topics are out of the scope for the IETF. This long-term planning function of the IAB is complementary to the ongoing engineering efforts performed by working groups of the Internet Engineering Task Force (IETF), under the leadership of the Internet Engineering Steering Group (IESG) and area directorates. 
+
+There has been significant improvements when it comes to interoperability at lower layers (e.g. IPv4/v6, UDP/TCP, CoAP/HTTP...) but much less progress at higher layers by comparison. Industries and users demand systems that can be acquired and that offer interoperability out of the box in order to assemble them as components of larger systems. 
+
+It was left out of the scope of this workshop to impose specific frameworks/solutions to the attendees, transport security and L1/L2/L3/L4 protocol discussion. 
+
+
+Terminology
+-----------
+
+In this document, the key words "MUST", "MUST NOT", "REQUIRED",
+"SHALL", "SHALL NOT", "SHOULD", "SHOULD NOT", "RECOMMENDED", "MAY",
+and "OPTIONAL" are to be interpreted as described in BCP 14, RFC 2119
+{{RFC2119}}.
+
+Common Vocabulary
+============
+
+The first roadblock to semantic interoperability is the lack of a common vocabulary to start the discussion. There is a need to align between participating organizations on a common set of basic terms. RFC3444 does a start by separating conceptual models for designers or Information Models (IMs) and concrete detailed models for implementors or Data Models (DMs). There are concepts that are undefined in that RFC and elsewhere, such as how is the interaction with the resources of an endpoint or Interaction Model. There are also terms that suffer the opposite problem and are overloaded with meaning, that meaning will vary depending on the context they are used on (i.e. semantics, models, encoding, serialization format, media types, encoding types...).
+
+"Wished outcome:" During the workshop due to time constrains no terminology was agreed upon, however work will continue within each organization to create various terminology documents. Aggregation will take place at https://github.com/iotsi
+
+Architecture
+============
+
+rchitectures follow different design patterns, some are REST-oriented with clear methods to find and manipulate resources on endpoints with almost no state kept between them. Others are more Publish/Subscribe-oriented that focus on the flow of information based on the topics of the information being shared. Others are RPC-like requiring to know beforehand the set of parameters that are accessed, they require to generate code both on the client and server side, they are tightly coupled and service-oriented.
+
+Thing-hub-cloud --things talk to a hub, which talks back to them and to the cloud. There’s a spectrum of emphasis on the hub vs. the cloud. In some the hub is simply an access point; in others it’s a critical place for control loops and ALGs.
+Meta Thing--some things are actually virtual, like an alarm composed of clock, lights, and thermostat.
+Nearby things--some things may be geospatially related even if they are not on the same network or within the same administrative domain.
+
+
+
+Current data models and definitions for "things" often focus on defining actual physical devices and representing their state. That focus should perhaps be shifted into a more holistic or user-oriented perspective, defining abstract concepts as well. On the other a lot of focus is placed on human interaction with physical devices while IoT will be more oriented to interaction between "things" instead.
+Those things should be designed to be multiple-purpose, keeping in mind that solutions should be open-ended to facilitate new usages and new future domains of operation. this pattern has already happened, devices that were intended for one purpose end up being used for a different one given the right context ((e.g. smart phone led light turned out to be a heartrate monitor).
+IoT domain is currently missing insights into what user actually expect. 
+
+Translation
+============
+
+One of the targets of interoperability is to create translators between the data models. There are analogies with gateways back in 1985 when they were used to translate between network protocols, eventually IP took over providing interoperability, however we lost some of the features provided by those other protocols. The creation of an equivalent "hub/s" that offer translation between the different data models or data semantics seems one of the ways forward. Some lose of expressiveness due to the translation between models seems also unavoidable. 
+
+When it comes to translation two different distinctions appear: translating data between data models and translating data models. The first one implies doing the translation at runtime while the second performs one translation between the data models one time, like translating a YANG model to a RAML/JSON one. Indeed, for every IM multiple DMs could be translated. 
+
+In a sense these distinctions affect as to when the translation is performed. It can be done at "design time" when the information model is done, it can be done at runtime for a concrete data model and it can be done depending n the actual serialization. 
+
+Yet another distinction will appear depending on the requirements from the application protocols, RPC-style ones might require a slightly different DM than REST ones for similar operations, for example SNMP-traps could be similar to CoAP-Observations but not quite the same. It is easier to translate between systems that follow the same architecture/design pattern than across architectures, full translation might not even be possible (e.g. stateless vs statefull systems).
+
+
+Appendix A: Program Committee
+============
+
+This workshop is organized by Jari Arkko, Ralph Droms, Jaime Jiménez, Michael Koster, Dave Thaler and Hannes Tschofenig.
+
+Appendix B: Workshop Material
+============
+
+Main Workshop Page and position papers:
+   https://www.iab.org/activities/workshops/iotsi/
+
+Agenda and Slides:
+   https://www.iab.org/activities/workshops/iotsi/agenda/
+
+
+Appendix C: Accepted Position Papers
+============
+
+ 1. Jari Arkko, Gadgets and Protocols Come and Go, Data Is Forever
+ 1. Carsten Bormann, Noise in specifications hurts
+ 1. Benoit Claise, YANG as the Data Modelling Language in the IoT space
+ 1. Robert Cragie, The ZigBee Cluster Library over IP
+ 1. Dee Denteneer, Michael Verschoor, Teresa Zotti, Fairhair: interoperable IoT services for major Building Automation and Lighting Control ecosystems
+ 1. Universal Devices, Object Oriented Approach to IoT Interoperability
+ 1. Bryant Eastham, Interoperability and the OpenDOF Project
+ 1. Stephen Farrell, Alissa Cooper, It’s Often True: Security’s Ignored (IOTSI) – and Privacy too
+ 1. Christian Groves, Lui Yan, ang Weiwei, Overview of IoT semantics landscape
+ 1. Ted Hardie, Loci of Interoperability for the Internet of Things
+ 1. Russ Housley, Vehicle-to-Vehicle and Vehicle-to-Infrastructure Communications
+ 1. Jaime Jiménez, Michael Koster, Hannes Tschofenig, IPSO Smart Objects
+ 1. David Jones, IOTDB – Interoperability Through Semantic Metastandards
+ 1. Sebastian Käbisch, Darko Anicic, Thing Description as Enabler of Semantic Interoperability on the Web of Things 
+ 1. Achilleas Kemos, Alliance for Internet of Things Innovation Semantic Interoperability Release 2.0, AIOTI WG03 – IoT Standardisation
+ 1. Ari Keränen, Cullen Jennings, SenML: simple building block for IoT semantic interoperability
+ 1. Dongmyoung Kim, Yunchul Choi, Yonggeun Hong, Research on Unified Data Model and Framework to Support Interoperability between IoT Applications
+ 1. Michael Koster, Model-Based Hypertext Language
+ 1. Matthias Kovatsch, Yassin N. Hassan, Klaus Hartke, Semantic Interoperability Requires Self-describing Interaction Models
+ 1. Kai Kreuzer, A Pragmatic Approach to Interoperability in the Internet of Things
+ 1. Barry Leiba, Position Paper
+ 1. Marcello Lioy, AllJoyn
+ 1. Kerry Lynn, Laird Dornin, Modeling RESTful APIs with JSON Hyper-Schema
+ 1. Erik Nordmark, Thoughts on IoT Semantic Interoperability: Scope of security issues
+ 1. Open Geospatial Consortium, OGC SensorThings API: Communicating “Where” in the Web of Things
+ 1. Jean Paoli, Taqi Jaffri, IoT Information Model Interoperability: An Open, Crowd-Sourced Approach in Three Parallel Parti
+ 1. Joaquin Prado, OMA Lightweight M2M Resource Model
+ 1. Dave Raggett,  Soumya Kanti Datta, Input paper for IAB Semantic Interoperability Workshop
+ 1. Pete Rai, Stephen Tallamy, Semantic Overlays Over Immutable Data to Facilitate Time and Context Specific Interoperability
+ 1. Jasper Roes, Laura Daniele, Towards semantic interoperability in the IoT using the Smart Appliances REFerence ontology (SAREF) and its extensions
+ 1. Max Senges, Submission for IAB IoT Sematic Interoperability workshop
+ 1. Bill Silverajan, Mert Ocak, Jaime Jiménez, Implementation Experiences of Semantic Interoperability for RESTful Gateway Management
+ 1. Ned Smith, Jeff Sedayao, Claire Vishik, Key Semantic Interoperability Gaps in the Internet-of-Things Meta-Models
+ 1. Robert Sparks and Ben Campbell, Considerations for certain IoT based services
+ 1. J. Clarke Stevens, Open Connectivity Foundation oneIoTa Tool
+ 1. J. Clarke Stevens, Piper Merriam, Derived Models for Interoperability Between IoT Ecosystems
+ 1. Ravi Subramaniam, Semantic Interoperability in Open Connectivity Foundation (OCF) – formerly Open Interconnect Consortium (OIC)
+ 1. Andrew Sullivan, Position paper for IOTSI workshop
+ 1. Darshak Thakore, IoT Security in the context of Semantic Interoperability
+ 1. Dave Thaler, IoT Bridge Taxonomy
+ 1. Dave Thaler, Summary of AllSeen Alliance Work Relevant to Semantic Interoperability
+ 1. Mark Underwood, Michael Gruninger, Leo Obrst, Ken Baclawski, Mike Bennett, Gary Berg-Cross, Torsten Hahmann, Ram Sriram, Internet of Things: Toward Smart Networked Systems and Societies
+ 1. Peter van der Stok, Andy Bierman, YANG-Based Constrained Management Interface (CoMI)
+
+Appendix D: List of Participants
+============
+
+  - Jaime Jiménez, Ericsson
+  - Matthias Kovatsch, Siemens
+  - Carsten Bormann, Uni Bremen/TZI
+  - Dave Thaler, Microsoft
+  - Ted Hardie, Google
+  - Erik Nordmenk, Arista
+  - Ari Keränen, Ericsson
+  - Dave Raggett, W3C
+  - Bryant Eastham, OpenDof
+  - Kerry Lynn, Verizon
+  - Barry Leiba, Huawei
+  - Ben Campbell, Oracle
+  - Kai Kreuzer, Deutsche Telekom
+  - Joaquin Prado, OMA
+  - Russ Housley, Vigil Security
+  - Andrew Sullivan, DIN
+  - Robert Sparks, Oracle
+  - Andy Bierman, YumaWorks
+  - Laura Daniele, TNO
+  - Michael Koster, SmartThings
+  - Jean Paoli, Microsoft
+  - Clarke Stevens
+  - Yonggeun Hong, ETRI
+  - Christian Groves, Huawei
+  - Robert Cragie, ARM
+  - David Janes, IOTDB
+  - Ram Sriram, Nist
+  - Michael Verschoor. Philips Lightning
+  - Marcello Lioy, Qualcomm
+  - Steve Liang, Uni Calgary
+  - Ned Smith, Intel
+  - Darshak Thakore, Cablelabs
+  - Max Senges, Google
+  - Ram Subramanian, Intel
+  - Benoit Claise, Cisco
+  - Shailendra Karody, Catalina Labs
+  - Mayan Mathen, Catalina Labs
+  - Alissa Cooper, Cisco

@@ -1,0 +1,505 @@
+
+
+
+
+Network Working Group                                         J. Jimenez
+Internet-Draft                                                  Ericsson
+Intended status: Informational                            April 06, 2016
+Expires: October 8, 2016
+
+
+ Report from the IAB Workshop on IoT Semantic Interoperability (IOTSI)
+                           draft-iotsi-iab-00
+
+Abstract
+
+   This document provides a summary of the IAB Workshop on IoT Semantic
+   Interoperability (IOTSI), which took place at Ericsson offices in
+   Santa Clara, CA, on March 17-18, 2016.  The main goal of the workshop
+   was to foster a discussion on the different Semantics used by
+   multiple organizations to define IoT information.  This report
+   summarizes the discussions and lists recommendations to the Internet
+   Engineering Task Force (IETF) community.  The views and positions in
+   this report are those of the workshop participants and do not
+   necessarily reflect the views and positions of the authors, the
+   Internet Architecture Board (IAB).
+
+Status of This Memo
+
+   This Internet-Draft is submitted in full conformance with the
+   provisions of BCP 78 and BCP 79.
+
+   Internet-Drafts are working documents of the Internet Engineering
+   Task Force (IETF).  Note that other groups may also distribute
+   working documents as Internet-Drafts.  The list of current Internet-
+   Drafts is at http://datatracker.ietf.org/drafts/current/.
+
+   Internet-Drafts are draft documents valid for a maximum of six months
+   and may be updated, replaced, or obsoleted by other documents at any
+   time.  It is inappropriate to use Internet-Drafts as reference
+   material or to cite them other than as "work in progress."
+
+   This Internet-Draft will expire on October 8, 2016.
+
+Copyright Notice
+
+   Copyright (c) 2016 IETF Trust and the persons identified as the
+   document authors.  All rights reserved.
+
+   This document is subject to BCP 78 and the IETF Trust's Legal
+   Provisions Relating to IETF Documents
+   (http://trustee.ietf.org/license-info) in effect on the date of
+   publication of this document.  Please review these documents
+
+
+
+Jimenez                  Expires October 8, 2016                [Page 1]
+
+Internet-Draft                    IOTSI                       April 2016
+
+
+   carefully, as they describe your rights and restrictions with respect
+   to this document.  Code Components extracted from this document must
+   include Simplified BSD License text as described in Section 4.e of
+   the Trust Legal Provisions and are provided without warranty as
+   described in the Simplified BSD License.
+
+Table of Contents
+
+   1.  Introduction  . . . . . . . . . . . . . . . . . . . . . . . .   2
+   2.  Terminology . . . . . . . . . . . . . . . . . . . . . . . . .   3
+   3.  Common Vocabulary . . . . . . . . . . . . . . . . . . . . . .   3
+   4.  Translation . . . . . . . . . . . . . . . . . . . . . . . . .   3
+   5.  Appendix A: Program Committee . . . . . . . . . . . . . . . .   4
+   6.  Appendix B: Workshop Material . . . . . . . . . . . . . . . .   4
+   7.  Appendix C: Accepted Position Papers  . . . . . . . . . . . .   4
+   8.  Appendix D: List of Participants  . . . . . . . . . . . . . .   7
+   9.  References  . . . . . . . . . . . . . . . . . . . . . . . . .   8
+     9.1.  Normative References  . . . . . . . . . . . . . . . . . .   8
+     9.2.  Informative References  . . . . . . . . . . . . . . . . .   8
+   Author's Address  . . . . . . . . . . . . . . . . . . . . . . . .   9
+
+1.  Introduction
+
+   The Internet Architecture Board (IAB) holds occasional workshops
+   designed to consider long-term issues and strategies for the
+   Internet, and to suggest future directions for the Internet
+   architecture.  Some of those workshops required some cooperation
+   effort between organizations.  One of the target of the workshops is
+   to bridge those organizations, specially when the topics are out of
+   the scope for the IETF.  This long-term planning function of the IAB
+   is complementary to the ongoing engineering efforts performed by
+   working groups of the Internet Engineering Task Force (IETF), under
+   the leadership of the Internet Engineering Steering Group (IESG) and
+   area directorates.
+
+   There has been significant improvements when it comes to
+   interoperability at lower layers (e.g.  IPv4/v6, UDP/TCP, CoAP/
+   HTTP...) but much less progress at higher layers by comparison.
+   Industries and users demand systems that can be acquired and that
+   offer interoperability out of the box in order to assemble them as
+   components of larger systems.
+
+   It was left out of the scope of this workshop to impose specific
+   frameworks/solutions to the attendees, transport security and
+   L1/L2/L3/L4 protocol discussion.
+
+
+
+
+
+
+Jimenez                  Expires October 8, 2016                [Page 2]
+
+Internet-Draft                    IOTSI                       April 2016
+
+
+2.  Terminology
+
+   In this document, the key words "MUST", "MUST NOT", "REQUIRED",
+   "SHALL", "SHALL NOT", "SHOULD", "SHOULD NOT", "RECOMMENDED", "MAY",
+   and "OPTIONAL" are to be interpreted as described in BCP 14, RFC 2119
+   [RFC2119].
+
+3.  Common Vocabulary
+
+   The first roadblock to semantic interoperability is the lack of a
+   common vocabulary to start the discussion.  There is a need to align
+   between participating organizations on a common set of basic terms.
+   RFC3444 does a start by separating conceptual models for designers or
+   Information Models (IMs) and concrete detailed models for
+   implementors or Data Models (DMs).  There are concepts that are
+   undefined in that RFC and elsewhere, such as how is the interaction
+   with the resources of an endpoint or Interaction Model.  There are
+   also terms that suffer the opposite problem and are overloaded with
+   meaning, that meaning will vary depending on the context they are
+   used on (i.e. semantics, models, encoding, serialization format,
+   media types, encoding types...).
+
+   "Wished outcome:" During the workshop due to time constrains no
+   terminology was agreed upon, however work will continue within each
+   organization to create various terminology documents.  Aggregation
+   will take place at https://github.com/iotsi
+
+4.  Translation
+
+   One of the targets of interoperability is to create translators
+   between the data models.  There are analogies with gateways back in
+   1985 when they were used to translate between network protocols,
+   eventually IP took over providing interoperability, however we lost
+   some of the features provided by those other protocols.  The creation
+   of an equivalent "hub/s" that offer translation between the different
+   data models or data semantics seems one of the ways forward.  Some
+   lose of expressiveness due to the translation between models seems
+   also unavoidable.
+
+   When it comes to translation two different distinctions appear:
+   translating data between data models and translating data models.
+   The first one implies doing the translation at runtime while the
+   second performs one translation between the data models one time,
+   like translating a YANG model to a RAML/JSON one.  Indeed, for every
+   IM multiple DMs could be translated.
+
+   In a sense these distinctions affect as to when the translation is
+   performed.  It can be done at "design time" when the information
+
+
+
+Jimenez                  Expires October 8, 2016                [Page 3]
+
+Internet-Draft                    IOTSI                       April 2016
+
+
+   model is done, it can be done at runtime for a concrete data model
+   and it can be done depending n the actual serialization.
+
+   Yet another distinction will appear depending on the requirements
+   from the application protocols, RPC-style ones might require a
+   slightly different DM than REST ones for similar operations, for
+   example SNMP-traps could be similar to CoAP-Observations but not
+   quite the same.  It is easier to translate between systems that
+   follow the same architecture/design pattern than across
+   architectures, full translation might not even be possible (e.g.
+   stateless vs statefull systems).
+
+5.  Appendix A: Program Committee
+
+   This workshop is organized by Jari Arkko, Ralph Droms, Jaime Jimenez,
+   Michael Koster, Dave Thaler and Hannes Tschofenig.
+
+6.  Appendix B: Workshop Material
+
+   Main Workshop Page and position papers:
+   https://www.iab.org/activities/workshops/iotsi/
+
+   Agenda and Slides: https://www.iab.org/activities/workshops/iotsi/
+   agenda/
+
+7.  Appendix C: Accepted Position Papers
+
+   1.   Jari Arkko, Gadgets and Protocols Come and Go, Data Is Forever
+
+   2.   Carsten Bormann, Noise in specifications hurts
+
+   3.   Benoit Claise, YANG as the Data Modelling Language in the IoT
+        space
+
+   4.   Robert Cragie, The ZigBee Cluster Library over IP
+
+   5.   Dee Denteneer, Michael Verschoor, Teresa Zotti, Fairhair:
+        interoperable IoT services for major Building Automation and
+        Lighting Control ecosystems
+
+   6.   Universal Devices, Object Oriented Approach to IoT
+        Interoperability
+
+   7.   Bryant Eastham, Interoperability and the OpenDOF Project
+
+   8.   Stephen Farrell, Alissa Cooper, It's Often True: Security's
+        Ignored (IOTSI) - and Privacy too
+
+
+
+
+Jimenez                  Expires October 8, 2016                [Page 4]
+
+Internet-Draft                    IOTSI                       April 2016
+
+
+   9.   Christian Groves, Lui Yan, ang Weiwei, Overview of IoT semantics
+        landscape
+
+   10.  Ted Hardie, Loci of Interoperability for the Internet of Things
+
+   11.  Russ Housley, Vehicle-to-Vehicle and Vehicle-to-Infrastructure
+        Communications
+
+   12.  Jaime Jimenez, Michael Koster, Hannes Tschofenig, IPSO Smart
+        Objects
+
+   13.  David Jones, IOTDB - Interoperability Through Semantic
+        Metastandards
+
+   14.  Sebastian Kaebisch, Darko Anicic, Thing Description as Enabler
+        of Semantic Interoperability on the Web of Things
+
+   15.  Achilleas Kemos, Alliance for Internet of Things Innovation
+        Semantic Interoperability Release 2.0, AIOTI WG03 - IoT
+        Standardisation
+
+   16.  Ari Keraenen, Cullen Jennings, SenML: simple building block for
+        IoT semantic interoperability
+
+   17.  Dongmyoung Kim, Yunchul Choi, Yonggeun Hong, Research on Unified
+        Data Model and Framework to Support Interoperability between IoT
+        Applications
+
+   18.  Michael Koster, Model-Based Hypertext Language
+
+   19.  Matthias Kovatsch, Yassin N.  Hassan, Klaus Hartke, Semantic
+        Interoperability Requires Self-describing Interaction Models
+
+   20.  Kai Kreuzer, A Pragmatic Approach to Interoperability in the
+        Internet of Things
+
+   21.  Barry Leiba, Position Paper
+
+   22.  Marcello Lioy, AllJoyn
+
+   23.  Kerry Lynn, Laird Dornin, Modeling RESTful APIs with JSON Hyper-
+        Schema
+
+   24.  Erik Nordmark, Thoughts on IoT Semantic Interoperability: Scope
+        of security issues
+
+   25.  Open Geospatial Consortium, OGC SensorThings API: Communicating
+        "Where" in the Web of Things
+
+
+
+Jimenez                  Expires October 8, 2016                [Page 5]
+
+Internet-Draft                    IOTSI                       April 2016
+
+
+   26.  Jean Paoli, Taqi Jaffri, IoT Information Model Interoperability:
+        An Open, Crowd-Sourced Approach in Three Parallel Parti
+
+   27.  Joaquin Prado, OMA Lightweight M2M Resource Model
+
+   28.  Dave Raggett, Soumya Kanti Datta, Input paper for IAB Semantic
+        Interoperability Workshop
+
+   29.  Pete Rai, Stephen Tallamy, Semantic Overlays Over Immutable Data
+        to Facilitate Time and Context Specific Interoperability
+
+   30.  Jasper Roes, Laura Daniele, Towards semantic interoperability in
+        the IoT using the Smart Appliances REFerence ontology (SAREF)
+        and its extensions
+
+   31.  Max Senges, Submission for IAB IoT Sematic Interoperability
+        workshop
+
+   32.  Bill Silverajan, Mert Ocak, Jaime Jimenez, Implementation
+        Experiences of Semantic Interoperability for RESTful Gateway
+        Management
+
+   33.  Ned Smith, Jeff Sedayao, Claire Vishik, Key Semantic
+        Interoperability Gaps in the Internet-of-Things Meta-Models
+
+   34.  Robert Sparks and Ben Campbell, Considerations for certain IoT
+        based services
+
+   35.  J.  Clarke Stevens, Open Connectivity Foundation oneIoTa Tool
+
+   36.  J.  Clarke Stevens, Piper Merriam, Derived Models for
+        Interoperability Between IoT Ecosystems
+
+   37.  Ravi Subramaniam, Semantic Interoperability in Open Connectivity
+        Foundation (OCF) - formerly Open Interconnect Consortium (OIC)
+
+   38.  Andrew Sullivan, Position paper for IOTSI workshop
+
+   39.  Darshak Thakore, IoT Security in the context of Semantic
+        Interoperability
+
+   40.  Dave Thaler, IoT Bridge Taxonomy
+
+   41.  Dave Thaler, Summary of AllSeen Alliance Work Relevant to
+        Semantic Interoperability
+
+
+
+
+
+
+Jimenez                  Expires October 8, 2016                [Page 6]
+
+Internet-Draft                    IOTSI                       April 2016
+
+
+   42.  Mark Underwood, Michael Gruninger, Leo Obrst, Ken Baclawski,
+        Mike Bennett, Gary Berg-Cross, Torsten Hahmann, Ram Sriram,
+        Internet of Things: Toward Smart Networked Systems and Societies
+
+   43.  Peter van der Stok, Andy Bierman, YANG-Based Constrained
+        Management Interface (CoMI)
+
+8.  Appendix D: List of Participants
+
+   o  Jaime Jimenez, Ericsson
+
+   o  Matthias Kovatsch, Siemens
+
+   o  Carsten Bormann, Uni Bremen/TZI
+
+   o  Dave Thaler, Microsoft
+
+   o  Ted Hardie, Google
+
+   o  Erik Nordmenk, Arista
+
+   o  Ari Keraenen, Ericsson
+
+   o  Dave Raggett, W3C
+
+   o  Bryant Eastham, OpenDof
+
+   o  Kerry Lynn, Verizon
+
+   o  Barry Leiba, Huawei
+
+   o  Ben Campbell, Oracle
+
+   o  Kai Kreuzer, Deutsche Telekom
+
+   o  Joaquin Prado, OMA
+
+   o  Russ Housley, Vigil Security
+
+   o  Andrew Sullivan, DIN
+
+   o  Robert Sparks, Oracle
+
+   o  Andy Bierman, YumaWorks
+
+   o  Laura Daniele, TNO
+
+   o  Michael Koster, SmartThings
+
+
+
+Jimenez                  Expires October 8, 2016                [Page 7]
+
+Internet-Draft                    IOTSI                       April 2016
+
+
+   o  Jean Paoli, Microsoft
+
+   o  Clarke Stevens
+
+   o  Yonggeun Hong, ETRI
+
+   o  Christian Groves, Huawei
+
+   o  Robert Cragie, ARM
+
+   o  David Janes, IOTDB
+
+   o  Ram Sriram, Nist
+
+   o  Michael Verschoor.  Philips Lightning
+
+   o  Marcello Lioy, Qualcomm
+
+   o  Steve Liang, Uni Calgary
+
+   o  Ned Smith, Intel
+
+   o  Darshak Thakore, Cablelabs
+
+   o  Max Senges, Google
+
+   o  Ram Subramanian, Intel
+
+   o  Benoit Claise, Cisco
+
+   o  Shailendra Karody, Catalina Labs
+
+   o  Mayan Mathen, Catalina Labs
+
+   o  Alissa Cooper, Cisco
+
+9.  References
+
+9.1.  Normative References
+
+   [RFC2119]  Bradner, S., "Key words for use in RFCs to Indicate
+              Requirement Levels", BCP 14, RFC 2119, March 1997.
+
+9.2.  Informative References
+
+
+
+
+
+
+
+Jimenez                  Expires October 8, 2016                [Page 8]
+
+Internet-Draft                    IOTSI                       April 2016
+
+
+   [RFC3444]  Pras, A. and J. Schoenwaelder, "On the Difference between
+              Information Models and Data Models", RFC 3444, DOI
+              10.17487/RFC3444, January 2003,
+              <http://www.rfc-editor.org/info/rfc3444>.
+
+Author's Address
+
+   Jaime Jimenez
+   Ericsson
+
+   Email: jaime.jimenez@ericsson.com
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Jimenez                  Expires October 8, 2016                [Page 9]
+

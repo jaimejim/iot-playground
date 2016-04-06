@@ -1,0 +1,277 @@
+<?xml version="1.0" encoding="UTF-8"?>
+  <?xml-stylesheet type="text/xsl" href="rfc2629.xslt" ?>
+
+<!DOCTYPE rfc SYSTEM "rfc2629.dtd" [
+]>
+
+<rfc ipr="trust200902" docName="draft-iotsi-iab-00" category="info">
+
+<?rfc toc="yes"?>
+<?rfc sortrefs="yes"?>
+<?rfc symrefs="yes"?>
+
+  <front>
+    <title abbrev="IOTSI">Report from the IAB Workshop on IoT Semantic Interoperability (IOTSI)</title>
+
+    <author initials="J." surname="Jimenez" fullname="Jaime Jimenez">
+      <organization>Ericsson</organization>
+      <address>
+        
+        
+        <email>jaime.jimenez@ericsson.com</email>
+        
+      </address>
+    </author>
+
+    <date year="2016" month="April" day="06"/>
+
+    
+    
+    
+
+    <abstract>
+
+
+<t>This document provides a summary of the IAB Workshop on IoT Semantic Interoperability (IOTSI), which took place at Ericsson offices in Santa Clara, CA, on March 17-18, 2016.  The main goal of the workshop was to foster a discussion on the different Semantics used by multiple organizations to define IoT information.  This report summarizes the discussions and lists recommendations to the Internet Engineering Task Force (IETF) community. The views and positions in this report are those of the workshop participants and do not necessarily reflect the views and positions of the authors, the Internet Architecture Board (IAB).</t>
+
+
+
+    </abstract>
+
+
+  </front>
+
+  <middle>
+
+
+<section anchor="introduction" title="Introduction">
+
+<t>The Internet Architecture Board (IAB) holds occasional workshops designed to consider long-term issues and strategies for the Internet, and to suggest future directions for the Internet architecture. Some of those workshops required some cooperation effort between organizations. One of the target of the workshops is to bridge those organizations, specially when the topics are out of the scope for the IETF. This long-term planning function of the IAB is complementary to the ongoing engineering efforts performed by working groups of the Internet Engineering Task Force (IETF), under the leadership of the Internet Engineering Steering Group (IESG) and area directorates. </t>
+
+<t>There has been significant improvements when it comes to interoperability at lower layers (e.g. IPv4/v6, UDP/TCP, CoAP/HTTP…) but much less progress at higher layers by comparison. Industries and users demand systems that can be acquired and that offer interoperability out of the box in order to assemble them as components of larger systems. </t>
+
+<t>It was left out of the scope of this workshop to impose specific frameworks/solutions to the attendees, transport security and L1/L2/L3/L4 protocol discussion. </t>
+
+</section>
+<section anchor="terminology" title="Terminology">
+
+<t>In this document, the key words “MUST”, “MUST NOT”, “REQUIRED”,
+“SHALL”, “SHALL NOT”, “SHOULD”, “SHOULD NOT”, “RECOMMENDED”, “MAY”,
+and “OPTIONAL” are to be interpreted as described in BCP 14, RFC 2119
+<xref target="RFC2119"/>.</t>
+
+</section>
+<section anchor="common-vocabulary" title="Common Vocabulary">
+
+<t>The first roadblock to semantic interoperability is the lack of a common vocabulary to start the discussion. There is a need to align between participating organizations on a common set of basic terms. RFC3444 does a start by separating conceptual models for designers or Information Models (IMs) and concrete detailed models for implementors or Data Models (DMs). There are concepts that are undefined in that RFC and elsewhere, such as how is the interaction with the resources of an endpoint or Interaction Model. There are also terms that suffer the opposite problem and are overloaded with meaning, that meaning will vary depending on the context they are used on (i.e. semantics, models, encoding, serialization format, media types, encoding types…).</t>
+
+<t>“Wished outcome:” During the workshop due to time constrains no terminology was agreed upon, however work will continue within each organization to create various terminology documents. Aggregation will take place at https://github.com/iotsi</t>
+
+</section>
+<section anchor="translation" title="Translation">
+
+<t>One of the targets of interoperability is to create translators between the data models. There are analogies with gateways back in 1985 when they were used to translate between network protocols, eventually IP took over providing interoperability, however we lost some of the features provided by those other protocols. The creation of an equivalent “hub/s” that offer translation between the different data models or data semantics seems one of the ways forward. Some lose of expressiveness due to the translation between models seems also unavoidable. </t>
+
+<t>When it comes to translation two different distinctions appear: translating data between data models and translating data models. The first one implies doing the translation at runtime while the second performs one translation between the data models one time, like translating a YANG model to a RAML/JSON one. Indeed, for every IM multiple DMs could be translated. </t>
+
+<t>In a sense these distinctions affect as to when the translation is performed. It can be done at “design time” when the information model is done, it can be done at runtime for a concrete data model and it can be done depending n the actual serialization. </t>
+
+<t>Yet another distinction will appear depending on the requirements from the application protocols, RPC-style ones might require a slightly different DM than REST ones for similar operations, for example SNMP-traps could be similar to CoAP-Observations but not quite the same. It is easier to translate between systems that follow the same architecture/design pattern than across architectures, full translation might not even be possible (e.g. stateless vs statefull systems).</t>
+
+</section>
+<section anchor="appendix-a-program-committee" title="Appendix A: Program Committee">
+
+<t>This workshop is organized by Jari Arkko, Ralph Droms, Jaime Jiménez, Michael Koster, Dave Thaler and Hannes Tschofenig.</t>
+
+</section>
+<section anchor="appendix-b-workshop-material" title="Appendix B: Workshop Material">
+
+<t>Main Workshop Page and position papers:
+   https://www.iab.org/activities/workshops/iotsi/</t>
+
+<t>Agenda and Slides:
+   https://www.iab.org/activities/workshops/iotsi/agenda/</t>
+
+</section>
+<section anchor="appendix-c-accepted-position-papers" title="Appendix C: Accepted Position Papers">
+
+<t><list style='numbers'>
+  <t>Jari Arkko, Gadgets and Protocols Come and Go, Data Is Forever</t>
+  <t>Carsten Bormann, Noise in specifications hurts</t>
+  <t>Benoit Claise, YANG as the Data Modelling Language in the IoT space</t>
+  <t>Robert Cragie, The ZigBee Cluster Library over IP</t>
+  <t>Dee Denteneer, Michael Verschoor, Teresa Zotti, Fairhair: interoperable IoT services for major Building Automation and Lighting Control ecosystems</t>
+  <t>Universal Devices, Object Oriented Approach to IoT Interoperability</t>
+  <t>Bryant Eastham, Interoperability and the OpenDOF Project</t>
+  <t>Stephen Farrell, Alissa Cooper, It’s Often True: Security’s Ignored (IOTSI) – and Privacy too</t>
+  <t>Christian Groves, Lui Yan, ang Weiwei, Overview of IoT semantics landscape</t>
+  <t>Ted Hardie, Loci of Interoperability for the Internet of Things</t>
+  <t>Russ Housley, Vehicle-to-Vehicle and Vehicle-to-Infrastructure Communications</t>
+  <t>Jaime Jiménez, Michael Koster, Hannes Tschofenig, IPSO Smart Objects</t>
+  <t>David Jones, IOTDB – Interoperability Through Semantic Metastandards</t>
+  <t>Sebastian Käbisch, Darko Anicic, Thing Description as Enabler of Semantic Interoperability on the Web of Things </t>
+  <t>Achilleas Kemos, Alliance for Internet of Things Innovation Semantic Interoperability Release 2.0, AIOTI WG03 – IoT Standardisation</t>
+  <t>Ari Keränen, Cullen Jennings, SenML: simple building block for IoT semantic interoperability</t>
+  <t>Dongmyoung Kim, Yunchul Choi, Yonggeun Hong, Research on Unified Data Model and Framework to Support Interoperability between IoT Applications</t>
+  <t>Michael Koster, Model-Based Hypertext Language</t>
+  <t>Matthias Kovatsch, Yassin N. Hassan, Klaus Hartke, Semantic Interoperability Requires Self-describing Interaction Models</t>
+  <t>Kai Kreuzer, A Pragmatic Approach to Interoperability in the Internet of Things</t>
+  <t>Barry Leiba, Position Paper</t>
+  <t>Marcello Lioy, AllJoyn</t>
+  <t>Kerry Lynn, Laird Dornin, Modeling RESTful APIs with JSON Hyper-Schema</t>
+  <t>Erik Nordmark, Thoughts on IoT Semantic Interoperability: Scope of security issues</t>
+  <t>Open Geospatial Consortium, OGC SensorThings API: Communicating “Where” in the Web of Things</t>
+  <t>Jean Paoli, Taqi Jaffri, IoT Information Model Interoperability: An Open, Crowd-Sourced Approach in Three Parallel Parti</t>
+  <t>Joaquin Prado, OMA Lightweight M2M Resource Model</t>
+  <t>Dave Raggett,  Soumya Kanti Datta, Input paper for IAB Semantic Interoperability Workshop</t>
+  <t>Pete Rai, Stephen Tallamy, Semantic Overlays Over Immutable Data to Facilitate Time and Context Specific Interoperability</t>
+  <t>Jasper Roes, Laura Daniele, Towards semantic interoperability in the IoT using the Smart Appliances REFerence ontology (SAREF) and its extensions</t>
+  <t>Max Senges, Submission for IAB IoT Sematic Interoperability workshop</t>
+  <t>Bill Silverajan, Mert Ocak, Jaime Jiménez, Implementation Experiences of Semantic Interoperability for RESTful Gateway Management</t>
+  <t>Ned Smith, Jeff Sedayao, Claire Vishik, Key Semantic Interoperability Gaps in the Internet-of-Things Meta-Models</t>
+  <t>Robert Sparks and Ben Campbell, Considerations for certain IoT based services</t>
+  <t>J. Clarke Stevens, Open Connectivity Foundation oneIoTa Tool</t>
+  <t>J. Clarke Stevens, Piper Merriam, Derived Models for Interoperability Between IoT Ecosystems</t>
+  <t>Ravi Subramaniam, Semantic Interoperability in Open Connectivity Foundation (OCF) – formerly Open Interconnect Consortium (OIC)</t>
+  <t>Andrew Sullivan, Position paper for IOTSI workshop</t>
+  <t>Darshak Thakore, IoT Security in the context of Semantic Interoperability</t>
+  <t>Dave Thaler, IoT Bridge Taxonomy</t>
+  <t>Dave Thaler, Summary of AllSeen Alliance Work Relevant to Semantic Interoperability</t>
+  <t>Mark Underwood, Michael Gruninger, Leo Obrst, Ken Baclawski, Mike Bennett, Gary Berg-Cross, Torsten Hahmann, Ram Sriram, Internet of Things: Toward Smart Networked Systems and Societies</t>
+  <t>Peter van der Stok, Andy Bierman, YANG-Based Constrained Management Interface (CoMI)</t>
+</list></t>
+
+</section>
+<section anchor="appendix-d-list-of-participants" title="Appendix D: List of Participants">
+
+<t><list style='symbols'>
+  <t>Jaime Jiménez, Ericsson</t>
+  <t>Matthias Kovatsch, Siemens</t>
+  <t>Carsten Bormann, Uni Bremen/TZI</t>
+  <t>Dave Thaler, Microsoft</t>
+  <t>Ted Hardie, Google</t>
+  <t>Erik Nordmenk, Arista</t>
+  <t>Ari Keränen, Ericsson</t>
+  <t>Dave Raggett, W3C</t>
+  <t>Bryant Eastham, OpenDof</t>
+  <t>Kerry Lynn, Verizon</t>
+  <t>Barry Leiba, Huawei</t>
+  <t>Ben Campbell, Oracle</t>
+  <t>Kai Kreuzer, Deutsche Telekom</t>
+  <t>Joaquin Prado, OMA</t>
+  <t>Russ Housley, Vigil Security</t>
+  <t>Andrew Sullivan, DIN</t>
+  <t>Robert Sparks, Oracle</t>
+  <t>Andy Bierman, YumaWorks</t>
+  <t>Laura Daniele, TNO</t>
+  <t>Michael Koster, SmartThings</t>
+  <t>Jean Paoli, Microsoft</t>
+  <t>Clarke Stevens</t>
+  <t>Yonggeun Hong, ETRI</t>
+  <t>Christian Groves, Huawei</t>
+  <t>Robert Cragie, ARM</t>
+  <t>David Janes, IOTDB</t>
+  <t>Ram Sriram, Nist</t>
+  <t>Michael Verschoor. Philips Lightning</t>
+  <t>Marcello Lioy, Qualcomm</t>
+  <t>Steve Liang, Uni Calgary</t>
+  <t>Ned Smith, Intel</t>
+  <t>Darshak Thakore, Cablelabs</t>
+  <t>Max Senges, Google</t>
+  <t>Ram Subramanian, Intel</t>
+  <t>Benoit Claise, Cisco</t>
+  <t>Shailendra Karody, Catalina Labs</t>
+  <t>Mayan Mathen, Catalina Labs</t>
+  <t>Alissa Cooper, Cisco</t>
+</list></t>
+
+</section>
+
+
+  </middle>
+
+  <back>
+
+    <references title='Normative References'>
+
+
+
+
+
+<reference anchor='RFC2119'>
+
+<front>
+<title abbrev='RFC Key Words'>Key words for use in RFCs to Indicate Requirement Levels</title>
+<author initials='S.' surname='Bradner' fullname='Scott Bradner'>
+<organization>Harvard University</organization>
+<address>
+<postal>
+<street>1350 Mass. Ave.</street>
+<street>Cambridge</street>
+<street>MA 02138</street></postal>
+<phone>- +1 617 495 3864</phone>
+<email>sob@harvard.edu</email></address></author>
+<date year='1997' month='March' />
+<area>General</area>
+<keyword>keyword</keyword>
+<abstract>
+<t>
+   In many standards track documents several words are used to signify
+   the requirements in the specification.  These words are often
+   capitalized.  This document defines these words as they should be
+   interpreted in IETF documents.  Authors who follow these guidelines
+   should incorporate this phrase near the beginning of their document:
+
+<list>
+<t>
+      The key words "MUST", "MUST NOT", "REQUIRED", "SHALL", "SHALL
+      NOT", "SHOULD", "SHOULD NOT", "RECOMMENDED",  "MAY", and
+      "OPTIONAL" in this document are to be interpreted as described in
+      RFC 2119.
+</t></list></t>
+<t>
+   Note that the force of these words is modified by the requirement
+   level of the document in which they are used.
+</t></abstract></front>
+
+<seriesInfo name='BCP' value='14' />
+<seriesInfo name='RFC' value='2119' />
+<format type='TXT' octets='4723' target='http://www.rfc-editor.org/rfc/rfc2119.txt' />
+<format type='HTML' octets='17970' target='http://xml.resource.org/public/rfc/html/rfc2119.html' />
+<format type='XML' octets='5777' target='http://xml.resource.org/public/rfc/xml/rfc2119.xml' />
+</reference>
+
+
+
+
+    </references>
+
+    <references title='Informative References'>
+
+
+
+
+
+<reference  anchor='RFC3444' target='http://www.rfc-editor.org/info/rfc3444'>
+<front>
+<title>On the Difference between Information Models and Data Models</title>
+<author initials='A.' surname='Pras' fullname='A. Pras'><organization /></author>
+<author initials='J.' surname='Schoenwaelder' fullname='J. Schoenwaelder'><organization /></author>
+<date year='2003' month='January' />
+<abstract><t>There has been ongoing confusion about the differences between Information Models and Data Models for defining managed objects in network management.  This document explains the differences between these terms by analyzing how existing network management model specifications (from the IETF and other bodies such as the International Telecommunication Union (ITU) or the Distributed Management Task Force (DMTF)) fit into the universe of Information Models and Data Models. This memo documents the main results of the 8th workshop of the Network Management Research Group (NMRG) of the Internet Research Task Force (IRTF) hosted by the University of Texas at Austin.  This memo provides information for the Internet community.</t></abstract>
+</front>
+<seriesInfo name='RFC' value='3444'/>
+<seriesInfo name='DOI' value='10.17487/RFC3444'/>
+</reference>
+
+
+
+
+    </references>
+
+
+
+  </back>
+</rfc>
+
+
