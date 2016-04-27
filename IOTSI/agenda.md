@@ -34,7 +34,7 @@
  
 + Dinner - Social Event
  
-  6pm – Q: WHERE IS THE SOCIAL EVENT? HOW DO WE GET THERE? WHO PAYS FOR IT?
+  6pm – Ericsson-Sponsored Dinner. 
  
  
 ## Day 2
