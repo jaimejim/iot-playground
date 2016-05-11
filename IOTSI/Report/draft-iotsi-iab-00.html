@@ -379,10 +379,9 @@
 <link href="#rfc.section.3" rel="Chapter" title="3 Architecture"/>
 <link href="#rfc.section.4" rel="Chapter" title="4 Translation"/>
 <link href="#rfc.section.5" rel="Chapter" title="5 Appendix A: Program Committee"/>
-<link href="#rfc.section.6" rel="Chapter" title="6 Appendix B: Workshop Material"/>
-<link href="#rfc.section.7" rel="Chapter" title="7 Appendix C: Accepted Position Papers"/>
-<link href="#rfc.section.8" rel="Chapter" title="8 Appendix D: List of Participants"/>
-<link href="#rfc.references" rel="Chapter" title="9 Informative References"/>
+<link href="#rfc.section.6" rel="Chapter" title="6 Appendix C: Accepted Position Papers"/>
+<link href="#rfc.section.7" rel="Chapter" title="7 Appendix D: List of Participants"/>
+<link href="#rfc.references" rel="Chapter" title="8 Informative References"/>
 <link href="#rfc.authors" rel="Chapter"/>
 
 
@@ -392,8 +391,8 @@
   <meta name="dct.creator" content="Jimenez, J." />
   <meta name="dct.identifier" content="urn:ietf:id:draft-iotsi-iab-00" />
   <meta name="dct.issued" scheme="ISO8601" content="2016-4-06" />
-  <meta name="dct.abstract" content="This document provides a summary of the IAB Workshop on IoT Semantic Interoperability (IOTSI), which took place in Santa Clara, CA, on March 17-18, 2016.  The main goal of the workshop was to foster a discussion on the different Semantics used by multiple organizations to define IoT information.  This report summarizes the discussions and lists recommendations to the Internet Engineering Task Force (IETF) community. The views and positions in this report are those of the workshop participants and do not necessarily reflect the views and positions of the authors, the Internet Architecture Board (IAB)." />
-  <meta name="description" content="This document provides a summary of the IAB Workshop on IoT Semantic Interoperability (IOTSI), which took place in Santa Clara, CA, on March 17-18, 2016.  The main goal of the workshop was to foster a discussion on the different Semantics used by multiple organizations to define IoT information.  This report summarizes the discussions and lists recommendations to the Internet Engineering Task Force (IETF) community. The views and positions in this report are those of the workshop participants and do not necessarily reflect the views and positions of the authors, the Internet Architecture Board (IAB)." />
+  <meta name="dct.abstract" content="This document provides a summary of the IAB Workshop on IoT Semantic Interoperability (IOTSI) " />
+  <meta name="description" content="This document provides a summary of the IAB Workshop on IoT Semantic Interoperability (IOTSI) " />
 
 </head>
 
@@ -429,7 +428,7 @@
   <h1 id="rfc.abstract">
   <a href="#rfc.abstract">Abstract</a>
 </h1>
-<p>This document provides a summary of the IAB Workshop on IoT Semantic Interoperability (IOTSI), which took place in Santa Clara, CA, on March 17-18, 2016.  The main goal of the workshop was to foster a discussion on the different Semantics used by multiple organizations to define IoT information.  This report summarizes the discussions and lists recommendations to the Internet Engineering Task Force (IETF) community. The views and positions in this report are those of the workshop participants and do not necessarily reflect the views and positions of the authors, the Internet Architecture Board (IAB).</p>
+<p>This document provides a summary of the IAB Workshop on IoT Semantic Interoperability (IOTSI) <a href="#IOTSIWS">[IOTSIWS]</a>, which took place in Santa Clara, CA, on March 17-18, 2016.  The main goal of the workshop was to foster a discussion on the different Semantics used by multiple organizations to define IoT information.  This report summarizes the discussions and lists recommendations to the Internet Engineering Task Force (IETF) community. The views and positions in this report are those of the workshop participants and do not necessarily reflect the views and positions of the authors, the Internet Architecture Board (IAB).</p>
 <h1 id="rfc.status">
   <a href="#rfc.status">Status of This Memo</a>
 </h1>
@@ -453,32 +452,31 @@
 <li>3.   <a href="#rfc.section.3">Architecture</a></li>
 <li>4.   <a href="#rfc.section.4">Translation</a></li>
 <li>5.   <a href="#rfc.section.5">Appendix A: Program Committee</a></li>
-<li>6.   <a href="#rfc.section.6">Appendix B: Workshop Material</a></li>
-<li>7.   <a href="#rfc.section.7">Appendix C: Accepted Position Papers</a></li>
-<li>8.   <a href="#rfc.section.8">Appendix D: List of Participants</a></li>
-<li>9.   <a href="#rfc.references">Informative References</a></li>
+<li>6.   <a href="#rfc.section.6">Appendix C: Accepted Position Papers</a></li>
+<li>7.   <a href="#rfc.section.7">Appendix D: List of Participants</a></li>
+<li>8.   <a href="#rfc.references">Informative References</a></li>
 <li><a href="#rfc.authors">Author's Address</a></li>
 
 
   </ul>
 
   <h1 id="rfc.section.1"><a href="#rfc.section.1">1.</a> <a href="#introduction" id="introduction">Introduction</a></h1>
-<p id="rfc.section.1.p.1">The Internet Architecture Board (IAB) holds occasional workshops designed to consider long-term issues and strategies for the Internet, and to suggest future directions for the Internet architecture. Some of those workshops required some cooperation effort between organizations. One of the target of the workshops is to bridge those organizations, specially when the topics are out of the scope for the IETF. This long-term planning function of the IAB is complementary to the ongoing engineering efforts performed by working groups of the Internet Engineering Task Force (IETF), under the leadership of the Internet Engineering Steering Group (IESG) and area directorates.</p>
-<p id="rfc.section.1.p.2">In the Internet of Things (IoT) area there has been significant improvements on the problem of interoperability in recent years. The transition from IPv4 to IPv6 increases the increases address space required in the IoT context, similarly at the application layer there seems to be some consolidation around few protocols that follow either a REST (e.g. CoAP, HTTP) or Publish/Subscribe type of architecture (e.g. MQTT). At the application layer such degree of interoperability has not yet happened. The work on data formats (in the form of data models, information models and interaction models) has not seen the same level of consistency throughout various standardization groups.</p>
+<p id="rfc.section.1.p.1">The Internet Architecture Board (IAB) holds occasional workshops designed to consider long-term issues and strategies for the Internet, and to suggest future directions for the Internet architecture. Some of those workshops required some cooperation effort between organizations. One of the targets of the workshops is to bridge those organizations, specially when the topics are out of the scope for the IETF. This long-term planning function of the IAB is complementary to the ongoing engineering efforts performed by working groups of the Internet Engineering Task Force (IETF), under the leadership of the Internet Engineering Steering Group (IESG) and area directorates.</p>
+<p id="rfc.section.1.p.2">In the Internet of Things (IoT) area there has been significant improvements on the problem of interoperability in recent years. The transition from IPv4 to IPv6 increases the address space required in the IoT context. At the application layer there seems to be a similar consolidation around few protocols that follow either a REST (e.g. CoAP, HTTP) or Publish/Subscribe type of architecture (e.g. MQTT). Above the application layer (i.e. on Data Models and Semantics) such degree of interoperability has not yet happened. The work on data formats has not yet reached the same level of consistency throughout various standardization groups.</p>
 <p id="rfc.section.1.p.3">Thus, the IOTSI Workshop was organized in order to find commonalities between the different models proposed by various organizations, industries and academia. Few of the identified topics where:</p>
 <p/>
 
 <ul>
   <li>The different perceived state of the art on data and information models.</li>
   <li>The lack of an encoding-independent standardization of the information, the so-called information model.</li>
-  <li>The strong relationship with the underlying communication architecture, such as an RPC, publish/Subscribe or RESTful designs.</li>
+  <li>The strong relationship with the underlying communication pattern, such as an RPC, publish/Subscribe or RESTful designs.</li>
   <li>Identifying which similar concepts groups have develop in parallel, specially those that would require only slight modifications to solve interoperability.</li>
   <li>Identifying how existing data models can be mapped against each other to offer inter working.</li>
   <li>Identifying common use cases for cooperation and harmonization.</li>
 </ul>
 <p id="rfc.section.1.p.5">It was left out of the scope of this workshop to impose specific frameworks/solutions to the attendees, transport security and L1/L2/L3/L4 protocol discussion.</p>
 <h1 id="rfc.section.2"><a href="#rfc.section.2">2.</a> <a href="#terminology" id="terminology">Terminology</a></h1>
-<p id="rfc.section.2.p.1">The first roadblock to semantic interoperability is the lack of a common vocabulary to start the discussion. There is a need to align between participating organizations on a common set of basic terms. <a href="#RFC3444">[RFC3444]</a> does a start by separating conceptual models for designers or Information Models (IMs) and concrete detailed models for implementors or Data Models (DMs). There are concepts that are undefined in that RFC and elsewhere, such as the interaction with the resources of an endpoint or Interaction Model. Therefore the three &#8220;main&#8221; common models that could be identified were:</p>
+<p id="rfc.section.2.p.1">The first roadblock to semantic interoperability is the lack of a common vocabulary to start the discussion. There is a need to align between participating organizations on a common set of basic terms. <a href="#RFC3444">[RFC3444]</a> does a start by separating conceptual models for designers or Information Models (IMs) and concrete detailed definitions for implementors or Data Models (DMs). There are concepts that are undefined in that RFC and elsewhere, such as the interaction with the resources of an endpoint or Interaction Model. Therefore the three &#8220;main&#8221; common models that could be identified were:</p>
 <p/>
 
 <dl>
@@ -487,57 +485,31 @@
   <dt>Data Model (DM)</dt>
   <dd style="margin-left: 8">it defines concrete data representations at a lower level of abstraction, including implementation and protocol-specific details. Some examples are: SNMP Management Information Base (MIBs), W3C Thing Description (TD) Things, YANG models, LWM2M Schemas, OCF Schemas and so on.</dd>
   <dt>Interaction Model (IN)</dt>
-  <dd style="margin-left: 8">it defines how data is accessed and retrieved from the endpoints, thus the design pattern that the system has (e.g. REST APIs, Publish/Subscribe operations, RPC-calls&#8230;).</dd>
+  <dd style="margin-left: 8">it defines how data is accessed and retrieved from the endpoints, being therefore tied to the specific communication pattern that the system has (e.g. REST methods, Publish/Subscribe operations or RPC-calls).</dd>
 </dl>
-<p id="rfc.section.2.p.3">Another identified issue was that some IoT terminology is overloaded with meaning. That meaning will vary depending on the context they are used on (i.e. semantics, models, encoding, serialization format, media types, encoding types&#8230;). Due to time constraints no concrete terminology was agreed upon, however work will continue within each organization to create various terminology documents (see <a href="https://github.com/iotsi">IOTSI Repository</a>)</p>
+<p id="rfc.section.2.p.3">Another identified terminology issue is the semantic meaning overload that some terms have. Meaning will vary depending on the context the term is used. Some examples of such terms are: semantics, models, encoding, serialization format, media types or encoding types. Due to time constraints no concrete terminology was agreed upon, however work will continue within each organization to create various terminology documents, see <a href="#IOTSIGIT">[IOTSIGIT]</a>.</p>
 <h1 id="rfc.section.3"><a href="#rfc.section.3">3.</a> <a href="#architecture" id="architecture">Architecture</a></h1>
-<p id="rfc.section.3.p.1">Architectures follow different design patterns, some are REST-oriented with clear methods to find and manipulate resources on endpoints with almost no state kept between them. Others are more Publish/Subscribe-oriented that focus on the flow of information based on the topics of the information being shared. Others are RPC-like requiring to know beforehand the set of parameters that are accessed, they require to generate code both on the client and server side, they are tightly coupled and service-oriented.</p>
-<p id="rfc.section.3.p.2">Thing-hub-cloud &#8211;things talk to a hub, which talks back to them and to the cloud. There&#8217;s a spectrum of emphasis on the hub vs. the cloud. In some the hub is simply an access point; in others it&#8217;s a critical place for control loops and ALGs.  Meta Thing&#8211;some things are actually virtual, like an alarm composed of clock, lights, and thermostat.  Nearby things&#8211;some things may be geospatially related even if they are not on the same network or within the same administrative domain.</p>
-<p id="rfc.section.3.p.3">Current data models and definitions for &#8220;things&#8221; often focus on defining actual physical devices and representing their state. That focus should perhaps be shifted into a more holistic or user-oriented perspective, defining abstract concepts as well. On the other a lot of focus is placed on human interaction with physical devices while IoT will be more oriented to interaction between &#8220;things&#8221; instead.  Those things should be designed to be multiple-purpose, keeping in mind that solutions should be open-ended to facilitate new usages and new future domains of operation. this pattern has already happened, devices that were intended for one purpose end up being used for a different one given the right context ((e.g. smart phone led light turned out to be a heartrate monitor).  IoT domain is currently missing insights into what user actually expect.</p>
+<p id="rfc.section.3.p.1">Architectures follow different design patterns, some are REST-oriented with clear methods to find and manipulate resources on endpoints with almost no state kept between them. Others are more Publish/Subscribe-oriented that focus on the flow of information based on the topics of the information that is being shared. Others are RPC-like requiring to know beforehand the set of parameters that are accessed, requiring to generate code both on the client and server side, they are tightly coupled and service-oriented.</p>
+<p/>
+
+<dl>
+  <dt>Thing-hub-cloud</dt>
+  <dd style="margin-left: 8">things talk to a hub, which talks back to them and to the cloud. There is a spectrum of emphasis on the hub vs. the cloud. For some the hub is simply an access point; for others it is a critical place for control loops and ALGs.</dd>
+  <dt>Meta Thing</dt>
+  <dd style="margin-left: 8">some things are actually virtual, like an alarm composed of clock, lights, and thermostat.</dd>
+  <dt>Nearby things</dt>
+  <dd style="margin-left: 8">some things may be geospatially related even if they are not on the same network or within the same administrative domain.</dd>
+</dl>
+<p id="rfc.section.3.p.3">Current data models and definitions for &#8220;things&#8221; often focus on defining actual physical devices and representing their state. That focus should perhaps be shifted into a more holistic or user-oriented perspective, defining abstract concepts as well. On the other a lot of focus is placed on human interaction with physical devices while IoT will be more oriented to interaction between &#8220;things&#8221; instead.</p>
+<p id="rfc.section.3.p.4">Those things should be designed to be multiple-purpose, keeping in mind that solutions should be open-ended to facilitate new usages and new future domains of operation. this pattern has already happened, devices that were intended for one purpose end up being used for a different one given the right context ((e.g. smart phone led light turned out to be a heartrate monitor).  IoT domain is currently missing insights into what user actually expect.</p>
 <h1 id="rfc.section.4"><a href="#rfc.section.4">4.</a> <a href="#translation" id="translation">Translation</a></h1>
 <p id="rfc.section.4.p.1">One of the targets of interoperability is to create translators between the data models. There are analogies with gateways back in 1985 when they were used to translate between network protocols, eventually IP took over providing interoperability, however we lost some of the features provided by those other protocols. The creation of an equivalent &#8220;hub/s&#8221; that offer translation between the different data models or data semantics seems one of the ways forward. Some lose of expressiveness due to the translation between models seems also unavoidable.</p>
 <p id="rfc.section.4.p.2">When it comes to translation two different distinctions appear: translating data between data models and translating data models. The first one implies doing the translation at runtime while the second performs one translation between the data models one time, like translating a YANG model to a RAML/JSON one. Indeed, for every IM multiple DMs could be translated.</p>
 <p id="rfc.section.4.p.3">In a sense these distinctions affect as to when the translation is performed. It can be done at &#8220;design time&#8221; when the information model is done, it can be done at runtime for a concrete data model and it can be done depending n the actual serialization.</p>
 <p id="rfc.section.4.p.4">Yet another distinction will appear depending on the requirements from the application protocols, RPC-style ones might require a slightly different DM than REST ones for similar operations, for example SNMP-traps could be similar to CoAP-Observations but not quite the same. It is easier to translate between systems that follow the same architecture/design pattern than across architectures, full translation might not even be possible (e.g. stateless vs statefull systems).</p>
-<p id="rfc.section.4.p.5">The first example (<a href="#simple-get">Figure 1</a>) shows a GET request that is split into three blocks.  The server proposes a block size of 128, and the client agrees.  The first two ACKs contain 128 bytes of payload each, and third ACK contains between 1 and 128 bytes.</p>
-<div id="rfc.figure.1"/>
-<div id="simple-get"/>
-<pre>
-CLIENT                                                     SERVER
-  |                                                            |
-  | CON [MID=1234], GET, /status                       ------&gt; |
-  |                                                            |
-  | &lt;------   ACK [MID=1234], 2.05 Content, 2/0/1/128          |
-  |                                                            |
-  | CON [MID=1235], GET, /status, 2/1/0/128            ------&gt; |
-  |                                                            |
-  | &lt;------   ACK [MID=1235], 2.05 Content, 2/1/1/128          |
-  |                                                            |
-  | CON [MID=1236], GET, /status, 2/2/0/128            ------&gt; |
-  |                                                            |
-  | &lt;------   ACK [MID=1236], 2.05 Content, 2/2/0/128          |
-</pre>
-<p class="figure">Figure 1: Simple blockwise GET</p>
 <h1 id="rfc.section.5"><a href="#rfc.section.5">5.</a> <a href="#appendix-a-program-committee" id="appendix-a-program-committee">Appendix A: Program Committee</a></h1>
 <p id="rfc.section.5.p.1">This workshop is organized by Jari Arkko, Ralph Droms, Jaime Jim&#233;nez, Michael Koster, Dave Thaler and Hannes Tschofenig.</p>
-<h1 id="rfc.section.6"><a href="#rfc.section.6">6.</a> <a href="#appendix-b-workshop-material" id="appendix-b-workshop-material">Appendix B: Workshop Material</a></h1>
-<p/>
-
-<dl>
-  <dt>Main Workshop Page and position papers</dt>
-  <dd style="margin-left: 8">
-    <a href="https://www.iab.org/activities/workshops/iotsi/">https://www.iab.org/activities/workshops/iotsi/</a>
-  </dd>
-  <dt>Agenda and Slides</dt>
-  <dd style="margin-left: 8">
-    <a href="https://www.iab.org/activities/workshops/iotsi/agenda/">https://www.iab.org/activities/workshops/iotsi/agenda/</a>
-  </dd>
-  <dt>Collaborative Github Repository</dt>
-  <dd style="margin-left: 8">
-    <a href="https://github.com/iotsi">https://github.com/iotsi</a>
-  </dd>
-</dl>
-<h1 id="rfc.section.7"><a href="#rfc.section.7">7.</a> <a href="#appendix-c-accepted-position-papers" id="appendix-c-accepted-position-papers">Appendix C: Accepted Position Papers</a></h1>
+<h1 id="rfc.section.6"><a href="#rfc.section.6">6.</a> <a href="#appendix-c-accepted-position-papers" id="appendix-c-accepted-position-papers">Appendix C: Accepted Position Papers</a></h1>
 <p/>
 
 <ol>
@@ -585,7 +557,7 @@ CLIENT                                                     SERVER
   <li>Mark Underwood, Michael Gruninger, Leo Obrst, Ken Baclawski, Mike Bennett, Gary Berg-Cross, Torsten Hahmann, Ram Sriram, &#8220;Internet of Things: Toward Smart Networked Systems and Societies&#8221;</li>
   <li>Peter van der Stok, Andy Bierman, &#8220;YANG-Based Constrained Management Interface (CoMI)&#8221;</li>
 </ol>
-<h1 id="rfc.section.8"><a href="#rfc.section.8">8.</a> <a href="#appendix-d-list-of-participants" id="appendix-d-list-of-participants">Appendix D: List of Participants</a></h1>
+<h1 id="rfc.section.7"><a href="#rfc.section.7">7.</a> <a href="#appendix-d-list-of-participants" id="appendix-d-list-of-participants">Appendix D: List of Participants</a></h1>
 <p/>
 
 <ul>
@@ -628,9 +600,27 @@ CLIENT                                                     SERVER
   <li>Dave Thaler, Microsoft</li>
   <li>Michael Verschoor, Philips Lightning</li>
 </ul>
-<h1 id="rfc.references"><a href="#rfc.references">9.</a> Informative References</h1>
+<h1 id="rfc.references"><a href="#rfc.references">8.</a> Informative References</h1>
 <table>
   <tbody>
+    <tr>
+      <td class="reference">
+        <b id="IOTSIAG">[IOTSIAG]</b>
+      </td>
+      <td class="top"><a>IAB</a>, "<a href="https://www.iab.org/activities/workshops/iotsi/agenda/">IoT Workshop for Semantic Interoperability (IOTSI) - Agenda and Slides</a>", 2016.</td>
+    </tr>
+    <tr>
+      <td class="reference">
+        <b id="IOTSIGIT">[IOTSIGIT]</b>
+      </td>
+      <td class="top"><a>IOTSI</a>, "<a href="https://github.com/iotsi">Github Collaborative Repository</a>", 2016.</td>
+    </tr>
+    <tr>
+      <td class="reference">
+        <b id="IOTSIWS">[IOTSIWS]</b>
+      </td>
+      <td class="top"><a>IAB</a>, "<a href="https://www.iab.org/activities/workshops/iotsi/">IoT Workshop for Semantic Interoperability (IOTSI) - Main Page and Position Papers</a>", 2016.</td>
+    </tr>
     <tr>
       <td class="reference">
         <b id="RFC3444">[RFC3444]</b>
