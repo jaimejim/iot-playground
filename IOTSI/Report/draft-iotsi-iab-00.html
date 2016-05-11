@@ -1,0 +1,669 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" 
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+<head profile="http://www.w3.org/2006/03/hcard http://dublincore.org/documents/2008/08/04/dc-html/">
+  <meta http-equiv="Content-Type" content="text/html; charset=us-ascii" />
+
+  <title>Report from the IAB Workshop on IoT Semantic Interoperability (IOTSI)</title>
+
+  <style type="text/css" title="Xml2Rfc (sans serif)">
+  /*<![CDATA[*/
+	  a {
+	  text-decoration: none;
+	  }
+      /* info code from SantaKlauss at http://www.madaboutstyle.com/tooltip2.html */
+      a.info {
+          /* This is the key. */
+          position: relative;
+          z-index: 24;
+          text-decoration: none;
+      }
+      a.info:hover {
+          z-index: 25;
+          color: #FFF; background-color: #900;
+      }
+      a.info span { display: none; }
+      a.info:hover span.info {
+          /* The span will display just on :hover state. */
+          display: block;
+          position: absolute;
+          font-size: smaller;
+          top: 2em; left: -5em; width: 15em;
+          padding: 2px; border: 1px solid #333;
+          color: #900; background-color: #EEE;
+          text-align: left;
+      }
+	  a.smpl {
+	  color: black;
+	  }
+	  a:hover {
+	  text-decoration: underline;
+	  }
+	  a:active {
+	  text-decoration: underline;
+	  }
+	  address {
+	  margin-top: 1em;
+	  margin-left: 2em;
+	  font-style: normal;
+	  }
+	  body {
+	  color: black;
+	  font-family: verdana, helvetica, arial, sans-serif;
+	  font-size: 10pt;
+	  max-width: 55em;
+	  
+	  }
+	  cite {
+	  font-style: normal;
+	  }
+	  dd {
+	  margin-right: 2em;
+	  }
+	  dl {
+	  margin-left: 2em;
+	  }
+	
+	  ul.empty {
+	  list-style-type: none;
+	  }
+	  ul.empty li {
+	  margin-top: .5em;
+	  }
+	  dl p {
+	  margin-left: 0em;
+	  }
+	  dt {
+	  margin-top: .5em;
+	  }
+	  h1 {
+	  font-size: 14pt;
+	  line-height: 21pt;
+	  page-break-after: avoid;
+	  }
+	  h1.np {
+	  page-break-before: always;
+	  }
+	  h1 a {
+	  color: #333333;
+	  }
+	  h2 {
+	  font-size: 12pt;
+	  line-height: 15pt;
+	  page-break-after: avoid;
+	  }
+	  h3, h4, h5, h6 {
+	  font-size: 10pt;
+	  page-break-after: avoid;
+	  }
+	  h2 a, h3 a, h4 a, h5 a, h6 a {
+	  color: black;
+	  }
+	  img {
+	  margin-left: 3em;
+	  }
+	  li {
+	  margin-left: 2em;
+	  margin-right: 2em;
+	  }
+	  ol {
+	  margin-left: 2em;
+	  margin-right: 2em;
+	  }
+	  ol p {
+	  margin-left: 0em;
+	  }
+	  p {
+	  margin-left: 2em;
+	  margin-right: 2em;
+	  }
+	  pre {
+	  margin-left: 3em;
+	  background-color: lightyellow;
+	  padding: .25em;
+	  }
+	  pre.text2 {
+	  border-style: dotted;
+	  border-width: 1px;
+	  background-color: #f0f0f0;
+	  width: 69em;
+	  }
+	  pre.inline {
+	  background-color: white;
+	  padding: 0em;
+	  }
+	  pre.text {
+	  border-style: dotted;
+	  border-width: 1px;
+	  background-color: #f8f8f8;
+	  width: 69em;
+	  }
+	  pre.drawing {
+	  border-style: solid;
+	  border-width: 1px;
+	  background-color: #f8f8f8;
+	  padding: 2em;
+	  }
+	  table {
+	  margin-left: 2em;
+	  }
+	  table.tt {
+	  vertical-align: top;
+	  }
+	  table.full {
+	  border-style: outset;
+	  border-width: 1px;
+	  }
+	  table.headers {
+	  border-style: outset;
+	  border-width: 1px;
+	  }
+	  table.tt td {
+	  vertical-align: top;
+	  }
+	  table.full td {
+	  border-style: inset;
+	  border-width: 1px;
+	  }
+	  table.tt th {
+	  vertical-align: top;
+	  }
+	  table.full th {
+	  border-style: inset;
+	  border-width: 1px;
+	  }
+	  table.headers th {
+	  border-style: none none inset none;
+	  border-width: 1px;
+	  }
+	  table.left {
+	  margin-right: auto;
+	  }
+	  table.right {
+	  margin-left: auto;
+	  }
+	  table.center {
+	  margin-left: auto;
+	  margin-right: auto;
+	  }
+	  caption {
+	  caption-side: bottom;
+	  font-weight: bold;
+	  font-size: 9pt;
+	  margin-top: .5em;
+	  }
+	
+	  table.header {
+	  border-spacing: 1px;
+	  width: 95%;
+	  font-size: 10pt;
+	  color: white;
+	  }
+	  td.top {
+	  vertical-align: top;
+	  }
+	  td.topnowrap {
+	  vertical-align: top;
+	  white-space: nowrap; 
+	  }
+	  table.header td {
+	  background-color: gray;
+	  width: 50%;
+	  }
+	  table.header a {
+	  color: white;
+	  }
+	  td.reference {
+	  vertical-align: top;
+	  white-space: nowrap;
+	  padding-right: 1em;
+	  }
+	  thead {
+	  display:table-header-group;
+	  }
+	  ul.toc, ul.toc ul {
+	  list-style: none;
+	  margin-left: 1.5em;
+	  margin-right: 0em;
+	  padding-left: 0em;
+	  }
+	  ul.toc li {
+	  line-height: 150%;
+	  font-weight: bold;
+	  font-size: 10pt;
+	  margin-left: 0em;
+	  margin-right: 0em;
+	  }
+	  ul.toc li li {
+	  line-height: normal;
+	  font-weight: normal;
+	  font-size: 9pt;
+	  margin-left: 0em;
+	  margin-right: 0em;
+	  }
+	  li.excluded {
+	  font-size: 0pt;
+	  }
+	  ul p {
+	  margin-left: 0em;
+	  }
+	
+	  .comment {
+	  background-color: yellow;
+	  }
+	  .center {
+	  text-align: center;
+	  }
+	  .error {
+	  color: red;
+	  font-style: italic;
+	  font-weight: bold;
+	  }
+	  .figure {
+	  font-weight: bold;
+	  text-align: center;
+	  font-size: 9pt;
+	  }
+	  .filename {
+	  color: #333333;
+	  font-weight: bold;
+	  font-size: 12pt;
+	  line-height: 21pt;
+	  text-align: center;
+	  }
+	  .fn {
+	  font-weight: bold;
+	  }
+	  .hidden {
+	  display: none;
+	  }
+	  .left {
+	  text-align: left;
+	  }
+	  .right {
+	  text-align: right;
+	  }
+	  .title {
+	  color: #990000;
+	  font-size: 18pt;
+	  line-height: 18pt;
+	  font-weight: bold;
+	  text-align: center;
+	  margin-top: 36pt;
+	  }
+	  .vcardline {
+	  display: block;
+	  }
+	  .warning {
+	  font-size: 14pt;
+	  background-color: yellow;
+	  }
+	
+	
+	  @media print {
+	  .noprint {
+		display: none;
+	  }
+	
+	  a {
+		color: black;
+		text-decoration: none;
+	  }
+	
+	  table.header {
+		width: 90%;
+	  }
+	
+	  td.header {
+		width: 50%;
+		color: black;
+		background-color: white;
+		vertical-align: top;
+		font-size: 12pt;
+	  }
+	
+	  ul.toc a::after {
+		content: leader('.') target-counter(attr(href), page);
+	  }
+	
+	  ul.ind li li a {
+		content: target-counter(attr(href), page);
+	  }
+	
+	  .print2col {
+		column-count: 2;
+		-moz-column-count: 2;
+		column-fill: auto;
+	  }
+	  }
+	
+	  @page {
+	  @top-left {
+		   content: "Internet-Draft"; 
+	  } 
+	  @top-right {
+		   content: "December 2010"; 
+	  } 
+	  @top-center {
+		   content: "Abbreviated Title";
+	  } 
+	  @bottom-left {
+		   content: "Doe"; 
+	  } 
+	  @bottom-center {
+		   content: "Expires June 2011"; 
+	  } 
+	  @bottom-right {
+		   content: "[Page " counter(page) "]"; 
+	  } 
+	  }
+	
+	  @page:first { 
+		@top-left {
+		  content: normal;
+		}
+		@top-right {
+		  content: normal;
+		}
+		@top-center {
+		  content: normal;
+		}
+	  }
+  /*]]>*/
+  </style>
+
+  <link href="#rfc.toc" rel="Contents"/>
+<link href="#rfc.section.1" rel="Chapter" title="1 Introduction"/>
+<link href="#rfc.section.2" rel="Chapter" title="2 Terminology"/>
+<link href="#rfc.section.3" rel="Chapter" title="3 Architecture"/>
+<link href="#rfc.section.4" rel="Chapter" title="4 Translation"/>
+<link href="#rfc.section.5" rel="Chapter" title="5 Appendix A: Program Committee"/>
+<link href="#rfc.section.6" rel="Chapter" title="6 Appendix B: Workshop Material"/>
+<link href="#rfc.section.7" rel="Chapter" title="7 Appendix C: Accepted Position Papers"/>
+<link href="#rfc.section.8" rel="Chapter" title="8 Appendix D: List of Participants"/>
+<link href="#rfc.references" rel="Chapter" title="9 Informative References"/>
+<link href="#rfc.authors" rel="Chapter"/>
+
+
+  <meta name="generator" content="xml2rfc version 2.4.8 - http://tools.ietf.org/tools/xml2rfc" />
+  <link rel="schema.dct" href="http://purl.org/dc/terms/" />
+
+  <meta name="dct.creator" content="Jimenez, J." />
+  <meta name="dct.identifier" content="urn:ietf:id:draft-iotsi-iab-00" />
+  <meta name="dct.issued" scheme="ISO8601" content="2016-4-06" />
+  <meta name="dct.abstract" content="This document provides a summary of the IAB Workshop on IoT Semantic Interoperability (IOTSI), which took place in Santa Clara, CA, on March 17-18, 2016.  The main goal of the workshop was to foster a discussion on the different Semantics used by multiple organizations to define IoT information.  This report summarizes the discussions and lists recommendations to the Internet Engineering Task Force (IETF) community. The views and positions in this report are those of the workshop participants and do not necessarily reflect the views and positions of the authors, the Internet Architecture Board (IAB)." />
+  <meta name="description" content="This document provides a summary of the IAB Workshop on IoT Semantic Interoperability (IOTSI), which took place in Santa Clara, CA, on March 17-18, 2016.  The main goal of the workshop was to foster a discussion on the different Semantics used by multiple organizations to define IoT information.  This report summarizes the discussions and lists recommendations to the Internet Engineering Task Force (IETF) community. The views and positions in this report are those of the workshop participants and do not necessarily reflect the views and positions of the authors, the Internet Architecture Board (IAB)." />
+
+</head>
+
+<body>
+
+  <table class="header">
+    <tbody>
+    
+    	<tr>
+  <td class="left">Network Working Group</td>
+  <td class="right">J. Jimenez</td>
+</tr>
+<tr>
+  <td class="left">Internet-Draft</td>
+  <td class="right">Ericsson</td>
+</tr>
+<tr>
+  <td class="left">Intended status: Informational</td>
+  <td class="right">April 06, 2016</td>
+</tr>
+<tr>
+  <td class="left">Expires: October 8, 2016</td>
+  <td class="right"></td>
+</tr>
+
+    	
+    </tbody>
+  </table>
+
+  <p class="title">Report from the IAB Workshop on IoT Semantic Interoperability (IOTSI)<br />
+  <span class="filename">draft-iotsi-iab-00</span></p>
+  
+  <h1 id="rfc.abstract">
+  <a href="#rfc.abstract">Abstract</a>
+</h1>
+<p>This document provides a summary of the IAB Workshop on IoT Semantic Interoperability (IOTSI), which took place in Santa Clara, CA, on March 17-18, 2016.  The main goal of the workshop was to foster a discussion on the different Semantics used by multiple organizations to define IoT information.  This report summarizes the discussions and lists recommendations to the Internet Engineering Task Force (IETF) community. The views and positions in this report are those of the workshop participants and do not necessarily reflect the views and positions of the authors, the Internet Architecture Board (IAB).</p>
+<h1 id="rfc.status">
+  <a href="#rfc.status">Status of This Memo</a>
+</h1>
+<p>This Internet-Draft is submitted in full conformance with the provisions of BCP 78 and BCP 79.</p>
+<p>Internet-Drafts are working documents of the Internet Engineering Task Force (IETF).  Note that other groups may also distribute working documents as Internet-Drafts.  The list of current Internet-Drafts is at http://datatracker.ietf.org/drafts/current/.</p>
+<p>Internet-Drafts are draft documents valid for a maximum of six months and may be updated, replaced, or obsoleted by other documents at any time.  It is inappropriate to use Internet-Drafts as reference material or to cite them other than as "work in progress."</p>
+<p>This Internet-Draft will expire on October 8, 2016.</p>
+<h1 id="rfc.copyrightnotice">
+  <a href="#rfc.copyrightnotice">Copyright Notice</a>
+</h1>
+<p>Copyright (c) 2016 IETF Trust and the persons identified as the document authors.  All rights reserved.</p>
+<p>This document is subject to BCP 78 and the IETF Trust's Legal Provisions Relating to IETF Documents (http://trustee.ietf.org/license-info) in effect on the date of publication of this document.  Please review these documents carefully, as they describe your rights and restrictions with respect to this document.  Code Components extracted from this document must include Simplified BSD License text as described in Section 4.e of the Trust Legal Provisions and are provided without warranty as described in the Simplified BSD License.</p>
+
+  
+  <hr class="noprint" />
+  <h1 class="np" id="rfc.toc"><a href="#rfc.toc">Table of Contents</a></h1>
+  <ul class="toc">
+
+  	<li>1.   <a href="#rfc.section.1">Introduction</a></li>
+<li>2.   <a href="#rfc.section.2">Terminology</a></li>
+<li>3.   <a href="#rfc.section.3">Architecture</a></li>
+<li>4.   <a href="#rfc.section.4">Translation</a></li>
+<li>5.   <a href="#rfc.section.5">Appendix A: Program Committee</a></li>
+<li>6.   <a href="#rfc.section.6">Appendix B: Workshop Material</a></li>
+<li>7.   <a href="#rfc.section.7">Appendix C: Accepted Position Papers</a></li>
+<li>8.   <a href="#rfc.section.8">Appendix D: List of Participants</a></li>
+<li>9.   <a href="#rfc.references">Informative References</a></li>
+<li><a href="#rfc.authors">Author's Address</a></li>
+
+
+  </ul>
+
+  <h1 id="rfc.section.1"><a href="#rfc.section.1">1.</a> <a href="#introduction" id="introduction">Introduction</a></h1>
+<p id="rfc.section.1.p.1">The Internet Architecture Board (IAB) holds occasional workshops designed to consider long-term issues and strategies for the Internet, and to suggest future directions for the Internet architecture. Some of those workshops required some cooperation effort between organizations. One of the target of the workshops is to bridge those organizations, specially when the topics are out of the scope for the IETF. This long-term planning function of the IAB is complementary to the ongoing engineering efforts performed by working groups of the Internet Engineering Task Force (IETF), under the leadership of the Internet Engineering Steering Group (IESG) and area directorates.</p>
+<p id="rfc.section.1.p.2">In the Internet of Things (IoT) area there has been significant improvements on the problem of interoperability in recent years. The transition from IPv4 to IPv6 increases the increases address space required in the IoT context, similarly at the application layer there seems to be some consolidation around few protocols that follow either a REST (e.g. CoAP, HTTP) or Publish/Subscribe type of architecture (e.g. MQTT). At the application layer such degree of interoperability has not yet happened. The work on data formats (in the form of data models, information models and interaction models) has not seen the same level of consistency throughout various standardization groups.</p>
+<p id="rfc.section.1.p.3">Thus, the IOTSI Workshop was organized in order to find commonalities between the different models proposed by various organizations, industries and academia. Few of the identified topics where:</p>
+<p/>
+
+<ul>
+  <li>The different perceived state of the art on data and information models.</li>
+  <li>The lack of an encoding-independent standardization of the information, the so-called information model.</li>
+  <li>The strong relationship with the underlying communication architecture, such as an RPC, publish/Subscribe or RESTful designs.</li>
+  <li>Identifying which similar concepts groups have develop in parallel, specially those that would require only slight modifications to solve interoperability.</li>
+  <li>Identifying how existing data models can be mapped against each other to offer inter working.</li>
+  <li>Identifying common use cases for cooperation and harmonization.</li>
+</ul>
+<p id="rfc.section.1.p.5">It was left out of the scope of this workshop to impose specific frameworks/solutions to the attendees, transport security and L1/L2/L3/L4 protocol discussion.</p>
+<h1 id="rfc.section.2"><a href="#rfc.section.2">2.</a> <a href="#terminology" id="terminology">Terminology</a></h1>
+<p id="rfc.section.2.p.1">The first roadblock to semantic interoperability is the lack of a common vocabulary to start the discussion. There is a need to align between participating organizations on a common set of basic terms. <a href="#RFC3444">[RFC3444]</a> does a start by separating conceptual models for designers or Information Models (IMs) and concrete detailed models for implementors or Data Models (DMs). There are concepts that are undefined in that RFC and elsewhere, such as the interaction with the resources of an endpoint or Interaction Model. Therefore the three &#8220;main&#8221; common models that could be identified were:</p>
+<p/>
+
+<dl>
+  <dt>Information Model (IM)</dt>
+  <dd style="margin-left: 8">it defines an environment at the highest level of abstraction, they express the desired functionality. They can be defined informally (e.g. in plain English) or more formally (e.g. UML, Entity-Relationship Diagrams, etc.). Implementation details are hidden.</dd>
+  <dt>Data Model (DM)</dt>
+  <dd style="margin-left: 8">it defines concrete data representations at a lower level of abstraction, including implementation and protocol-specific details. Some examples are: SNMP Management Information Base (MIBs), W3C Thing Description (TD) Things, YANG models, LWM2M Schemas, OCF Schemas and so on.</dd>
+  <dt>Interaction Model (IN)</dt>
+  <dd style="margin-left: 8">it defines how data is accessed and retrieved from the endpoints, thus the design pattern that the system has (e.g. REST APIs, Publish/Subscribe operations, RPC-calls&#8230;).</dd>
+</dl>
+<p id="rfc.section.2.p.3">Another identified issue was that some IoT terminology is overloaded with meaning. That meaning will vary depending on the context they are used on (i.e. semantics, models, encoding, serialization format, media types, encoding types&#8230;). Due to time constraints no concrete terminology was agreed upon, however work will continue within each organization to create various terminology documents (see <a href="https://github.com/iotsi">IOTSI Repository</a>)</p>
+<h1 id="rfc.section.3"><a href="#rfc.section.3">3.</a> <a href="#architecture" id="architecture">Architecture</a></h1>
+<p id="rfc.section.3.p.1">Architectures follow different design patterns, some are REST-oriented with clear methods to find and manipulate resources on endpoints with almost no state kept between them. Others are more Publish/Subscribe-oriented that focus on the flow of information based on the topics of the information being shared. Others are RPC-like requiring to know beforehand the set of parameters that are accessed, they require to generate code both on the client and server side, they are tightly coupled and service-oriented.</p>
+<p id="rfc.section.3.p.2">Thing-hub-cloud &#8211;things talk to a hub, which talks back to them and to the cloud. There&#8217;s a spectrum of emphasis on the hub vs. the cloud. In some the hub is simply an access point; in others it&#8217;s a critical place for control loops and ALGs.  Meta Thing&#8211;some things are actually virtual, like an alarm composed of clock, lights, and thermostat.  Nearby things&#8211;some things may be geospatially related even if they are not on the same network or within the same administrative domain.</p>
+<p id="rfc.section.3.p.3">Current data models and definitions for &#8220;things&#8221; often focus on defining actual physical devices and representing their state. That focus should perhaps be shifted into a more holistic or user-oriented perspective, defining abstract concepts as well. On the other a lot of focus is placed on human interaction with physical devices while IoT will be more oriented to interaction between &#8220;things&#8221; instead.  Those things should be designed to be multiple-purpose, keeping in mind that solutions should be open-ended to facilitate new usages and new future domains of operation. this pattern has already happened, devices that were intended for one purpose end up being used for a different one given the right context ((e.g. smart phone led light turned out to be a heartrate monitor).  IoT domain is currently missing insights into what user actually expect.</p>
+<h1 id="rfc.section.4"><a href="#rfc.section.4">4.</a> <a href="#translation" id="translation">Translation</a></h1>
+<p id="rfc.section.4.p.1">One of the targets of interoperability is to create translators between the data models. There are analogies with gateways back in 1985 when they were used to translate between network protocols, eventually IP took over providing interoperability, however we lost some of the features provided by those other protocols. The creation of an equivalent &#8220;hub/s&#8221; that offer translation between the different data models or data semantics seems one of the ways forward. Some lose of expressiveness due to the translation between models seems also unavoidable.</p>
+<p id="rfc.section.4.p.2">When it comes to translation two different distinctions appear: translating data between data models and translating data models. The first one implies doing the translation at runtime while the second performs one translation between the data models one time, like translating a YANG model to a RAML/JSON one. Indeed, for every IM multiple DMs could be translated.</p>
+<p id="rfc.section.4.p.3">In a sense these distinctions affect as to when the translation is performed. It can be done at &#8220;design time&#8221; when the information model is done, it can be done at runtime for a concrete data model and it can be done depending n the actual serialization.</p>
+<p id="rfc.section.4.p.4">Yet another distinction will appear depending on the requirements from the application protocols, RPC-style ones might require a slightly different DM than REST ones for similar operations, for example SNMP-traps could be similar to CoAP-Observations but not quite the same. It is easier to translate between systems that follow the same architecture/design pattern than across architectures, full translation might not even be possible (e.g. stateless vs statefull systems).</p>
+<p id="rfc.section.4.p.5">The first example (<a href="#simple-get">Figure 1</a>) shows a GET request that is split into three blocks.  The server proposes a block size of 128, and the client agrees.  The first two ACKs contain 128 bytes of payload each, and third ACK contains between 1 and 128 bytes.</p>
+<div id="rfc.figure.1"/>
+<div id="simple-get"/>
+<pre>
+CLIENT                                                     SERVER
+  |                                                            |
+  | CON [MID=1234], GET, /status                       ------&gt; |
+  |                                                            |
+  | &lt;------   ACK [MID=1234], 2.05 Content, 2/0/1/128          |
+  |                                                            |
+  | CON [MID=1235], GET, /status, 2/1/0/128            ------&gt; |
+  |                                                            |
+  | &lt;------   ACK [MID=1235], 2.05 Content, 2/1/1/128          |
+  |                                                            |
+  | CON [MID=1236], GET, /status, 2/2/0/128            ------&gt; |
+  |                                                            |
+  | &lt;------   ACK [MID=1236], 2.05 Content, 2/2/0/128          |
+</pre>
+<p class="figure">Figure 1: Simple blockwise GET</p>
+<h1 id="rfc.section.5"><a href="#rfc.section.5">5.</a> <a href="#appendix-a-program-committee" id="appendix-a-program-committee">Appendix A: Program Committee</a></h1>
+<p id="rfc.section.5.p.1">This workshop is organized by Jari Arkko, Ralph Droms, Jaime Jim&#233;nez, Michael Koster, Dave Thaler and Hannes Tschofenig.</p>
+<h1 id="rfc.section.6"><a href="#rfc.section.6">6.</a> <a href="#appendix-b-workshop-material" id="appendix-b-workshop-material">Appendix B: Workshop Material</a></h1>
+<p/>
+
+<dl>
+  <dt>Main Workshop Page and position papers</dt>
+  <dd style="margin-left: 8">
+    <a href="https://www.iab.org/activities/workshops/iotsi/">https://www.iab.org/activities/workshops/iotsi/</a>
+  </dd>
+  <dt>Agenda and Slides</dt>
+  <dd style="margin-left: 8">
+    <a href="https://www.iab.org/activities/workshops/iotsi/agenda/">https://www.iab.org/activities/workshops/iotsi/agenda/</a>
+  </dd>
+  <dt>Collaborative Github Repository</dt>
+  <dd style="margin-left: 8">
+    <a href="https://github.com/iotsi">https://github.com/iotsi</a>
+  </dd>
+</dl>
+<h1 id="rfc.section.7"><a href="#rfc.section.7">7.</a> <a href="#appendix-c-accepted-position-papers" id="appendix-c-accepted-position-papers">Appendix C: Accepted Position Papers</a></h1>
+<p/>
+
+<ol>
+  <li>Jari Arkko, &#8220;Gadgets and Protocols Come and Go, Data Is Forever&#8221;</li>
+  <li>Carsten Bormann, &#8220;Noise in specifications hurts&#8221;</li>
+  <li>Benoit Claise, &#8220;YANG as the Data Modelling Language in the IoT space&#8221;</li>
+  <li>Robert Cragie, &#8220;The ZigBee Cluster Library over IP&#8221;</li>
+  <li>Dee Denteneer, Michael Verschoor, Teresa Zotti, &#8220;Fairhair: interoperable IoT services for major Building Automation and Lighting Control ecosystems&#8221;</li>
+  <li>Universal Devices, &#8220;Object Oriented Approach to IoT Interoperability&#8221;</li>
+  <li>Bryant Eastham, &#8220;Interoperability and the OpenDOF Project&#8221;</li>
+  <li>Stephen Farrell, Alissa Cooper, &#8220;It&#8217;s Often True: Security&#8217;s Ignored (IOTSI) &#8211; and Privacy too&#8221;</li>
+  <li>Christian Groves, Lui Yan, ang Weiwei, &#8220;Overview of IoT semantics landscape&#8221;</li>
+  <li>Ted Hardie, &#8220;Loci of Interoperability for the Internet of Things&#8221;</li>
+  <li>Russ Housley, &#8220;Vehicle-to-Vehicle and Vehicle-to-Infrastructure Communications&#8221;</li>
+  <li>Jaime Jim&#233;nez, Michael Koster, Hannes Tschofenig, &#8220;IPSO Smart Objects&#8221;</li>
+  <li>David Jones, IOTDB &#8211; &#8220;Interoperability Through Semantic Metastandards&#8221;</li>
+  <li>Sebastian K&#228;bisch, Darko Anicic, &#8220;Thing Description as Enabler of Semantic Interoperability on the Web of Things&#8221;</li>
+  <li>Achilleas Kemos, &#8220;Alliance for Internet of Things Innovation Semantic Interoperability Release 2.0, AIOTI WG03 &#8211; IoT Standardisation&#8221;</li>
+  <li>Ari Ker&#228;nen, Cullen Jennings, &#8220;SenML: simple building block for IoT semantic interoperability&#8221;</li>
+  <li>Dongmyoung Kim, Yunchul Choi, Yonggeun Hong, &#8220;Research on Unified Data Model and Framework to Support Interoperability between IoT Applications&#8221;</li>
+  <li>Michael Koster, &#8220;Model-Based Hypertext Language&#8221;</li>
+  <li>Matthias Kovatsch, Yassin N. Hassan, Klaus Hartke, &#8220;Semantic Interoperability Requires Self-describing Interaction Models&#8221;</li>
+  <li>Kai Kreuzer, &#8220;A Pragmatic Approach to Interoperability in the Internet of Things&#8221;</li>
+  <li>Barry Leiba, &#8220;Position Paper&#8221;</li>
+  <li>Marcello Lioy, &#8220;AllJoyn&#8221;</li>
+  <li>Kerry Lynn, Laird Dornin, &#8220;Modeling RESTful APIs with JSON Hyper-Schema&#8221;</li>
+  <li>Erik Nordmark, &#8220;Thoughts on IoT Semantic Interoperability: Scope of security issues&#8221;</li>
+  <li>Open Geospatial Consortium, &#8220;OGC SensorThings API: Communicating &#8220;Where&#8221; in the Web of Things&#8221;</li>
+  <li>Jean Paoli, Taqi Jaffri, &#8220;IoT Information Model Interoperability: An Open, Crowd-Sourced Approach in Three Parallel Parti&#8221;</li>
+  <li>Joaquin Prado, &#8220;OMA Lightweight M2M Resource Model&#8221;</li>
+  <li>Dave Raggett,  Soumya Kanti Datta, &#8220;Input paper for IAB Semantic Interoperability Workshop&#8221;</li>
+  <li>Pete Rai, Stephen Tallamy, &#8220;Semantic Overlays Over Immutable Data to Facilitate Time and Context Specific Interoperability&#8221;</li>
+  <li>Jasper Roes, Laura Daniele, &#8220;Towards semantic interoperability in the IoT using the Smart Appliances REFerence ontology (SAREF) and its extensions&#8221;</li>
+  <li>Max Senges, &#8220;Submission for IAB IoT Sematic Interoperability workshop&#8221;</li>
+  <li>Bill Silverajan, Mert Ocak, Jaime Jim&#233;nez, &#8220;Implementation Experiences of Semantic Interoperability for RESTful Gateway Management&#8221;</li>
+  <li>Ned Smith, Jeff Sedayao, Claire Vishik, &#8220;Key Semantic Interoperability Gaps in the Internet-of-Things Meta-Models&#8221;</li>
+  <li>Robert Sparks and Ben Campbell, &#8220;Considerations for certain IoT based services&#8221;</li>
+  <li>J. Clarke Stevens, &#8220;Open Connectivity Foundation oneIoTa Tool&#8221;</li>
+  <li>J. Clarke Stevens, Piper Merriam, &#8220;Derived Models for Interoperability Between IoT Ecosystems&#8221;</li>
+  <li>Ravi Subramaniam, &#8220;Semantic Interoperability in Open Connectivity Foundation (OCF) &#8211; formerly Open Interconnect Consortium (OIC)&#8221;&#8221;</li>
+  <li>Andrew Sullivan, &#8220;Position paper for IOTSI workshop&#8221;</li>
+  <li>Darshak Thakore, &#8220;IoT Security in the context of Semantic Interoperability&#8221;</li>
+  <li>Dave Thaler, &#8220;IoT Bridge Taxonomy&#8221;</li>
+  <li>Dave Thaler, S&#8221;ummary of AllSeen Alliance Work Relevant to Semantic Interoperability&#8221;</li>
+  <li>Mark Underwood, Michael Gruninger, Leo Obrst, Ken Baclawski, Mike Bennett, Gary Berg-Cross, Torsten Hahmann, Ram Sriram, &#8220;Internet of Things: Toward Smart Networked Systems and Societies&#8221;</li>
+  <li>Peter van der Stok, Andy Bierman, &#8220;YANG-Based Constrained Management Interface (CoMI)&#8221;</li>
+</ol>
+<h1 id="rfc.section.8"><a href="#rfc.section.8">8.</a> <a href="#appendix-d-list-of-participants" id="appendix-d-list-of-participants">Appendix D: List of Participants</a></h1>
+<p/>
+
+<ul>
+  <li>Andy Bierman, YumaWorks</li>
+  <li>Carsten Bormann, Uni Bremen/TZI</li>
+  <li>Ben Campbell, Oracle</li>
+  <li>Benoit Claise, Cisco</li>
+  <li>Alissa Cooper, Cisco</li>
+  <li>Robert Cragie, ARM</li>
+  <li>Laura Daniele, TNO</li>
+  <li>Bryant Eastham, OpenDof</li>
+  <li>Christian Groves, Huawei</li>
+  <li>Ted Hardie, Google</li>
+  <li>Yonggeun Hong, ETRI</li>
+  <li>Russ Housley, Vigil Security</li>
+  <li>David Janes, IOTDB</li>
+  <li>Jaime Jim&#233;nez, Ericsson</li>
+  <li>Shailendra Karody, Catalina Labs</li>
+  <li>Ari Ker&#228;nen, Ericsson</li>
+  <li>Michael Koster, SmartThings</li>
+  <li>Matthias Kovatsch, Siemens</li>
+  <li>Kai Kreuzer, Deutsche Telekom</li>
+  <li>Barry Leiba, Huawei</li>
+  <li>Steve Liang, Uni Calgary</li>
+  <li>Marcello Lioy, Qualcomm</li>
+  <li>Kerry Lynn, Verizon</li>
+  <li>Mayan Mathen, Catalina Labs</li>
+  <li>Erik Nordmenk, Arista</li>
+  <li>Jean Paoli, Microsoft</li>
+  <li>Joaquin Prado, OMA</li>
+  <li>Dave Raggett, W3C</li>
+  <li>Max Senges, Google</li>
+  <li>Ned Smith, Intel</li>
+  <li>Robert Sparks, Oracle</li>
+  <li>Ram Sriram, Nist</li>
+  <li>Clarke Stevens</li>
+  <li>Ram Subramanian, Intel</li>
+  <li>Andrew Sullivan, DIN</li>
+  <li>Darshak Thakore, Cablelabs</li>
+  <li>Dave Thaler, Microsoft</li>
+  <li>Michael Verschoor, Philips Lightning</li>
+</ul>
+<h1 id="rfc.references"><a href="#rfc.references">9.</a> Informative References</h1>
+<table>
+  <tbody>
+    <tr>
+      <td class="reference">
+        <b id="RFC3444">[RFC3444]</b>
+      </td>
+      <td class="top"><a>Pras, A.</a> and <a>J. Schoenwaelder</a>, "<a href="http://tools.ietf.org/html/rfc3444">On the Difference between Information Models and Data Models</a>", RFC 3444, DOI 10.17487/RFC3444, January 2003.</td>
+    </tr>
+  </tbody>
+</table>
+<h1 id="rfc.authors">
+  <a href="#rfc.authors">Author's Address</a>
+</h1>
+<div class="avoidbreak">
+  <address class="vcard">
+	<span class="vcardline">
+	  <span class="fn">Jaime Jimenez</span> 
+	  <span class="n hidden">
+		<span class="family-name">Jimenez</span>
+	  </span>
+	</span>
+	<span class="org vcardline">Ericsson</span>
+	<span class="adr">
+	  
+	  <span class="vcardline">
+		<span class="locality"></span> 
+		<span class="region"></span>
+		<span class="code"></span>
+	  </span>
+	  <span class="country-name vcardline"></span>
+	</span>
+	<span class="vcardline">EMail: <a href="mailto:jaime.jimenez@ericsson.com">jaime.jimenez@ericsson.com</a></span>
+
+  </address>
+</div>
+
+</body>
+</html>

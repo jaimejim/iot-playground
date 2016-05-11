@@ -66,15 +66,17 @@ Internet-Draft                    IOTSI                       April 2016
 Table of Contents
 
    1.  Introduction  . . . . . . . . . . . . . . . . . . . . . . . .   2
-   2.  Terminology . . . . . . . . . . . . . . . . . . . . . . . . .   2
-   3.  Architecture  . . . . . . . . . . . . . . . . . . . . . . . .   3
-   4.  Translation . . . . . . . . . . . . . . . . . . . . . . . . .   4
-   5.  Appendix A: Program Committee . . . . . . . . . . . . . . . .   4
-   6.  Appendix B: Workshop Material . . . . . . . . . . . . . . . .   4
-   7.  Appendix C: Accepted Position Papers  . . . . . . . . . . . .   5
-   8.  Appendix D: List of Participants  . . . . . . . . . . . . . .   7
-   9.  Informative References  . . . . . . . . . . . . . . . . . . .   9
-   Author's Address  . . . . . . . . . . . . . . . . . . . . . . . .   9
+   2.  Terminology . . . . . . . . . . . . . . . . . . . . . . . . .   3
+   3.  Architecture  . . . . . . . . . . . . . . . . . . . . . . . .   4
+   4.  Translation . . . . . . . . . . . . . . . . . . . . . . . . .   5
+   5.  Appendix A: Program Committee . . . . . . . . . . . . . . . .   6
+   6.  Appendix B: Workshop Material . . . . . . . . . . . . . . . .   6
+   7.  Appendix C: Accepted Position Papers  . . . . . . . . . . . .   6
+   8.  Appendix D: List of Participants  . . . . . . . . . . . . . .   9
+   9.  References  . . . . . . . . . . . . . . . . . . . . . . . . .  10
+     9.1.  Informative References  . . . . . . . . . . . . . . . . .  11
+     9.2.  URIs  . . . . . . . . . . . . . . . . . . . . . . . . . .  11
+   Author's Address  . . . . . . . . . . . . . . . . . . . . . . . .  11
 
 1.  Introduction
 
@@ -90,12 +92,50 @@ Table of Contents
    the leadership of the Internet Engineering Steering Group (IESG) and
    area directorates.
 
-   There has been significant improvements when it comes to
-   interoperability at lower layers (e.g.  IPv4/v6, UDP/TCP, CoAP/
-   HTTP...) but much less progress at higher layers by comparison.
-   Industries and users demand systems that can be acquired and that
-   offer interoperability out of the box in order to assemble them as
-   components of larger systems.
+   In the Internet of Things (IoT) area there has been significant
+   improvements on the problem of interoperability in recent years.  The
+   transition from IPv4 to IPv6 increases the increases address space
+   required in the IoT context, similarly at the application layer there
+   seems to be some consolidation around few protocols that follow
+   either a REST (e.g.  CoAP, HTTP) or Publish/Subscribe type of
+   architecture (e.g.  MQTT).  At the application layer such degree of
+   interoperability has not yet happened.  The work on data formats (in
+   the form of data models, information models and interaction models)
+   has not seen the same level of consistency throughout various
+   standardization groups.
+
+
+
+
+
+
+Jimenez                  Expires October 8, 2016                [Page 2]
+
+Internet-Draft                    IOTSI                       April 2016
+
+
+   Thus, the IOTSI Workshop was organized in order to find commonalities
+   between the different models proposed by various organizations,
+   industries and academia.  Few of the identified topics where:
+
+   o  The different perceived state of the art on data and information
+      models.
+
+   o  The lack of an encoding-independent standardization of the
+      information, the so-called information model.
+
+   o  The strong relationship with the underlying communication
+      architecture, such as an RPC, publish/Subscribe or RESTful
+      designs.
+
+   o  Identifying which similar concepts groups have develop in
+      parallel, specially those that would require only slight
+      modifications to solve interoperability.
+
+   o  Identifying how existing data models can be mapped against each
+      other to offer inter working.
+
+   o  Identifying common use cases for cooperation and harmonization.
 
    It was left out of the scope of this workshop to impose specific
    frameworks/solutions to the attendees, transport security and
@@ -106,39 +146,55 @@ Table of Contents
    The first roadblock to semantic interoperability is the lack of a
    common vocabulary to start the discussion.  There is a need to align
    between participating organizations on a common set of basic terms.
+   [RFC3444] does a start by separating conceptual models for designers
+   or Information Models (IMs) and concrete detailed models for
+   implementors or Data Models (DMs).  There are concepts that are
+   undefined in that RFC and elsewhere, such as the interaction with the
+   resources of an endpoint or Interaction Model.  Therefore the three
+   "main" common models that could be identified were:
+
+   Information Model (IM)  it defines an environment at the highest
+      level of abstraction, they express the desired functionality.
+      They can be defined informally (e.g. in plain English) or more
+      formally (e.g.  UML, Entity-Relationship Diagrams, etc.).
+      Implementation details are hidden.
+
+   Data Model (DM)  it defines concrete data representations at a lower
+      level of abstraction, including implementation and protocol-
+      specific details.  Some examples are: SNMP Management Information
 
 
 
-Jimenez                  Expires October 8, 2016                [Page 2]
+Jimenez                  Expires October 8, 2016                [Page 3]
 
 Internet-Draft                    IOTSI                       April 2016
 
 
-   RFC3444 does a start by separating conceptual models for designers or
-   Information Models (IMs) and concrete detailed models for
-   implementors or Data Models (DMs).  There are concepts that are
-   undefined in that RFC and elsewhere, such as how is the interaction
-   with the resources of an endpoint or Interaction Model.  There are
-   also terms that suffer the opposite problem and are overloaded with
-   meaning, that meaning will vary depending on the context they are
-   used on (i.e. semantics, models, encoding, serialization format,
-   media types, encoding types...).
+      Base (MIBs), W3C Thing Description (TD) Things, YANG models, LWM2M
+      Schemas, OCF Schemas and so on.
 
-   "Wished outcome:" During the workshop due to time constrains no
+   Interaction Model (IN)  it defines how data is accessed and retrieved
+      from the endpoints, thus the design pattern that the system has
+      (e.g.  REST APIs, Publish/Subscribe operations, RPC-calls...).
+
+   Another identified issue was that some IoT terminology is overloaded
+   with meaning.  That meaning will vary depending on the context they
+   are used on (i.e. semantics, models, encoding, serialization format,
+   media types, encoding types...).  Due to time constraints no concrete
    terminology was agreed upon, however work will continue within each
-   organization to create various terminology documents.  Aggregation
-   will take place at https://github.com/iotsi
+   organization to create various terminology documents (see IOTSI
+   Repository [1])
 
 3.  Architecture
 
-   rchitectures follow different design patterns, some are REST-oriented
-   with clear methods to find and manipulate resources on endpoints with
-   almost no state kept between them.  Others are more Publish/
-   Subscribe-oriented that focus on the flow of information based on the
-   topics of the information being shared.  Others are RPC-like
-   requiring to know beforehand the set of parameters that are accessed,
-   they require to generate code both on the client and server side,
-   they are tightly coupled and service-oriented.
+   Architectures follow different design patterns, some are REST-
+   oriented with clear methods to find and manipulate resources on
+   endpoints with almost no state kept between them.  Others are more
+   Publish/Subscribe-oriented that focus on the flow of information
+   based on the topics of the information being shared.  Others are RPC-
+   like requiring to know beforehand the set of parameters that are
+   accessed, they require to generate code both on the client and server
+   side, they are tightly coupled and service-oriented.
 
    Thing-hub-cloud -things talk to a hub, which talks back to them and
    to the cloud.  There's a spectrum of emphasis on the hub vs. the
@@ -165,7 +221,7 @@ Internet-Draft                    IOTSI                       April 2016
 
 
 
-Jimenez                  Expires October 8, 2016                [Page 3]
+Jimenez                  Expires October 8, 2016                [Page 4]
 
 Internet-Draft                    IOTSI                       April 2016
 
@@ -203,6 +259,45 @@ Internet-Draft                    IOTSI                       April 2016
    architectures, full translation might not even be possible (e.g.
    stateless vs statefull systems).
 
+   The first example (Figure 1) shows a GET request that is split into
+   three blocks.  The server proposes a block size of 128, and the
+   client agrees.  The first two ACKs contain 128 bytes of payload each,
+   and third ACK contains between 1 and 128 bytes.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Jimenez                  Expires October 8, 2016                [Page 5]
+
+Internet-Draft                    IOTSI                       April 2016
+
+
+   CLIENT                                                     SERVER
+     |                                                            |
+     | CON [MID=1234], GET, /status                       ------> |
+     |                                                            |
+     | <------   ACK [MID=1234], 2.05 Content, 2/0/1/128          |
+     |                                                            |
+     | CON [MID=1235], GET, /status, 2/1/0/128            ------> |
+     |                                                            |
+     | <------   ACK [MID=1235], 2.05 Content, 2/1/1/128          |
+     |                                                            |
+     | CON [MID=1236], GET, /status, 2/2/0/128            ------> |
+     |                                                            |
+     | <------   ACK [MID=1236], 2.05 Content, 2/2/0/128          |
+
+                      Figure 1: Simple blockwise GET
+
 5.  Appendix A: Program Committee
 
    This workshop is organized by Jari Arkko, Ralph Droms, Jaime Jimenez,
@@ -210,21 +305,13 @@ Internet-Draft                    IOTSI                       April 2016
 
 6.  Appendix B: Workshop Material
 
-   Main Workshop Page and position papers:
-   https://www.iab.org/activities/workshops/iotsi/
+   Main Workshop Page and position papers  https://www.iab.org/activitie
+      s/workshops/iotsi/
 
-   Agenda and Slides: https://www.iab.org/activities/workshops/iotsi/
-   agenda/
+   Agenda and Slides  https://www.iab.org/activities/workshops/iotsi/
+      agenda/
 
-
-
-
-
-
-Jimenez                  Expires October 8, 2016                [Page 4]
-
-Internet-Draft                    IOTSI                       April 2016
-
+   Collaborative Github Repository  https://github.com/iotsi
 
 7.  Appendix C: Accepted Position Papers
 
@@ -243,6 +330,13 @@ Internet-Draft                    IOTSI                       April 2016
 
    6.   Universal Devices, "Object Oriented Approach to IoT
         Interoperability"
+
+
+
+Jimenez                  Expires October 8, 2016                [Page 6]
+
+Internet-Draft                    IOTSI                       April 2016
+
 
    7.   Bryant Eastham, "Interoperability and the OpenDOF Project"
 
@@ -274,14 +368,6 @@ Internet-Draft                    IOTSI                       April 2016
    16.  Ari Keraenen, Cullen Jennings, "SenML: simple building block for
         IoT semantic interoperability"
 
-
-
-
-Jimenez                  Expires October 8, 2016                [Page 5]
-
-Internet-Draft                    IOTSI                       April 2016
-
-
    17.  Dongmyoung Kim, Yunchul Choi, Yonggeun Hong, "Research on
         Unified Data Model and Framework to Support Interoperability
         between IoT Applications"
@@ -300,6 +386,13 @@ Internet-Draft                    IOTSI                       April 2016
 
    23.  Kerry Lynn, Laird Dornin, "Modeling RESTful APIs with JSON
         Hyper-Schema"
+
+
+
+Jimenez                  Expires October 8, 2016                [Page 7]
+
+Internet-Draft                    IOTSI                       April 2016
+
 
    24.  Erik Nordmark, "Thoughts on IoT Semantic Interoperability: Scope
         of security issues"
@@ -330,14 +423,6 @@ Internet-Draft                    IOTSI                       April 2016
         Experiences of Semantic Interoperability for RESTful Gateway
         Management"
 
-
-
-
-Jimenez                  Expires October 8, 2016                [Page 6]
-
-Internet-Draft                    IOTSI                       April 2016
-
-
    33.  Ned Smith, Jeff Sedayao, Claire Vishik, "Key Semantic
         Interoperability Gaps in the Internet-of-Things Meta-Models"
 
@@ -357,6 +442,13 @@ Internet-Draft                    IOTSI                       April 2016
 
    39.  Darshak Thakore, "IoT Security in the context of Semantic
         Interoperability"
+
+
+
+Jimenez                  Expires October 8, 2016                [Page 8]
+
+Internet-Draft                    IOTSI                       April 2016
+
 
    40.  Dave Thaler, "IoT Bridge Taxonomy"
 
@@ -387,13 +479,6 @@ Internet-Draft                    IOTSI                       April 2016
 
    o  Laura Daniele, TNO
 
-
-
-Jimenez                  Expires October 8, 2016                [Page 7]
-
-Internet-Draft                    IOTSI                       April 2016
-
-
    o  Bryant Eastham, OpenDof
 
    o  Christian Groves, Huawei
@@ -413,6 +498,13 @@ Internet-Draft                    IOTSI                       April 2016
    o  Ari Keraenen, Ericsson
 
    o  Michael Koster, SmartThings
+
+
+
+Jimenez                  Expires October 8, 2016                [Page 9]
+
+Internet-Draft                    IOTSI                       April 2016
+
 
    o  Matthias Kovatsch, Siemens
 
@@ -442,14 +534,6 @@ Internet-Draft                    IOTSI                       April 2016
 
    o  Robert Sparks, Oracle
 
-
-
-
-Jimenez                  Expires October 8, 2016                [Page 8]
-
-Internet-Draft                    IOTSI                       April 2016
-
-
    o  Ram Sriram, Nist
 
    o  Clarke Stevens
@@ -464,12 +548,30 @@ Internet-Draft                    IOTSI                       April 2016
 
    o  Michael Verschoor, Philips Lightning
 
-9.  Informative References
+9.  References
+
+
+
+
+
+
+
+
+Jimenez                  Expires October 8, 2016               [Page 10]
+
+Internet-Draft                    IOTSI                       April 2016
+
+
+9.1.  Informative References
 
    [RFC3444]  Pras, A. and J. Schoenwaelder, "On the Difference between
               Information Models and Data Models", RFC 3444, DOI
               10.17487/RFC3444, January 2003,
               <http://www.rfc-editor.org/info/rfc3444>.
+
+9.2.  URIs
+
+   [1] https://github.com/iotsi
 
 Author's Address
 
@@ -501,4 +603,14 @@ Author's Address
 
 
 
-Jimenez                  Expires October 8, 2016                [Page 9]
+
+
+
+
+
+
+
+
+
+
+Jimenez                  Expires October 8, 2016               [Page 11]
