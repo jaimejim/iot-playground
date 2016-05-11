@@ -4,12 +4,12 @@
 
 Network Working Group                                         J. Jimenez
 Internet-Draft                                                  Ericsson
-Intended status: Informational                            April 06, 2016
-Expires: October 8, 2016
+Intended status: Informational                              May 11, 2016
+Expires: November 12, 2016
 
 
  Report from the IAB Workshop on IoT Semantic Interoperability (IOTSI)
-                           draft-iotsi-iab-00
+                          draft-iotsi-jaime-00
 
 Abstract
 
@@ -39,7 +39,7 @@ Status of This Memo
    time.  It is inappropriate to use Internet-Drafts as reference
    material or to cite them other than as "work in progress."
 
-   This Internet-Draft will expire on October 8, 2016.
+   This Internet-Draft will expire on November 12, 2016.
 
 Copyright Notice
 
@@ -53,9 +53,9 @@ Copyright Notice
 
 
 
-Jimenez                  Expires October 8, 2016                [Page 1]
+Jimenez                 Expires November 12, 2016               [Page 1]
 
-Internet-Draft                    IOTSI                       April 2016
+Internet-Draft                    IOTSI                         May 2016
 
 
    carefully, as they describe your rights and restrictions with respect
@@ -109,9 +109,9 @@ Table of Contents
 
 
 
-Jimenez                  Expires October 8, 2016                [Page 2]
+Jimenez                 Expires November 12, 2016               [Page 2]
 
-Internet-Draft                    IOTSI                       April 2016
+Internet-Draft                    IOTSI                         May 2016
 
 
    o  The different perceived state of the art on data and information
@@ -165,9 +165,9 @@ Internet-Draft                    IOTSI                       April 2016
 
 
 
-Jimenez                  Expires October 8, 2016                [Page 3]
+Jimenez                 Expires November 12, 2016               [Page 3]
 
-Internet-Draft                    IOTSI                       April 2016
+Internet-Draft                    IOTSI                         May 2016
 
 
       communication pattern that the system has (e.g.  REST methods,
@@ -221,9 +221,9 @@ Internet-Draft                    IOTSI                       April 2016
 
 
 
-Jimenez                  Expires October 8, 2016                [Page 4]
+Jimenez                 Expires November 12, 2016               [Page 4]
 
-Internet-Draft                    IOTSI                       April 2016
+Internet-Draft                    IOTSI                         May 2016
 
 
 4.  Translation
@@ -277,9 +277,9 @@ Internet-Draft                    IOTSI                       April 2016
 
 
 
-Jimenez                  Expires October 8, 2016                [Page 5]
+Jimenez                 Expires November 12, 2016               [Page 5]
 
-Internet-Draft                    IOTSI                       April 2016
+Internet-Draft                    IOTSI                         May 2016
 
 
    5.   Dee Denteneer, Michael Verschoor, Teresa Zotti, "Fairhair:
@@ -333,9 +333,9 @@ Internet-Draft                    IOTSI                       April 2016
 
 
 
-Jimenez                  Expires October 8, 2016                [Page 6]
+Jimenez                 Expires November 12, 2016               [Page 6]
 
-Internet-Draft                    IOTSI                       April 2016
+Internet-Draft                    IOTSI                         May 2016
 
 
    21.  Barry Leiba, "Position Paper"
@@ -389,9 +389,9 @@ Internet-Draft                    IOTSI                       April 2016
 
 
 
-Jimenez                  Expires October 8, 2016                [Page 7]
+Jimenez                 Expires November 12, 2016               [Page 7]
 
-Internet-Draft                    IOTSI                       April 2016
+Internet-Draft                    IOTSI                         May 2016
 
 
    37.  Ravi Subramaniam, "Semantic Interoperability in Open
@@ -445,9 +445,9 @@ Internet-Draft                    IOTSI                       April 2016
 
 
 
-Jimenez                  Expires October 8, 2016                [Page 8]
+Jimenez                 Expires November 12, 2016               [Page 8]
 
-Internet-Draft                    IOTSI                       April 2016
+Internet-Draft                    IOTSI                         May 2016
 
 
    o  David Janes, IOTDB
@@ -501,12 +501,14 @@ Internet-Draft                    IOTSI                       April 2016
 
 
 
-Jimenez                  Expires October 8, 2016                [Page 9]
+Jimenez                 Expires November 12, 2016               [Page 9]
 
-Internet-Draft                    IOTSI                       April 2016
+Internet-Draft                    IOTSI                         May 2016
 
 
    o  Dave Thaler, Microsoft
+
+   o  Hannes Tschofenig, ARM
 
    o  Michael Verschoor, Philips Lightning
 
@@ -555,6 +557,4 @@ Author's Address
 
 
 
-
-
-Jimenez                  Expires October 8, 2016               [Page 10]
+Jimenez                 Expires November 12, 2016              [Page 10]

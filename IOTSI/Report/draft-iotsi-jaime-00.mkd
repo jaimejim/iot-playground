@@ -1,8 +1,8 @@
 ---
 title: Report from the IAB Workshop on IoT Semantic Interoperability (IOTSI)
 abbrev: IOTSI
-docname: draft-iotsi-iab-00
-date: 2016-04-06
+docname: draft-iotsi-jaime-00
+date: 2016-05-11
 category: info
 
 ipr: trust200902
@@ -218,5 +218,6 @@ Appendix D: List of Participants
   * Andrew Sullivan, DIN
   * Darshak Thakore, Cablelabs
   * Dave Thaler, Microsoft
+  * Hannes Tschofenig, ARM
   * Michael Verschoor, Philips Lightning
 
