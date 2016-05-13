@@ -81,7 +81,6 @@ Interaction Model (IN)
 
 Another identified terminology issue is the semantic meaning overload that some terms have. Meaning will vary depending on the context the term is used. Some examples of such terms are: semantics, models, encoding, serialization format, media types or encoding types. Due to time constraints no concrete terminology was agreed upon, however work will continue within each organization to create various terminology documents, see {{IOTSIGIT}}.
 
-
 Architecture
 ============
 
@@ -110,7 +109,69 @@ When it comes to translation two different distinctions appear: translating data
 
 In a sense these distinctions affect as to when the translation is performed. It can be done at "design time" when the information model is done, it can be done at runtime for a concrete data model and it can be done depending n the actual serialization. 
 
-Yet another distinction will appear depending on the requirements from the application protocols, RPC-style ones might require a slightly different DM than REST ones for similar operations, for example SNMP-traps could be similar to CoAP-Observations but not quite the same. It is easier to translate between systems that follow the same architecture/design pattern than across architectures, full translation might not even be possible (e.g. stateless vs statefull systems).
+Yet another distinction will appear depending on the requirements from the application protocols, RPC-style ones might require a slightly different DM than REST ones for similar operations, for example SNMP-traps could be similar to CoAP-Observations but not quite the same. It is easier to translate between systems that follow the same architecture/design pattern than across architectures, full translation might not even be possible (e.g. stateless vs stateful systems).
+
+Translation of models script to translate XML to YANG
+Translation of serialized data, on a hub  in order to normalize it to other data model.
+
+
+Runtime Discovery
+=================
+
+Runtime changes are doing after design and at compile time. 
+Discovery, is it devices or data items on devices. 
+A lot of people think about devices but also abstract entities. 
+To do discovery one question is "how much must "be shared before time. 
+The meta-data has also two possible notions, is it instance specific (e.g. location of the thing) or does it have to do with the model itself?
+
+Need to handle change in the environment. Replace things without manual configuration, change control flow, etc. at runtime. 
+Few things (vocabulary) is shared a priori. 
+Drives the application runtime, "Engine of application state", we needs self-describing interaction models.
+Ravi: nothing prevents HATEOAS + data model
+Ari: And OMA LwM2M uses SenML 
+Matthias: these are complementary approaches. It is to point out that it is also about Interaction Models. Of course DM are needed to convey data.
+
+
+Interaction model
+
+You get one entry point (in CoAP it is the RD) and the client tries to perform discovery in order to find and follow links in order to discover capabilities. You submit forms to interact with them. This way you can create processes that span over multiple devices involved in the process. If later one you find that you need something else, you can add new functionality at runtime, next client that comes along will have the same logic but see different capabilities of functionality and therefore use it. 
+
+Parts of the information have to be shared a priori. The process is incremental, but once discovered, you don't need to perform the same operation every time, you can go to the bookmark. 
+
+The following are examples of all those in HTML. 
+
+~~~~~~~~~~~ html
+// Links (Anchors) with human-readable information
+<a href="about.html">More information</a>
+<link rel="stylesheet" href="style.css">
+
+// Templated Links to perform a query with a parameter.
+<form method="get" action="search.php">
+  <input id="query" type="text">
+</form>
+
+// Embedded Links which are used to embed other resources.
+<img src="logo.png">
+<audio src="audio.ogg">
+<video src="video.mp4">
+
+// Forms with the concrete method to be used and the 
+<form method="post" action="">
+  <input id="name" type="text">
+  <input id="age" type="text">
+  <input id="homepage" type="text">
+</form>
+~~~~~~~~~~~
+
+The challenge is to define the human-readable parts as machine-readable. For that a vocabulary is necessary to give meaning to the tags. Such information needs to be share beforehand. 
+
+In some models everything has to be shared from the beginning, therefore any change would involve changing the whole "framework". By forcing to share only the bare minimum, you avoid such problem.
+
+Some organizations have created predefined interfaces, all of them are predefined and described, they even provide code generation. The device logic has to support such interfaces, no changes are possible at runtime. 
+
+
+Acknowledgements
+=================
 
 
 Appendix A: Program Committee

@@ -378,10 +378,12 @@
 <link href="#rfc.section.2" rel="Chapter" title="2 Terminology"/>
 <link href="#rfc.section.3" rel="Chapter" title="3 Architecture"/>
 <link href="#rfc.section.4" rel="Chapter" title="4 Translation"/>
-<link href="#rfc.section.5" rel="Chapter" title="5 Appendix A: Program Committee"/>
-<link href="#rfc.section.6" rel="Chapter" title="6 Appendix C: Accepted Position Papers"/>
-<link href="#rfc.section.7" rel="Chapter" title="7 Appendix D: List of Participants"/>
-<link href="#rfc.references" rel="Chapter" title="8 Informative References"/>
+<link href="#rfc.section.5" rel="Chapter" title="5 Runtime Discovery"/>
+<link href="#rfc.section.6" rel="Chapter" title="6 Acknowledgements"/>
+<link href="#rfc.section.7" rel="Chapter" title="7 Appendix A: Program Committee"/>
+<link href="#rfc.section.8" rel="Chapter" title="8 Appendix C: Accepted Position Papers"/>
+<link href="#rfc.section.9" rel="Chapter" title="9 Appendix D: List of Participants"/>
+<link href="#rfc.references" rel="Chapter" title="10 Informative References"/>
 <link href="#rfc.authors" rel="Chapter"/>
 
 
@@ -451,10 +453,12 @@
 <li>2.   <a href="#rfc.section.2">Terminology</a></li>
 <li>3.   <a href="#rfc.section.3">Architecture</a></li>
 <li>4.   <a href="#rfc.section.4">Translation</a></li>
-<li>5.   <a href="#rfc.section.5">Appendix A: Program Committee</a></li>
-<li>6.   <a href="#rfc.section.6">Appendix C: Accepted Position Papers</a></li>
-<li>7.   <a href="#rfc.section.7">Appendix D: List of Participants</a></li>
-<li>8.   <a href="#rfc.references">Informative References</a></li>
+<li>5.   <a href="#rfc.section.5">Runtime Discovery</a></li>
+<li>6.   <a href="#rfc.section.6">Acknowledgements</a></li>
+<li>7.   <a href="#rfc.section.7">Appendix A: Program Committee</a></li>
+<li>8.   <a href="#rfc.section.8">Appendix C: Accepted Position Papers</a></li>
+<li>9.   <a href="#rfc.section.9">Appendix D: List of Participants</a></li>
+<li>10.   <a href="#rfc.references">Informative References</a></li>
 <li><a href="#rfc.authors">Author's Address</a></li>
 
 
@@ -506,10 +510,44 @@
 <p id="rfc.section.4.p.1">One of the targets of interoperability is to create translators between the data models. There are analogies with gateways back in 1985 when they were used to translate between network protocols, eventually IP took over providing interoperability, however we lost some of the features provided by those other protocols. The creation of an equivalent &#8220;hub/s&#8221; that offer translation between the different data models or data semantics seems one of the ways forward. Some lose of expressiveness due to the translation between models seems also unavoidable.</p>
 <p id="rfc.section.4.p.2">When it comes to translation two different distinctions appear: translating data between data models and translating data models. The first one implies doing the translation at runtime while the second performs one translation between the data models one time, like translating a YANG model to a RAML/JSON one. Indeed, for every IM multiple DMs could be translated.</p>
 <p id="rfc.section.4.p.3">In a sense these distinctions affect as to when the translation is performed. It can be done at &#8220;design time&#8221; when the information model is done, it can be done at runtime for a concrete data model and it can be done depending n the actual serialization.</p>
-<p id="rfc.section.4.p.4">Yet another distinction will appear depending on the requirements from the application protocols, RPC-style ones might require a slightly different DM than REST ones for similar operations, for example SNMP-traps could be similar to CoAP-Observations but not quite the same. It is easier to translate between systems that follow the same architecture/design pattern than across architectures, full translation might not even be possible (e.g. stateless vs statefull systems).</p>
-<h1 id="rfc.section.5"><a href="#rfc.section.5">5.</a> <a href="#appendix-a-program-committee" id="appendix-a-program-committee">Appendix A: Program Committee</a></h1>
-<p id="rfc.section.5.p.1">This workshop is organized by Jari Arkko, Ralph Droms, Jaime Jim&#233;nez, Michael Koster, Dave Thaler and Hannes Tschofenig.</p>
-<h1 id="rfc.section.6"><a href="#rfc.section.6">6.</a> <a href="#appendix-c-accepted-position-papers" id="appendix-c-accepted-position-papers">Appendix C: Accepted Position Papers</a></h1>
+<p id="rfc.section.4.p.4">Yet another distinction will appear depending on the requirements from the application protocols, RPC-style ones might require a slightly different DM than REST ones for similar operations, for example SNMP-traps could be similar to CoAP-Observations but not quite the same. It is easier to translate between systems that follow the same architecture/design pattern than across architectures, full translation might not even be possible (e.g. stateless vs stateful systems).</p>
+<p id="rfc.section.4.p.5">Translation of models script to translate XML to YANG Translation of serialized data, on a hub  in order to normalize it to other data model.</p>
+<h1 id="rfc.section.5"><a href="#rfc.section.5">5.</a> <a href="#runtime-discovery" id="runtime-discovery">Runtime Discovery</a></h1>
+<p id="rfc.section.5.p.1">Runtime changes are doing after design and at compile time.  Discovery, is it devices or data items on devices.  A lot of people think about devices but also abstract entities.  To do discovery one question is &#8220;how much must &#8220;be shared before time.  The meta-data has also two possible notions, is it instance specific (e.g. location of the thing) or does it have to do with the model itself?</p>
+<p id="rfc.section.5.p.2">Need to handle change in the environment. Replace things without manual configuration, change control flow, etc. at runtime.  Few things (vocabulary) is shared a priori.  Drives the application runtime, &#8220;Engine of application state&#8221;, we needs self-describing interaction models.  Ravi: nothing prevents HATEOAS + data model Ari: And OMA LwM2M uses SenML Matthias: these are complementary approaches. It is to point out that it is also about Interaction Models. Of course DM are needed to convey data.</p>
+<p id="rfc.section.5.p.3">Interaction model</p>
+<p id="rfc.section.5.p.4">You get one entry point (in CoAP it is the RD) and the client tries to perform discovery in order to find and follow links in order to discover capabilities. You submit forms to interact with them. This way you can create processes that span over multiple devices involved in the process. If later one you find that you need something else, you can add new functionality at runtime, next client that comes along will have the same logic but see different capabilities of functionality and therefore use it.</p>
+<p id="rfc.section.5.p.5">Parts of the information have to be shared a priori. The process is incremental, but once discovered, you don&#8217;t need to perform the same operation every time, you can go to the bookmark.</p>
+<p id="rfc.section.5.p.6">The following are examples of all those in HTML.</p>
+<pre>
+// Links (Anchors) with human-readable information
+&lt;a href="about.html"&gt;More information&lt;/a&gt;
+&lt;link rel="stylesheet" href="style.css"&gt;
+
+// Templated Links to perform a query with a parameter.
+&lt;form method="get" action="search.php"&gt;
+  &lt;input id="query" type="text"&gt;
+&lt;/form&gt;
+
+// Embedded Links which are used to embed other resources.
+&lt;img src="logo.png"&gt;
+&lt;audio src="audio.ogg"&gt;
+&lt;video src="video.mp4"&gt;
+
+// Forms with the concrete method to be used and the 
+&lt;form method="post" action=""&gt;
+  &lt;input id="name" type="text"&gt;
+  &lt;input id="age" type="text"&gt;
+  &lt;input id="homepage" type="text"&gt;
+&lt;/form&gt;
+</pre>
+<p id="rfc.section.5.p.7">The challenge is to define the human-readable parts as machine-readable. For that a vocabulary is necessary to give meaning to the tags. Such information needs to be share beforehand.</p>
+<p id="rfc.section.5.p.8">In some models everything has to be shared from the beginning, therefore any change would involve changing the whole &#8220;framework&#8221;. By forcing to share only the bare minimum, you avoid such problem.</p>
+<p id="rfc.section.5.p.9">Some organizations have created predefined interfaces, all of them are predefined and described, they even provide code generation. The device logic has to support such interfaces, no changes are possible at runtime.</p>
+<h1 id="rfc.section.6"><a href="#rfc.section.6">6.</a> <a href="#acknowledgements" id="acknowledgements">Acknowledgements</a></h1>
+<h1 id="rfc.section.7"><a href="#rfc.section.7">7.</a> <a href="#appendix-a-program-committee" id="appendix-a-program-committee">Appendix A: Program Committee</a></h1>
+<p id="rfc.section.7.p.1">This workshop is organized by Jari Arkko, Ralph Droms, Jaime Jim&#233;nez, Michael Koster, Dave Thaler and Hannes Tschofenig.</p>
+<h1 id="rfc.section.8"><a href="#rfc.section.8">8.</a> <a href="#appendix-c-accepted-position-papers" id="appendix-c-accepted-position-papers">Appendix C: Accepted Position Papers</a></h1>
 <p/>
 
 <ol>
@@ -557,7 +595,7 @@
   <li>Mark Underwood, Michael Gruninger, Leo Obrst, Ken Baclawski, Mike Bennett, Gary Berg-Cross, Torsten Hahmann, Ram Sriram, &#8220;Internet of Things: Toward Smart Networked Systems and Societies&#8221;</li>
   <li>Peter van der Stok, Andy Bierman, &#8220;YANG-Based Constrained Management Interface (CoMI)&#8221;</li>
 </ol>
-<h1 id="rfc.section.7"><a href="#rfc.section.7">7.</a> <a href="#appendix-d-list-of-participants" id="appendix-d-list-of-participants">Appendix D: List of Participants</a></h1>
+<h1 id="rfc.section.9"><a href="#rfc.section.9">9.</a> <a href="#appendix-d-list-of-participants" id="appendix-d-list-of-participants">Appendix D: List of Participants</a></h1>
 <p/>
 
 <ul>
@@ -601,7 +639,7 @@
   <li>Hannes Tschofenig, ARM</li>
   <li>Michael Verschoor, Philips Lightning</li>
 </ul>
-<h1 id="rfc.references"><a href="#rfc.references">8.</a> Informative References</h1>
+<h1 id="rfc.references"><a href="#rfc.references">10.</a> Informative References</h1>
 <table>
   <tbody>
     <tr>

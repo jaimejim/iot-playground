@@ -70,11 +70,13 @@ Table of Contents
    2.  Terminology . . . . . . . . . . . . . . . . . . . . . . . . .   3
    3.  Architecture  . . . . . . . . . . . . . . . . . . . . . . . .   4
    4.  Translation . . . . . . . . . . . . . . . . . . . . . . . . .   5
-   5.  Appendix A: Program Committee . . . . . . . . . . . . . . . .   5
-   6.  Appendix C: Accepted Position Papers  . . . . . . . . . . . .   5
-   7.  Appendix D: List of Participants  . . . . . . . . . . . . . .   8
-   8.  Informative References  . . . . . . . . . . . . . . . . . . .  10
-   Author's Address  . . . . . . . . . . . . . . . . . . . . . . . .  10
+   5.  Runtime Discovery . . . . . . . . . . . . . . . . . . . . . .   5
+   6.  Acknowledgements  . . . . . . . . . . . . . . . . . . . . . .   7
+   7.  Appendix A: Program Committee . . . . . . . . . . . . . . . .   7
+   8.  Appendix C: Accepted Position Papers  . . . . . . . . . . . .   7
+   9.  Appendix D: List of Participants  . . . . . . . . . . . . . .  10
+   10. Informative References  . . . . . . . . . . . . . . . . . . .  11
+   Author's Address  . . . . . . . . . . . . . . . . . . . . . . . .  12
 
 1.  Introduction
 
@@ -104,8 +106,6 @@ Table of Contents
    Thus, the IOTSI Workshop was organized in order to find commonalities
    between the different models proposed by various organizations,
    industries and academia.  Few of the identified topics where:
-
-
 
 
 
@@ -257,14 +257,104 @@ Internet-Draft                    IOTSI                         May 2016
    quite the same.  It is easier to translate between systems that
    follow the same architecture/design pattern than across
    architectures, full translation might not even be possible (e.g.
-   stateless vs statefull systems).
+   stateless vs stateful systems).
 
-5.  Appendix A: Program Committee
+   Translation of models script to translate XML to YANG Translation of
+   serialized data, on a hub in order to normalize it to other data
+   model.
+
+5.  Runtime Discovery
+
+   Runtime changes are doing after design and at compile time.
+   Discovery, is it devices or data items on devices.  A lot of people
+   think about devices but also abstract entities.  To do discovery one
+   question is "how much must "be shared before time.  The meta-data has
+   also two possible notions, is it instance specific (e.g. location of
+   the thing) or does it have to do with the model itself?
+
+   Need to handle change in the environment.  Replace things without
+   manual configuration, change control flow, etc. at runtime.  Few
+
+
+
+Jimenez                 Expires November 12, 2016               [Page 5]
+
+Internet-Draft                    IOTSI                         May 2016
+
+
+   things (vocabulary) is shared a priori.  Drives the application
+   runtime, "Engine of application state", we needs self-describing
+   interaction models.  Ravi: nothing prevents HATEOAS + data model Ari:
+   And OMA LwM2M uses SenML Matthias: these are complementary
+   approaches.  It is to point out that it is also about Interaction
+   Models.  Of course DM are needed to convey data.
+
+   Interaction model
+
+   You get one entry point (in CoAP it is the RD) and the client tries
+   to perform discovery in order to find and follow links in order to
+   discover capabilities.  You submit forms to interact with them.  This
+   way you can create processes that span over multiple devices involved
+   in the process.  If later one you find that you need something else,
+   you can add new functionality at runtime, next client that comes
+   along will have the same logic but see different capabilities of
+   functionality and therefore use it.
+
+   Parts of the information have to be shared a priori.  The process is
+   incremental, but once discovered, you don't need to perform the same
+   operation every time, you can go to the bookmark.
+
+   The following are examples of all those in HTML.
+
+   // Links (Anchors) with human-readable information
+   <a href="about.html">More information</a>
+   <link rel="stylesheet" href="style.css">
+
+   // Templated Links to perform a query with a parameter.
+   <form method="get" action="search.php">
+     <input id="query" type="text">
+   </form>
+
+   // Embedded Links which are used to embed other resources.
+   <img src="logo.png">
+   <audio src="audio.ogg">
+   <video src="video.mp4">
+
+   // Forms with the concrete method to be used and the
+   <form method="post" action="">
+     <input id="name" type="text">
+     <input id="age" type="text">
+     <input id="homepage" type="text">
+   </form>
+
+   The challenge is to define the human-readable parts as machine-
+   readable.  For that a vocabulary is necessary to give meaning to the
+   tags.  Such information needs to be share beforehand.
+
+
+
+Jimenez                 Expires November 12, 2016               [Page 6]
+
+Internet-Draft                    IOTSI                         May 2016
+
+
+   In some models everything has to be shared from the beginning,
+   therefore any change would involve changing the whole "framework".
+   By forcing to share only the bare minimum, you avoid such problem.
+
+   Some organizations have created predefined interfaces, all of them
+   are predefined and described, they even provide code generation.  The
+   device logic has to support such interfaces, no changes are possible
+   at runtime.
+
+6.  Acknowledgements
+
+7.  Appendix A: Program Committee
 
    This workshop is organized by Jari Arkko, Ralph Droms, Jaime Jimenez,
    Michael Koster, Dave Thaler and Hannes Tschofenig.
 
-6.  Appendix C: Accepted Position Papers
+8.  Appendix C: Accepted Position Papers
 
    1.   Jari Arkko, "Gadgets and Protocols Come and Go, Data Is Forever"
 
@@ -274,13 +364,6 @@ Internet-Draft                    IOTSI                         May 2016
         space"
 
    4.   Robert Cragie, "The ZigBee Cluster Library over IP"
-
-
-
-Jimenez                 Expires November 12, 2016               [Page 5]
-
-Internet-Draft                    IOTSI                         May 2016
-
 
    5.   Dee Denteneer, Michael Verschoor, Teresa Zotti, "Fairhair:
         interoperable IoT services for major Building Automation and
@@ -302,6 +385,14 @@ Internet-Draft                    IOTSI                         May 2016
 
    11.  Russ Housley, "Vehicle-to-Vehicle and Vehicle-to-Infrastructure
         Communications"
+
+
+
+
+Jimenez                 Expires November 12, 2016               [Page 7]
+
+Internet-Draft                    IOTSI                         May 2016
+
 
    12.  Jaime Jimenez, Michael Koster, Hannes Tschofenig, "IPSO Smart
         Objects"
@@ -331,13 +422,6 @@ Internet-Draft                    IOTSI                         May 2016
    20.  Kai Kreuzer, "A Pragmatic Approach to Interoperability in the
         Internet of Things"
 
-
-
-Jimenez                 Expires November 12, 2016               [Page 6]
-
-Internet-Draft                    IOTSI                         May 2016
-
-
    21.  Barry Leiba, "Position Paper"
 
    22.  Marcello Lioy, "AllJoyn"
@@ -356,6 +440,15 @@ Internet-Draft                    IOTSI                         May 2016
         Parallel Parti"
 
    27.  Joaquin Prado, "OMA Lightweight M2M Resource Model"
+
+
+
+
+
+Jimenez                 Expires November 12, 2016               [Page 8]
+
+Internet-Draft                    IOTSI                         May 2016
+
 
    28.  Dave Raggett, Soumya Kanti Datta, "Input paper for IAB Semantic
         Interoperability Workshop"
@@ -385,15 +478,6 @@ Internet-Draft                    IOTSI                         May 2016
    36.  J.  Clarke Stevens, Piper Merriam, "Derived Models for
         Interoperability Between IoT Ecosystems"
 
-
-
-
-
-Jimenez                 Expires November 12, 2016               [Page 7]
-
-Internet-Draft                    IOTSI                         May 2016
-
-
    37.  Ravi Subramaniam, "Semantic Interoperability in Open
         Connectivity Foundation (OCF) - formerly Open Interconnect
         Consortium (OIC)""
@@ -413,10 +497,19 @@ Internet-Draft                    IOTSI                         May 2016
         "Internet of Things: Toward Smart Networked Systems and
         Societies"
 
+
+
+
+
+Jimenez                 Expires November 12, 2016               [Page 9]
+
+Internet-Draft                    IOTSI                         May 2016
+
+
    43.  Peter van der Stok, Andy Bierman, "YANG-Based Constrained
         Management Interface (CoMI)"
 
-7.  Appendix D: List of Participants
+9.  Appendix D: List of Participants
 
    o  Andy Bierman, YumaWorks
 
@@ -442,14 +535,6 @@ Internet-Draft                    IOTSI                         May 2016
 
    o  Russ Housley, Vigil Security
 
-
-
-
-Jimenez                 Expires November 12, 2016               [Page 8]
-
-Internet-Draft                    IOTSI                         May 2016
-
-
    o  David Janes, IOTDB
 
    o  Jaime Jimenez, Ericsson
@@ -469,6 +554,13 @@ Internet-Draft                    IOTSI                         May 2016
    o  Steve Liang, Uni Calgary
 
    o  Marcello Lioy, Qualcomm
+
+
+
+Jimenez                 Expires November 12, 2016              [Page 10]
+
+Internet-Draft                    IOTSI                         May 2016
+
 
    o  Kerry Lynn, Verizon
 
@@ -498,21 +590,13 @@ Internet-Draft                    IOTSI                         May 2016
 
    o  Darshak Thakore, Cablelabs
 
-
-
-
-Jimenez                 Expires November 12, 2016               [Page 9]
-
-Internet-Draft                    IOTSI                         May 2016
-
-
    o  Dave Thaler, Microsoft
 
    o  Hannes Tschofenig, ARM
 
    o  Michael Verschoor, Philips Lightning
 
-8.  Informative References
+10.  Informative References
 
    [IOTSIAG]  IAB, "IoT Workshop for Semantic Interoperability (IOTSI) -
               Agenda and Slides", 2016,
@@ -525,6 +609,14 @@ Internet-Draft                    IOTSI                         May 2016
    [IOTSIWS]  IAB, "IoT Workshop for Semantic Interoperability (IOTSI) -
               Main Page and Position Papers", 2016,
               <https://www.iab.org/activities/workshops/iotsi/>.
+
+
+
+
+Jimenez                 Expires November 12, 2016              [Page 11]
+
+Internet-Draft                    IOTSI                         May 2016
+
 
    [RFC3444]  Pras, A. and J. Schoenwaelder, "On the Difference between
               Information Models and Data Models", RFC 3444, DOI
@@ -557,4 +649,24 @@ Author's Address
 
 
 
-Jimenez                 Expires November 12, 2016              [Page 10]
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Jimenez                 Expires November 12, 2016              [Page 12]
