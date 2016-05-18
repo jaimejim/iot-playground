@@ -538,12 +538,18 @@
 &lt;form method="post" action=""&gt;
   &lt;input id="name" type="text"&gt;
   &lt;input id="age" type="text"&gt;
-  &lt;input id="homepage" type="text"&gt;
+  &lt;input id="homepage" type="text"&gt;     
 &lt;/form&gt;
 </pre>
 <p id="rfc.section.5.p.7">The challenge is to define the human-readable parts as machine-readable. For that a vocabulary is necessary to give meaning to the tags. Such information needs to be share beforehand.</p>
 <p id="rfc.section.5.p.8">In some models everything has to be shared from the beginning, therefore any change would involve changing the whole &#8220;framework&#8221;. By forcing to share only the bare minimum, you avoid such problem.</p>
 <p id="rfc.section.5.p.9">Some organizations have created predefined interfaces, all of them are predefined and described, they even provide code generation. The device logic has to support such interfaces, no changes are possible at runtime.</p>
+<p id="rfc.section.5.p.10">Data models have common elements that have the property of composition. Often alliances provide repositories for data models, static definitions of &#8220;things&#8221; and how to composed them. With links and composition, you can create more dynamic interactions and describe the environment so that it is discovered in runtime. On top of that there can be annotations with the notion of interfaces. There are also discovery mechanisms where anything related to the state of a thing can be discovered.</p>
+<p id="rfc.section.5.p.11">You have to know the vocabulary used a priori, basic assumptions for discovery, there is a handle that will point.</p>
+<p id="rfc.section.5.p.12">The challenge is to have the features that are exposed and modeled (DM and IM) and to keep the backwards compatibility. As well as having the capability to provide new features in the future.</p>
+<p id="rfc.section.5.p.13">All of this is done in the case that we want to have something better than just having firmware updates every time.</p>
+<p id="rfc.section.5.p.14">BLE they have an additional discovery services and some metadata that refers to the data type. A generic client could understand some of the characteristics. The interaction model is not something to be easily reconstructed. With HATEOAS and OCF&#8217;s approach, it seems that you can learn how to interact with the device with that metadata.  Let&#8217;s say that we don&#8217;t need that crap, it is not useful. If someone wants a device he can just download some software and use it. for some of the use cases it is needed. if I buy a heart rate monitor. i can do that as a developer i dont want to use that. It is also needed to keep the support the prior features. Also if I want to change vendor. The notion is that after discovery I know how to use it eve if I don&#8217;t know what it is.</p>
+<p id="rfc.section.5.p.15">It depends also on how do you see the programming environment.  translation from one data model to another. gw sucks the code and does the translation. ar esome of the language so powerful to do that? prototype to do something</p>
 <h1 id="rfc.section.6"><a href="#rfc.section.6">6.</a> <a href="#acknowledgements" id="acknowledgements">Acknowledgements</a></h1>
 <h1 id="rfc.section.7"><a href="#rfc.section.7">7.</a> <a href="#appendix-a-program-committee" id="appendix-a-program-committee">Appendix A: Program Committee</a></h1>
 <p id="rfc.section.7.p.1">This workshop is organized by Jari Arkko, Ralph Droms, Jaime Jim&#233;nez, Michael Koster, Dave Thaler and Hannes Tschofenig.</p>

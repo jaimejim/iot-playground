@@ -19,7 +19,6 @@ author:
     email: jaime.jimenez@ericsson.com
 
 normative:
- 
 
 informative:
   RFC3444:
@@ -159,7 +158,7 @@ The following are examples of all those in HTML.
 <form method="post" action="">
   <input id="name" type="text">
   <input id="age" type="text">
-  <input id="homepage" type="text">
+  <input id="homepage" type="text">     
 </form>
 ~~~~~~~~~~~
 
@@ -169,6 +168,19 @@ In some models everything has to be shared from the beginning, therefore any cha
 
 Some organizations have created predefined interfaces, all of them are predefined and described, they even provide code generation. The device logic has to support such interfaces, no changes are possible at runtime. 
 
+Data models have common elements that have the property of composition. Often alliances provide repositories for data models, static definitions of "things" and how to composed them. With links and composition, you can create more dynamic interactions and describe the environment so that it is discovered in runtime. On top of that there can be annotations with the notion of interfaces. There are also discovery mechanisms where anything related to the state of a thing can be discovered. 
+
+You have to know the vocabulary used a priori, basic assumptions for discovery, there is a handle that will point. 
+
+The challenge is to have the features that are exposed and modeled (DM and IM) and to keep the backwards compatibility. As well as having the capability to provide new features in the future. 
+
+All of this is done in the case that we want to have something better than just having firmware updates every time.  
+
+BLE they have an additional discovery services and some metadata that refers to the data type. A generic client could understand some of the characteristics. The interaction model is not something to be easily reconstructed. With HATEOAS and OCF's approach, it seems that you can learn how to interact with the device with that metadata.
+Let's say that we don't need that crap, it is not useful. If someone wants a device he can just download some software and use it. for some of the use cases it is needed. if I buy a heart rate monitor. i can do that as a developer i dont want to use that. It is also needed to keep the support the prior features. Also if I want to change vendor. The notion is that after discovery I know how to use it eve if I don't know what it is. 
+
+It depends also on how do you see the programming environment. 
+translation from one data model to another. gw sucks the code and does the translation. ar esome of the language so powerful to do that? prototype to do something
 
 Acknowledgements
 =================

@@ -71,11 +71,11 @@ Table of Contents
    3.  Architecture  . . . . . . . . . . . . . . . . . . . . . . . .   4
    4.  Translation . . . . . . . . . . . . . . . . . . . . . . . . .   5
    5.  Runtime Discovery . . . . . . . . . . . . . . . . . . . . . .   5
-   6.  Acknowledgements  . . . . . . . . . . . . . . . . . . . . . .   7
-   7.  Appendix A: Program Committee . . . . . . . . . . . . . . . .   7
-   8.  Appendix C: Accepted Position Papers  . . . . . . . . . . . .   7
+   6.  Acknowledgements  . . . . . . . . . . . . . . . . . . . . . .   8
+   7.  Appendix A: Program Committee . . . . . . . . . . . . . . . .   8
+   8.  Appendix C: Accepted Position Papers  . . . . . . . . . . . .   8
    9.  Appendix D: List of Participants  . . . . . . . . . . . . . .  10
-   10. Informative References  . . . . . . . . . . . . . . . . . . .  11
+   10. Informative References  . . . . . . . . . . . . . . . . . . .  12
    Author's Address  . . . . . . . . . . . . . . . . . . . . . . . .  12
 
 1.  Introduction
@@ -347,6 +347,53 @@ Internet-Draft                    IOTSI                         May 2016
    device logic has to support such interfaces, no changes are possible
    at runtime.
 
+   Data models have common elements that have the property of
+   composition.  Often alliances provide repositories for data models,
+   static definitions of "things" and how to composed them.  With links
+   and composition, you can create more dynamic interactions and
+   describe the environment so that it is discovered in runtime.  On top
+   of that there can be annotations with the notion of interfaces.
+   There are also discovery mechanisms where anything related to the
+   state of a thing can be discovered.
+
+   You have to know the vocabulary used a priori, basic assumptions for
+   discovery, there is a handle that will point.
+
+   The challenge is to have the features that are exposed and modeled
+   (DM and IM) and to keep the backwards compatibility.  As well as
+   having the capability to provide new features in the future.
+
+   All of this is done in the case that we want to have something better
+   than just having firmware updates every time.
+
+   BLE they have an additional discovery services and some metadata that
+   refers to the data type.  A generic client could understand some of
+   the characteristics.  The interaction model is not something to be
+   easily reconstructed.  With HATEOAS and OCF's approach, it seems that
+   you can learn how to interact with the device with that metadata.
+   Let's say that we don't need that crap, it is not useful.  If someone
+   wants a device he can just download some software and use it. for
+   some of the use cases it is needed. if I buy a heart rate monitor. i
+   can do that as a developer i dont want to use that.  It is also
+   needed to keep the support the prior features.  Also if I want to
+   change vendor.  The notion is that after discovery I know how to use
+   it eve if I don't know what it is.
+
+   It depends also on how do you see the programming environment.
+   translation from one data model to another. gw sucks the code and
+   does the translation. ar esome of the language so powerful to do
+   that? prototype to do something
+
+
+
+
+
+
+Jimenez                 Expires November 12, 2016               [Page 7]
+
+Internet-Draft                    IOTSI                         May 2016
+
+
 6.  Acknowledgements
 
 7.  Appendix A: Program Committee
@@ -386,14 +433,6 @@ Internet-Draft                    IOTSI                         May 2016
    11.  Russ Housley, "Vehicle-to-Vehicle and Vehicle-to-Infrastructure
         Communications"
 
-
-
-
-Jimenez                 Expires November 12, 2016               [Page 7]
-
-Internet-Draft                    IOTSI                         May 2016
-
-
    12.  Jaime Jimenez, Michael Koster, Hannes Tschofenig, "IPSO Smart
         Objects"
 
@@ -402,6 +441,14 @@ Internet-Draft                    IOTSI                         May 2016
 
    14.  Sebastian Kaebisch, Darko Anicic, "Thing Description as Enabler
         of Semantic Interoperability on the Web of Things"
+
+
+
+
+Jimenez                 Expires November 12, 2016               [Page 8]
+
+Internet-Draft                    IOTSI                         May 2016
+
 
    15.  Achilleas Kemos, "Alliance for Internet of Things Innovation
         Semantic Interoperability Release 2.0, AIOTI WG03 - IoT
@@ -441,15 +488,6 @@ Internet-Draft                    IOTSI                         May 2016
 
    27.  Joaquin Prado, "OMA Lightweight M2M Resource Model"
 
-
-
-
-
-Jimenez                 Expires November 12, 2016               [Page 8]
-
-Internet-Draft                    IOTSI                         May 2016
-
-
    28.  Dave Raggett, Soumya Kanti Datta, "Input paper for IAB Semantic
         Interoperability Workshop"
 
@@ -459,6 +497,14 @@ Internet-Draft                    IOTSI                         May 2016
    30.  Jasper Roes, Laura Daniele, "Towards semantic interoperability
         in the IoT using the Smart Appliances REFerence ontology (SAREF)
         and its extensions"
+
+
+
+
+Jimenez                 Expires November 12, 2016               [Page 9]
+
+Internet-Draft                    IOTSI                         May 2016
+
 
    31.  Max Senges, "Submission for IAB IoT Sematic Interoperability
         workshop"
@@ -497,15 +543,6 @@ Internet-Draft                    IOTSI                         May 2016
         "Internet of Things: Toward Smart Networked Systems and
         Societies"
 
-
-
-
-
-Jimenez                 Expires November 12, 2016               [Page 9]
-
-Internet-Draft                    IOTSI                         May 2016
-
-
    43.  Peter van der Stok, Andy Bierman, "YANG-Based Constrained
         Management Interface (CoMI)"
 
@@ -516,6 +553,14 @@ Internet-Draft                    IOTSI                         May 2016
    o  Carsten Bormann, Uni Bremen/TZI
 
    o  Ben Campbell, Oracle
+
+
+
+
+Jimenez                 Expires November 12, 2016              [Page 10]
+
+Internet-Draft                    IOTSI                         May 2016
+
 
    o  Benoit Claise, Cisco
 
@@ -555,13 +600,6 @@ Internet-Draft                    IOTSI                         May 2016
 
    o  Marcello Lioy, Qualcomm
 
-
-
-Jimenez                 Expires November 12, 2016              [Page 10]
-
-Internet-Draft                    IOTSI                         May 2016
-
-
    o  Kerry Lynn, Verizon
 
    o  Mayan Mathen, Catalina Labs
@@ -571,6 +609,14 @@ Internet-Draft                    IOTSI                         May 2016
    o  Jean Paoli, Microsoft
 
    o  Joaquin Prado, OMA
+
+
+
+
+Jimenez                 Expires November 12, 2016              [Page 11]
+
+Internet-Draft                    IOTSI                         May 2016
+
 
    o  Dave Raggett, W3C
 
@@ -610,20 +656,23 @@ Internet-Draft                    IOTSI                         May 2016
               Main Page and Position Papers", 2016,
               <https://www.iab.org/activities/workshops/iotsi/>.
 
-
-
-
-Jimenez                 Expires November 12, 2016              [Page 11]
-
-Internet-Draft                    IOTSI                         May 2016
-
-
    [RFC3444]  Pras, A. and J. Schoenwaelder, "On the Difference between
               Information Models and Data Models", RFC 3444, DOI
               10.17487/RFC3444, January 2003,
               <http://www.rfc-editor.org/info/rfc3444>.
 
 Author's Address
+
+
+
+
+
+
+
+Jimenez                 Expires November 12, 2016              [Page 12]
+
+Internet-Draft                    IOTSI                         May 2016
+
 
    Jaime Jimenez
    Ericsson
@@ -669,4 +718,11 @@ Author's Address
 
 
 
-Jimenez                 Expires November 12, 2016              [Page 12]
+
+
+
+
+
+
+
+Jimenez                 Expires November 12, 2016              [Page 13]
