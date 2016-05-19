@@ -3,26 +3,30 @@
 
 
 Network Working Group                                         J. Jimenez
-Internet-Draft                                                  Ericsson
-Intended status: Informational                              May 11, 2016
-Expires: November 12, 2016
+Internet-Draft
+Intended status: Informational                             H. Tschofenig
+Expires: November 18, 2016
+                                                               D. Thaler
+
+                                                            May 17, 2016
 
 
- Report from the IAB Workshop on IoT Semantic Interoperability (IOTSI)
-                          draft-iotsi-jaime-00
+   Report from the Internet of Things (IoT) Semantic Interoperability
+                         (IOTSI) Workshop 2016
+               draft-jimenez-iotsi-workshop-report-00.txt
 
 Abstract
 
-   This document provides a summary of the IAB Workshop on IoT Semantic
-   Interoperability (IOTSI) [IOTSIWS], which took place in Santa Clara,
-   CA, on March 17-18, 2016.  The main goal of the workshop was to
-   foster a discussion on the different Semantics used by multiple
-   organizations to define IoT information.  This report summarizes the
-   discussions and lists recommendations to the Internet Engineering
-   Task Force (IETF) community.  The views and positions in this report
-   are those of the workshop participants and do not necessarily reflect
-   the views and positions of the authors, the Internet Architecture
-   Board (IAB).
+   This document provides a summary of the 'Workshop on Internet of
+   Things (IoT) Semantic Interoperability (IOTSI)' [IOTSIWS], which took
+   place in Santa Clara, CA, on March 17-18, 2016.  The main goal of the
+   workshop was to foster a discussion on the different approaches used
+   by companies and standards developing organizations to accomplish
+   interoperability at the application layer.  This report summarizes
+   the discussions and lists recommendations to the standards community.
+   The views and positions in this report are those of the workshop
+   participants and do not necessarily reflect those of the authors and
+   the Internet Architecture Board (IAB), which organized the workshop.
 
 Status of This Memo
 
@@ -39,25 +43,25 @@ Status of This Memo
    time.  It is inappropriate to use Internet-Drafts as reference
    material or to cite them other than as "work in progress."
 
-   This Internet-Draft will expire on November 12, 2016.
+   This Internet-Draft will expire on November 18, 2016.
 
 Copyright Notice
 
    Copyright (c) 2016 IETF Trust and the persons identified as the
    document authors.  All rights reserved.
 
-   This document is subject to BCP 78 and the IETF Trust's Legal
-   Provisions Relating to IETF Documents
-   (http://trustee.ietf.org/license-info) in effect on the date of
-   publication of this document.  Please review these documents
 
 
 
-Jimenez                 Expires November 12, 2016               [Page 1]
+Jimenez, et al.         Expires November 18, 2016               [Page 1]
 
 Internet-Draft                    IOTSI                         May 2016
 
 
+   This document is subject to BCP 78 and the IETF Trust's Legal
+   Provisions Relating to IETF Documents
+   (http://trustee.ietf.org/license-info) in effect on the date of
+   publication of this document.  Please review these documents
    carefully, as they describe your rights and restrictions with respect
    to this document.  Code Components extracted from this document must
    include Simplified BSD License text as described in Section 4.e of
@@ -69,50 +73,50 @@ Table of Contents
    1.  Introduction  . . . . . . . . . . . . . . . . . . . . . . . .   2
    2.  Terminology . . . . . . . . . . . . . . . . . . . . . . . . .   3
    3.  Architecture  . . . . . . . . . . . . . . . . . . . . . . . .   4
-   4.  Translation . . . . . . . . . . . . . . . . . . . . . . . . .   5
-   5.  Runtime Discovery . . . . . . . . . . . . . . . . . . . . . .   5
-   6.  Acknowledgements  . . . . . . . . . . . . . . . . . . . . . .   8
-   7.  Appendix A: Program Committee . . . . . . . . . . . . . . . .   8
-   8.  Appendix C: Accepted Position Papers  . . . . . . . . . . . .   8
-   9.  Appendix D: List of Participants  . . . . . . . . . . . . . .  10
-   10. Informative References  . . . . . . . . . . . . . . . . . . .  12
-   Author's Address  . . . . . . . . . . . . . . . . . . . . . . . .  12
+   4.  What Problems to Solve  . . . . . . . . . . . . . . . . . . .   5
+   5.  Translation . . . . . . . . . . . . . . . . . . . . . . . . .   6
+   6.  Runtime Discovery . . . . . . . . . . . . . . . . . . . . . .   6
+   7.  Acknowledgements  . . . . . . . . . . . . . . . . . . . . . .   9
+   8.  Appendix A: Program Committee . . . . . . . . . . . . . . . .   9
+   9.  Appendix C: Accepted Position Papers  . . . . . . . . . . . .   9
+   10. Appendix D: List of Participants  . . . . . . . . . . . . . .  12
+   11. Informative References  . . . . . . . . . . . . . . . . . . .  14
+   Authors' Addresses  . . . . . . . . . . . . . . . . . . . . . . .  15
 
 1.  Introduction
 
    The Internet Architecture Board (IAB) holds occasional workshops
    designed to consider long-term issues and strategies for the
    Internet, and to suggest future directions for the Internet
-   architecture.  Some of those workshops required some cooperation
-   effort between organizations.  One of the targets of the workshops is
-   to bridge those organizations, specially when the topics are out of
-   the scope for the IETF.  This long-term planning function of the IAB
-   is complementary to the ongoing engineering efforts performed by
-   working groups of the Internet Engineering Task Force (IETF), under
-   the leadership of the Internet Engineering Steering Group (IESG) and
-   area directorates.
+   architecture.  The investigated topics often require coordinated
+   efforts of many organizations and industry bodies to improve an
+   identified problem.  One of the targets of the workshops is to
+   establish communication between relevant organizations, specially
+   when the topics are out of the scope for the Internet Engineering
+   Task Force (IETF).  This long-term planning function of the IAB is
+   complementary to the ongoing engineering efforts performed by working
+   groups of the IETF.
 
-   In the Internet of Things (IoT) area there has been significant
-   improvements on the problem of interoperability in recent years.  The
-   transition from IPv4 to IPv6 increases the address space required in
-   the IoT context.  At the application layer there seems to be a
-   similar consolidation around few protocols that follow either a REST
-   (e.g.  CoAP, HTTP) or Publish/Subscribe type of architecture (e.g.
-   MQTT).  Above the application layer (i.e. on Data Models and
-   Semantics) such degree of interoperability has not yet happened.  The
-   work on data formats has not yet reached the same level of
-   consistency throughout various standardization groups.
-
-   Thus, the IOTSI Workshop was organized in order to find commonalities
-   between the different models proposed by various organizations,
-   industries and academia.  Few of the identified topics where:
+   Increasing interoperability in the area of Internet of Things (IoT)
+   has been a top priority for many standards organizations and
+   pariticularly the lower layers of the Internet protocol stack have
+   received a lot of attention.  Also at the application layer, such as
+   with CoAP and HTTP, there is a trend in reusing RESTful design
+   patterns.  However, data exchanged on top of these application layer
+   protocols there is still a lot of fragmentation and the same degree
+   of increase in interoperability has not been observed.
 
 
 
-Jimenez                 Expires November 12, 2016               [Page 2]
+
+Jimenez, et al.         Expires November 18, 2016               [Page 2]
 
 Internet-Draft                    IOTSI                         May 2016
 
+
+   Thus, the IAB decided to organize a workshop to reach out to relevant
+   stakeholders to explore the state-of-the-art and to identify
+   communality and gaps.
 
    o  The different perceived state of the art on data and information
       models.
@@ -121,7 +125,8 @@ Internet-Draft                    IOTSI                         May 2016
       information, the so-called information model.
 
    o  The strong relationship with the underlying communication pattern,
-      such as an RPC, publish/Subscribe or RESTful designs.
+      such as remote procedure calls (RPC), publish/subscribe or RESTful
+      designs.
 
    o  Identifying which similar concepts groups have develop in
       parallel, specially those that would require only slight
@@ -131,10 +136,6 @@ Internet-Draft                    IOTSI                         May 2016
       other to offer inter working.
 
    o  Identifying common use cases for cooperation and harmonization.
-
-   It was left out of the scope of this workshop to impose specific
-   frameworks/solutions to the attendees, transport security and
-   L1/L2/L3/L4 protocol discussion.
 
 2.  Terminology
 
@@ -160,16 +161,17 @@ Internet-Draft                    IOTSI                         May 2016
       Base (MIBs), W3C Thing Description (TD) Things, YANG models, LWM2M
       Schemas, OCF Schemas and so on.
 
-   Interaction Model (IN)  it defines how data is accessed and retrieved
-      from the endpoints, being therefore tied to the specific
 
 
 
-Jimenez                 Expires November 12, 2016               [Page 3]
+
+Jimenez, et al.         Expires November 18, 2016               [Page 3]
 
 Internet-Draft                    IOTSI                         May 2016
 
 
+   Interaction Model (IN)  it defines how data is accessed and retrieved
+      from the endpoints, being therefore tied to the specific
       communication pattern that the system has (e.g.  REST methods,
       Publish/Subscribe operations or RPC-calls).
 
@@ -216,17 +218,76 @@ Internet-Draft                    IOTSI                         May 2016
    new future domains of operation. this pattern has already happened,
    devices that were intended for one purpose end up being used for a
    different one given the right context ((e.g. smart phone led light
-   turned out to be a heartrate monitor).  IoT domain is currently
-   missing insights into what user actually expect.
 
 
 
-Jimenez                 Expires November 12, 2016               [Page 4]
+Jimenez, et al.         Expires November 18, 2016               [Page 4]
 
 Internet-Draft                    IOTSI                         May 2016
 
 
-4.  Translation
+   turned out to be a heartrate monitor).  IoT domain is currently
+   missing insights into what user actually expect.
+
+4.  What Problems to Solve
+
+   Although the workshop focused on a specific problem it became obvious
+   from the position papers that various organizations, industry groups
+   and individuals attempted to solve different problems.  At least the
+   following goals have been described:
+
+   o  Formal Languages for Documentation Purposes
+
+   Standardization organizations are in the need for a more formal
+   description of their information and data models in order to simplify
+   review, and publication.  For example, the Open Mobile Alliance (OMA)
+   used an XML schema [LWM2M-Schema] to describe their object
+   definitions (i.e., data model) as XML instance documents.  These XML
+   documents offer an alternative way of describing objects compared to
+   the tabular representation found in the specification itself.  The
+   XML files of standardized objects are available for download at
+   [OMNA].  Furthermore, a tool is offered to define new objects and
+   resources.  The online editor tool can be found at [OMA-Editor].
+
+   o  Formal Languages for Code Generation
+
+   Formal data and information modelling languages for use by developers
+   to enable code generation.  For example, the Allseen Visual Studio
+   Plugin [Allseen-Plugin] offers a wizzard to generate code based on
+   the formal description of the data model.  Another example of a data
+   modelling language that can be used for code generation is YANG.  A
+   popular tool to help with code generation of YANG modules is pyang
+   [PYANG].
+
+   o  Debugging Support
+
+   Ability to allow debugging tools to implement generic object browsers
+   by utilizing the standardized information and data model.  Example:
+   NRF Bluetooth Smart sniffer from Nordic Semiconductor [nRF-Sniffer].
+
+   o  Translation
+
+   The ability for gateways and other similar devices to dynamically
+   translate (or map) one data model to another one.  An example of this
+   idea can be found in [UDI].
+
+   o  Runtime Discovery
+
+
+
+
+
+Jimenez, et al.         Expires November 18, 2016               [Page 5]
+
+Internet-Draft                    IOTSI                         May 2016
+
+
+   Allow IoT devices to exchange information, potentially along with the
+   data exchange, to discover meta-data about the data and, potentially,
+   even a self-describing interaction model.  An example of such an
+   approach has been shown with HATEOS [HATEOS].
+
+5.  Translation
 
    One of the targets of interoperability is to create translators
    between the data models.  There are analogies with gateways back in
@@ -263,25 +324,25 @@ Internet-Draft                    IOTSI                         May 2016
    serialized data, on a hub in order to normalize it to other data
    model.
 
-5.  Runtime Discovery
+6.  Runtime Discovery
 
    Runtime changes are doing after design and at compile time.
    Discovery, is it devices or data items on devices.  A lot of people
    think about devices but also abstract entities.  To do discovery one
    question is "how much must "be shared before time.  The meta-data has
+
+
+
+Jimenez, et al.         Expires November 18, 2016               [Page 6]
+
+Internet-Draft                    IOTSI                         May 2016
+
+
    also two possible notions, is it instance specific (e.g. location of
    the thing) or does it have to do with the model itself?
 
    Need to handle change in the environment.  Replace things without
    manual configuration, change control flow, etc. at runtime.  Few
-
-
-
-Jimenez                 Expires November 12, 2016               [Page 5]
-
-Internet-Draft                    IOTSI                         May 2016
-
-
    things (vocabulary) is shared a priori.  Drives the application
    runtime, "Engine of application state", we needs self-describing
    interaction models.  Ravi: nothing prevents HATEOAS + data model Ari:
@@ -305,6 +366,33 @@ Internet-Draft                    IOTSI                         May 2016
    operation every time, you can go to the bookmark.
 
    The following are examples of all those in HTML.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Jimenez, et al.         Expires November 18, 2016               [Page 7]
+
+Internet-Draft                    IOTSI                         May 2016
+
 
    // Links (Anchors) with human-readable information
    <a href="about.html">More information</a>
@@ -331,13 +419,6 @@ Internet-Draft                    IOTSI                         May 2016
    readable.  For that a vocabulary is necessary to give meaning to the
    tags.  Such information needs to be share beforehand.
 
-
-
-Jimenez                 Expires November 12, 2016               [Page 6]
-
-Internet-Draft                    IOTSI                         May 2016
-
-
    In some models everything has to be shared from the beginning,
    therefore any change would involve changing the whole "framework".
    By forcing to share only the bare minimum, you avoid such problem.
@@ -358,6 +439,16 @@ Internet-Draft                    IOTSI                         May 2016
 
    You have to know the vocabulary used a priori, basic assumptions for
    discovery, there is a handle that will point.
+
+
+
+
+
+
+Jimenez, et al.         Expires November 18, 2016               [Page 8]
+
+Internet-Draft                    IOTSI                         May 2016
+
 
    The challenge is to have the features that are exposed and modeled
    (DM and IM) and to keep the backwards compatibility.  As well as
@@ -384,24 +475,20 @@ Internet-Draft                    IOTSI                         May 2016
    does the translation. ar esome of the language so powerful to do
    that? prototype to do something
 
+7.  Acknowledgements
 
+   We would like to thank all paper authors and participants for their
+   contributions.  Due to the large number of position paper submissions
+   we were unfortunately unable to invite every author; we would like to
+   apologize to those that could not attend the workshop.
 
+8.  Appendix A: Program Committee
 
+   This workshop was organized by the following individuals: Jari Arkko,
+   Ralph Droms, Jaime Jimenez, Michael Koster, Dave Thaler, and Hannes
+   Tschofenig.
 
-
-Jimenez                 Expires November 12, 2016               [Page 7]
-
-Internet-Draft                    IOTSI                         May 2016
-
-
-6.  Acknowledgements
-
-7.  Appendix A: Program Committee
-
-   This workshop is organized by Jari Arkko, Ralph Droms, Jaime Jimenez,
-   Michael Koster, Dave Thaler and Hannes Tschofenig.
-
-8.  Appendix C: Accepted Position Papers
+9.  Appendix C: Accepted Position Papers
 
    1.   Jari Arkko, "Gadgets and Protocols Come and Go, Data Is Forever"
 
@@ -411,6 +498,13 @@ Internet-Draft                    IOTSI                         May 2016
         space"
 
    4.   Robert Cragie, "The ZigBee Cluster Library over IP"
+
+
+
+Jimenez, et al.         Expires November 18, 2016               [Page 9]
+
+Internet-Draft                    IOTSI                         May 2016
+
 
    5.   Dee Denteneer, Michael Verschoor, Teresa Zotti, "Fairhair:
         interoperable IoT services for major Building Automation and
@@ -442,14 +536,6 @@ Internet-Draft                    IOTSI                         May 2016
    14.  Sebastian Kaebisch, Darko Anicic, "Thing Description as Enabler
         of Semantic Interoperability on the Web of Things"
 
-
-
-
-Jimenez                 Expires November 12, 2016               [Page 8]
-
-Internet-Draft                    IOTSI                         May 2016
-
-
    15.  Achilleas Kemos, "Alliance for Internet of Things Innovation
         Semantic Interoperability Release 2.0, AIOTI WG03 - IoT
         Standardisation"
@@ -468,6 +554,13 @@ Internet-Draft                    IOTSI                         May 2016
 
    20.  Kai Kreuzer, "A Pragmatic Approach to Interoperability in the
         Internet of Things"
+
+
+
+Jimenez, et al.         Expires November 18, 2016              [Page 10]
+
+Internet-Draft                    IOTSI                         May 2016
+
 
    21.  Barry Leiba, "Position Paper"
 
@@ -498,14 +591,6 @@ Internet-Draft                    IOTSI                         May 2016
         in the IoT using the Smart Appliances REFerence ontology (SAREF)
         and its extensions"
 
-
-
-
-Jimenez                 Expires November 12, 2016               [Page 9]
-
-Internet-Draft                    IOTSI                         May 2016
-
-
    31.  Max Senges, "Submission for IAB IoT Sematic Interoperability
         workshop"
 
@@ -523,6 +608,15 @@ Internet-Draft                    IOTSI                         May 2016
 
    36.  J.  Clarke Stevens, Piper Merriam, "Derived Models for
         Interoperability Between IoT Ecosystems"
+
+
+
+
+
+Jimenez, et al.         Expires November 18, 2016              [Page 11]
+
+Internet-Draft                    IOTSI                         May 2016
+
 
    37.  Ravi Subramaniam, "Semantic Interoperability in Open
         Connectivity Foundation (OCF) - formerly Open Interconnect
@@ -546,7 +640,7 @@ Internet-Draft                    IOTSI                         May 2016
    43.  Peter van der Stok, Andy Bierman, "YANG-Based Constrained
         Management Interface (CoMI)"
 
-9.  Appendix D: List of Participants
+10.  Appendix D: List of Participants
 
    o  Andy Bierman, YumaWorks
 
@@ -554,19 +648,11 @@ Internet-Draft                    IOTSI                         May 2016
 
    o  Ben Campbell, Oracle
 
-
-
-
-Jimenez                 Expires November 12, 2016              [Page 10]
-
-Internet-Draft                    IOTSI                         May 2016
-
-
    o  Benoit Claise, Cisco
 
    o  Alissa Cooper, Cisco
 
-   o  Robert Cragie, ARM
+   o  Robert Cragie, ARM Limited
 
    o  Laura Daniele, TNO
 
@@ -579,6 +665,14 @@ Internet-Draft                    IOTSI                         May 2016
    o  Yonggeun Hong, ETRI
 
    o  Russ Housley, Vigil Security
+
+
+
+
+Jimenez, et al.         Expires November 18, 2016              [Page 12]
+
+Internet-Draft                    IOTSI                         May 2016
+
 
    o  David Janes, IOTDB
 
@@ -610,14 +704,6 @@ Internet-Draft                    IOTSI                         May 2016
 
    o  Joaquin Prado, OMA
 
-
-
-
-Jimenez                 Expires November 12, 2016              [Page 11]
-
-Internet-Draft                    IOTSI                         May 2016
-
-
    o  Dave Raggett, W3C
 
    o  Max Senges, Google
@@ -626,7 +712,7 @@ Internet-Draft                    IOTSI                         May 2016
 
    o  Robert Sparks, Oracle
 
-   o  Ram Sriram, Nist
+   o  Ram Sriram, NIST
 
    o  Clarke Stevens
 
@@ -636,13 +722,31 @@ Internet-Draft                    IOTSI                         May 2016
 
    o  Darshak Thakore, Cablelabs
 
+
+
+
+Jimenez, et al.         Expires November 18, 2016              [Page 13]
+
+Internet-Draft                    IOTSI                         May 2016
+
+
    o  Dave Thaler, Microsoft
 
-   o  Hannes Tschofenig, ARM
+   o  Hannes Tschofenig, ARM Limited
 
    o  Michael Verschoor, Philips Lightning
 
-10.  Informative References
+11.  Informative References
+
+   [Allseen-Plugin]
+              Rockwell, B., "Using the AllJoyn Studio Extension",
+              https://channel9.msdn.com/Blogs/Internet-of-Things-Blog/
+              Using-the-AllJoyn--Studio-Extension , 2016.
+
+   [HATEOS]   Kovatsch, M., "Semantic Interoperability Requires
+              Self&#173;describing Interaction Models - HATEOAS for the
+              Internet of Things", Proceedings of the IoT Semantic
+              Interoperability Workshop 2016, 2016.
 
    [IOTSIAG]  IAB, "IoT Workshop for Semantic Interoperability (IOTSI) -
               Agenda and Slides", 2016,
@@ -652,34 +756,66 @@ Internet-Draft                    IOTSI                         May 2016
               IOTSI, "Github Collaborative Repository", 2016,
               <https://github.com/iotsi>.
 
-   [IOTSIWS]  IAB, "IoT Workshop for Semantic Interoperability (IOTSI) -
-              Main Page and Position Papers", 2016,
+   [IOTSIWS]  IAB, "IoT Workshop for Semantic Interoperability (IOTSI)
+              2016 - Main Page and Position Papers", 2016,
               <https://www.iab.org/activities/workshops/iotsi/>.
+
+   [LWM2M-Schema]
+              OMA, "OMA LWM2M XML Schema",
+              http://technical.openmobilealliance.org/tech/profiles/
+              LWM2M.xsd , 2016.
+
+   [OMA-Editor]
+              OMA, "OMA LWM2M Object and Resource Editor",
+              http://dev_devtoolkit.openmobilealliance.org/OEditor/ ,
+              2016.
+
+   [OMNA]     OMA, "OMNA Lightweight M2M (LWM2M) Object & Resource
+              Registry",
+              http://technical.openmobilealliance.org/Technical/
+              technical-information/omna/
+              lightweight-m2m-lwm2m-object-registry , 2016.
+
+   [PYANG]    Bjorklund, M., "An extensible YANG validator and converter
+              in python", https://github.com/mbj4668/pyang , 2016.
+
+
+
+Jimenez, et al.         Expires November 18, 2016              [Page 14]
+
+Internet-Draft                    IOTSI                         May 2016
+
 
    [RFC3444]  Pras, A. and J. Schoenwaelder, "On the Difference between
               Information Models and Data Models", RFC 3444, DOI
               10.17487/RFC3444, January 2003,
               <http://www.rfc-editor.org/info/rfc3444>.
 
-Author's Address
+   [UDI]      Kohanim, M., "Object Oriented Approach to IoT
+              Interoperability", Proceedings of the IoT Workshop for
+              Semantic Interoperability (IOTSI), 2016.
 
+   [nRF-Sniffer]
+              Nordic Semiconductor, "nRF Sniffer - Smart/Bluetooth low
+              energy packet sniffer",
+              https://www.nordicsemi.com/eng/Products/Bluetooth-Smart-
+              Bluetooth-low-energy/nRF-Sniffer , 2016.
 
-
-
-
-
-
-Jimenez                 Expires November 12, 2016              [Page 12]
-
-Internet-Draft                    IOTSI                         May 2016
-
+Authors' Addresses
 
    Jaime Jimenez
-   Ericsson
 
    Email: jaime.jimenez@ericsson.com
 
 
+   Hannes Tschofenig
+
+   Email: hannes.tschofenig@arm.com
+
+
+   Dave Thaler
+
+   Email: dthaler@microsoft.com
 
 
 
@@ -701,28 +837,4 @@ Internet-Draft                    IOTSI                         May 2016
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-Jimenez                 Expires November 12, 2016              [Page 13]
+Jimenez, et al.         Expires November 18, 2016              [Page 15]
