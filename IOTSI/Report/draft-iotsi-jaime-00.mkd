@@ -2,7 +2,7 @@
 title: Report from the Internet of Things (IoT) Semantic Interoperability (IOTSI) Workshop 2016
 abbrev: IOTSI
 docname: draft-jimenez-iotsi-workshop-report-00.txt
-date: 2016-05-17
+date: 2016-05-19
 category: info
 
 ipr: trust200902
@@ -313,7 +313,7 @@ Collaborative Github Repository
 :   [https://github.com/iotsi](https://github.com/iotsi) -->
 
 
-Appendix C: Accepted Position Papers
+Appendix B: Accepted Position Papers
 ====================================
 
   0. Jari Arkko, "Gadgets and Protocols Come and Go, Data Is Forever"
@@ -360,7 +360,7 @@ Appendix C: Accepted Position Papers
   0. Mark Underwood, Michael Gruninger, Leo Obrst, Ken Baclawski, Mike Bennett, Gary Berg-Cross, Torsten Hahmann, Ram Sriram, "Internet of Things: Toward Smart Networked Systems and Societies"
   0. Peter van der Stok, Andy Bierman, "YANG-Based Constrained Management Interface (CoMI)"
 
-Appendix D: List of Participants
+Appendix C: List of Participants
 ================================
 
   * Andy Bierman, YumaWorks

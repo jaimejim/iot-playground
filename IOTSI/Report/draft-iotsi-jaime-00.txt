@@ -5,10 +5,10 @@
 Network Working Group                                         J. Jimenez
 Internet-Draft
 Intended status: Informational                             H. Tschofenig
-Expires: November 18, 2016
+Expires: November 20, 2016
                                                                D. Thaler
 
-                                                            May 17, 2016
+                                                            May 19, 2016
 
 
    Report from the Internet of Things (IoT) Semantic Interoperability
@@ -43,7 +43,7 @@ Status of This Memo
    time.  It is inappropriate to use Internet-Drafts as reference
    material or to cite them other than as "work in progress."
 
-   This Internet-Draft will expire on November 18, 2016.
+   This Internet-Draft will expire on November 20, 2016.
 
 Copyright Notice
 
@@ -53,7 +53,7 @@ Copyright Notice
 
 
 
-Jimenez, et al.         Expires November 18, 2016               [Page 1]
+Jimenez, et al.         Expires November 20, 2016               [Page 1]
 
 Internet-Draft                    IOTSI                         May 2016
 
@@ -78,8 +78,8 @@ Table of Contents
    6.  Runtime Discovery . . . . . . . . . . . . . . . . . . . . . .   6
    7.  Acknowledgements  . . . . . . . . . . . . . . . . . . . . . .   9
    8.  Appendix A: Program Committee . . . . . . . . . . . . . . . .   9
-   9.  Appendix C: Accepted Position Papers  . . . . . . . . . . . .   9
-   10. Appendix D: List of Participants  . . . . . . . . . . . . . .  12
+   9.  Appendix B: Accepted Position Papers  . . . . . . . . . . . .   9
+   10. Appendix C: List of Participants  . . . . . . . . . . . . . .  12
    11. Informative References  . . . . . . . . . . . . . . . . . . .  14
    Authors' Addresses  . . . . . . . . . . . . . . . . . . . . . . .  15
 
@@ -109,7 +109,7 @@ Table of Contents
 
 
 
-Jimenez, et al.         Expires November 18, 2016               [Page 2]
+Jimenez, et al.         Expires November 20, 2016               [Page 2]
 
 Internet-Draft                    IOTSI                         May 2016
 
@@ -165,7 +165,7 @@ Internet-Draft                    IOTSI                         May 2016
 
 
 
-Jimenez, et al.         Expires November 18, 2016               [Page 3]
+Jimenez, et al.         Expires November 20, 2016               [Page 3]
 
 Internet-Draft                    IOTSI                         May 2016
 
@@ -221,7 +221,7 @@ Internet-Draft                    IOTSI                         May 2016
 
 
 
-Jimenez, et al.         Expires November 18, 2016               [Page 4]
+Jimenez, et al.         Expires November 20, 2016               [Page 4]
 
 Internet-Draft                    IOTSI                         May 2016
 
@@ -277,7 +277,7 @@ Internet-Draft                    IOTSI                         May 2016
 
 
 
-Jimenez, et al.         Expires November 18, 2016               [Page 5]
+Jimenez, et al.         Expires November 20, 2016               [Page 5]
 
 Internet-Draft                    IOTSI                         May 2016
 
@@ -333,7 +333,7 @@ Internet-Draft                    IOTSI                         May 2016
 
 
 
-Jimenez, et al.         Expires November 18, 2016               [Page 6]
+Jimenez, et al.         Expires November 20, 2016               [Page 6]
 
 Internet-Draft                    IOTSI                         May 2016
 
@@ -389,7 +389,7 @@ Internet-Draft                    IOTSI                         May 2016
 
 
 
-Jimenez, et al.         Expires November 18, 2016               [Page 7]
+Jimenez, et al.         Expires November 20, 2016               [Page 7]
 
 Internet-Draft                    IOTSI                         May 2016
 
@@ -445,7 +445,7 @@ Internet-Draft                    IOTSI                         May 2016
 
 
 
-Jimenez, et al.         Expires November 18, 2016               [Page 8]
+Jimenez, et al.         Expires November 20, 2016               [Page 8]
 
 Internet-Draft                    IOTSI                         May 2016
 
@@ -488,7 +488,7 @@ Internet-Draft                    IOTSI                         May 2016
    Ralph Droms, Jaime Jimenez, Michael Koster, Dave Thaler, and Hannes
    Tschofenig.
 
-9.  Appendix C: Accepted Position Papers
+9.  Appendix B: Accepted Position Papers
 
    1.   Jari Arkko, "Gadgets and Protocols Come and Go, Data Is Forever"
 
@@ -501,7 +501,7 @@ Internet-Draft                    IOTSI                         May 2016
 
 
 
-Jimenez, et al.         Expires November 18, 2016               [Page 9]
+Jimenez, et al.         Expires November 20, 2016               [Page 9]
 
 Internet-Draft                    IOTSI                         May 2016
 
@@ -557,7 +557,7 @@ Internet-Draft                    IOTSI                         May 2016
 
 
 
-Jimenez, et al.         Expires November 18, 2016              [Page 10]
+Jimenez, et al.         Expires November 20, 2016              [Page 10]
 
 Internet-Draft                    IOTSI                         May 2016
 
@@ -613,7 +613,7 @@ Internet-Draft                    IOTSI                         May 2016
 
 
 
-Jimenez, et al.         Expires November 18, 2016              [Page 11]
+Jimenez, et al.         Expires November 20, 2016              [Page 11]
 
 Internet-Draft                    IOTSI                         May 2016
 
@@ -640,7 +640,7 @@ Internet-Draft                    IOTSI                         May 2016
    43.  Peter van der Stok, Andy Bierman, "YANG-Based Constrained
         Management Interface (CoMI)"
 
-10.  Appendix D: List of Participants
+10.  Appendix C: List of Participants
 
    o  Andy Bierman, YumaWorks
 
@@ -669,7 +669,7 @@ Internet-Draft                    IOTSI                         May 2016
 
 
 
-Jimenez, et al.         Expires November 18, 2016              [Page 12]
+Jimenez, et al.         Expires November 20, 2016              [Page 12]
 
 Internet-Draft                    IOTSI                         May 2016
 
@@ -725,7 +725,7 @@ Internet-Draft                    IOTSI                         May 2016
 
 
 
-Jimenez, et al.         Expires November 18, 2016              [Page 13]
+Jimenez, et al.         Expires November 20, 2016              [Page 13]
 
 Internet-Draft                    IOTSI                         May 2016
 
@@ -781,7 +781,7 @@ Internet-Draft                    IOTSI                         May 2016
 
 
 
-Jimenez, et al.         Expires November 18, 2016              [Page 14]
+Jimenez, et al.         Expires November 20, 2016              [Page 14]
 
 Internet-Draft                    IOTSI                         May 2016
 
@@ -837,4 +837,4 @@ Authors' Addresses
 
 
 
-Jimenez, et al.         Expires November 18, 2016              [Page 15]
+Jimenez, et al.         Expires November 20, 2016              [Page 15]
