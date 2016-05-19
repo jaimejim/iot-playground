@@ -1,8 +1,8 @@
 ---
-title: Report from the IAB Workshop on IoT Semantic Interoperability (IOTSI)
+title: Report from the Internet of Things (IoT) Semantic Interoperability (IOTSI) Workshop 2016
 abbrev: IOTSI
-docname: draft-iotsi-jaime-00
-date: 2016-05-11
+docname: draft-jimenez-iotsi-workshop-report-00.txt
+date: 2016-05-17
 category: info
 
 ipr: trust200902
@@ -15,10 +15,20 @@ author:
  -
     ins: J. Jimenez
     name: Jaime Jimenez
-    organization: Ericsson
     email: jaime.jimenez@ericsson.com
 
+ -
+    ins: H. Tschofenig
+    name: Hannes Tschofenig
+    email: hannes.tschofenig@arm.com
+
+ -
+    ins: D. Thaler
+    name: Dave Thaler
+    email: dthaler@microsoft.com
+
 normative:
+ 
 
 informative:
   RFC3444:
@@ -29,7 +39,7 @@ informative:
     date: 2016
     target: https://github.com/iotsi
   IOTSIWS:
-    title: IoT Workshop for Semantic Interoperability (IOTSI) - Main Page and Position Papers
+    title: IoT Workshop for Semantic Interoperability (IOTSI) 2016 - Main Page and Position Papers
     author: 
       org: IAB
     date: 2016
@@ -40,29 +50,98 @@ informative:
       org: IAB
     date: 2016
     target: https://www.iab.org/activities/workshops/iotsi/agenda/
+  UDI:
+    title: Object Oriented Approach to IoT Interoperability
+    author:
+    - ins: M. Kohanim 
+      name: Michel Kohanim
+      org: 'Universal Devices'
+    date: 2016
+    seriesinfo:
+      Proceedings: of the IoT Workshop for Semantic Interoperability (IOTSI)
+  HATEOS:
+    title: Semantic Interoperability Requires Self­describing Interaction Models - HATEOAS for the Internet of Things
+    author:
+    - ins: M. Kovatsch
+      name: Matthias Kovatsch
+      org: 'Siemens'
+    date: 2016
+    seriesinfo:
+      Proceedings: of the IoT Semantic Interoperability Workshop 2016
+  PYANG:
+    title: An extensible YANG validator and converter in python
+
+    author:
+    - ins: M. Bjorklund
+      name: Martin Bjorklund
+      org: ''
+    date: 2016
+    seriesinfo: https://github.com/mbj4668/pyang
+  Allseen-Plugin:
+    title: Using the AllJoyn Studio Extension
+    author:
+    - ins: B. Rockwell 
+      name: Brian Rockwell
+      org: 'Microsoft'
+    date: 2016
+    seriesinfo: https://channel9.msdn.com/Blogs/Internet-of-Things-Blog/Using-the-AllJoyn--Studio-Extension
+
+
+  LWM2M-Schema:
+    title: OMA LWM2M XML Schema
+    author:
+    - ins: '' 
+      name: '' 
+      org: OMA
+    date: 2016
+    seriesinfo: http://technical.openmobilealliance.org/tech/profiles/LWM2M.xsd
+  OMNA:
+    title: OMNA Lightweight M2M (LWM2M) Object & Resource Registry
+    author:
+    - ins: '' 
+      name: '' 
+      org: OMA
+    date: 2016
+    seriesinfo: http://technical.openmobilealliance.org/Technical/technical-information/omna/lightweight-m2m-lwm2m-object-registry
+  OMA-Editor:
+    title: OMA LWM2M Object and Resource Editor
+    author:
+    - ins: '' 
+      name: '' 
+      org: OMA
+    date: 2016
+    seriesinfo: http://dev_devtoolkit.openmobilealliance.org/OEditor/
+  nRF-Sniffer:
+    title: nRF Sniffer - Smart/Bluetooth low energy packet sniffer
+    author:
+    - ins: '' 
+      name: '' 
+      org: Nordic Semiconductor
+    date: 2016
+    seriesinfo: https://www.nordicsemi.com/eng/Products/Bluetooth-Smart-Bluetooth-low-energy/nRF-Sniffer
+
+
 
 --- abstract
-This document provides a summary of the IAB Workshop on IoT Semantic Interoperability (IOTSI) {{IOTSIWS}}, which took place in Santa Clara, CA, on March 17-18, 2016.  The main goal of the workshop was to foster a discussion on the different Semantics used by multiple organizations to define IoT information.  This report summarizes the discussions and lists recommendations to the Internet Engineering Task Force (IETF) community. The views and positions in this report are those of the workshop participants and do not necessarily reflect the views and positions of the authors, the Internet Architecture Board (IAB).
+This document provides a summary of the 'Workshop on Internet of Things (IoT) Semantic Interoperability (IOTSI)' {{IOTSIWS}}, which took place in Santa Clara, CA, on March 17-18, 2016.  The main goal of the workshop was to foster a discussion on the different approaches used by companies and standards developing organizations to accomplish interoperability at the application layer.  This report summarizes the discussions and lists recommendations to the standards community. The views and positions in this report are those of the workshop participants and do not necessarily reflect those of the authors and the Internet Architecture Board (IAB), which organized the workshop.
 
 --- middle
 
 Introduction
 ============
 
-The Internet Architecture Board (IAB) holds occasional workshops designed to consider long-term issues and strategies for the Internet, and to suggest future directions for the Internet architecture. Some of those workshops required some cooperation effort between organizations. One of the targets of the workshops is to bridge those organizations, specially when the topics are out of the scope for the IETF. This long-term planning function of the IAB is complementary to the ongoing engineering efforts performed by working groups of the Internet Engineering Task Force (IETF), under the leadership of the Internet Engineering Steering Group (IESG) and area directorates. 
+The Internet Architecture Board (IAB) holds occasional workshops designed to consider long-term issues and strategies for the Internet, and to suggest future directions for the Internet architecture. The investigated topics often require coordinated efforts of many organizations and industry bodies to improve an identified problem. One of the targets of the workshops is to establish communication between relevant organizations, specially when the topics are out of the scope for the Internet Engineering Task Force (IETF). This long-term planning function of the IAB is complementary to the ongoing engineering efforts performed by working groups of the IETF. 
 
-In the Internet of Things (IoT) area there has been significant improvements on the problem of interoperability in recent years. The transition from IPv4 to IPv6 increases the address space required in the IoT context. At the application layer there seems to be a similar consolidation around few protocols that follow either a REST (e.g. CoAP, HTTP) or Publish/Subscribe type of architecture (e.g. MQTT). Above the application layer (i.e. on Data Models and Semantics) such degree of interoperability has not yet happened. The work on data formats has not yet reached the same level of consistency throughout various standardization groups. 
+Increasing interoperability in the area of Internet of Things (IoT) has been a top priority for many standards organizations and pariticularly the lower layers of the Internet protocol stack have received a lot of attention. Also at the application layer, such as with CoAP and HTTP, there is a trend in reusing RESTful design patterns. However, data exchanged on top of these application layer protocols there is still a lot of fragmentation and the same degree of increase in interoperability has not been observed.
 
-Thus, the IOTSI Workshop was organized in order to find commonalities between the different models proposed by various organizations, industries and academia. Few of the identified topics where:
+Thus, the IAB decided to organize a workshop to reach out to relevant stakeholders to explore the state-of-the-art and to identify communality and gaps. 
 
   * The different perceived state of the art on data and information models. 
   * The lack of an encoding-independent standardization of the information, the so-called information model.
-  * The strong relationship with the underlying communication pattern, such as an RPC, publish/Subscribe or RESTful designs.
+  * The strong relationship with the underlying communication pattern, such as remote procedure calls (RPC), publish/subscribe or RESTful designs.
   * Identifying which similar concepts groups have develop in parallel, specially those that would require only slight modifications to solve interoperability.
   * Identifying how existing data models can be mapped against each other to offer inter working. 
   * Identifying common use cases for cooperation and harmonization.
-
-It was left out of the scope of this workshop to impose specific frameworks/solutions to the attendees, transport security and L1/L2/L3/L4 protocol discussion. 
 
 Terminology
 ===========
@@ -98,6 +177,33 @@ Current data models and definitions for "things" often focus on defining actual 
 
 Those things should be designed to be multiple-purpose, keeping in mind that solutions should be open-ended to facilitate new usages and new future domains of operation. this pattern has already happened, devices that were intended for one purpose end up being used for a different one given the right context ((e.g. smart phone led light turned out to be a heartrate monitor).
 IoT domain is currently missing insights into what user actually expect. 
+
+
+What Problems to Solve
+======================
+ 
+Although the workshop focused on a specific problem it became obvious from the position papers that various organizations, industry groups and individuals attempted to solve different problems. At least the following goals have been described:  
+
+  * Formal Languages for Documentation Purposes
+
+Standardization organizations are in the need for a more formal description of their information and data models in order to simplify review, and publication. For example, the Open Mobile Alliance (OMA) used an XML schema {{LWM2M-Schema}} to describe their object definitions (i.e., data model) as XML instance documents. These XML documents offer an alternative way of describing objects compared to the tabular representation found in the specification itself. The XML files of standardized objects are available for download at {{OMNA}}. Furthermore, a tool is offered to define new objects and resources. The online editor tool can be found at {{OMA-Editor}}.
+   
+   * Formal Languages for Code Generation
+
+Formal data and information modelling languages for use by developers to enable code generation. For example, the Allseen Visual Studio Plugin {{Allseen-Plugin}} offers a wizzard to generate code based on the formal description of the data model. Another example of a data modelling language that can be used for code generation is YANG. A popular tool to help with code generation of YANG modules is pyang {{PYANG}}. 
+   
+   * Debugging Support
+
+Ability to allow debugging tools to implement generic object browsers by utilizing the standardized information and data model. Example: NRF Bluetooth Smart sniffer from Nordic Semiconductor {{nRF-Sniffer}}. 
+
+   * Translation
+
+The ability for gateways and other similar devices to dynamically translate (or map) one data model to another one. An example of this idea can be found in {{UDI}}.    
+   
+   * Runtime Discovery
+
+Allow IoT devices to exchange information, potentially along with the data exchange, to discover meta-data about the data and, potentially, even a self-describing interaction model. An example of such an approach has been shown with HATEOS {{HATEOS}}.
+
 
 Translation
 ============
@@ -158,7 +264,7 @@ The following are examples of all those in HTML.
 <form method="post" action="">
   <input id="name" type="text">
   <input id="age" type="text">
-  <input id="homepage" type="text">     
+  <input id="homepage" type="text">
 </form>
 ~~~~~~~~~~~
 
@@ -182,14 +288,17 @@ Let's say that we don't need that crap, it is not useful. If someone wants a dev
 It depends also on how do you see the programming environment. 
 translation from one data model to another. gw sucks the code and does the translation. ar esome of the language so powerful to do that? prototype to do something
 
+
+
 Acknowledgements
 =================
 
+We would like to thank all paper authors and participants for their contributions. Due to the large number of position paper submissions we were unfortunately unable to invite every author; we would like to apologize to those that could not attend the workshop. 
 
 Appendix A: Program Committee
 =============================
 
-This workshop is organized by Jari Arkko, Ralph Droms, Jaime Jiménez, Michael Koster, Dave Thaler and Hannes Tschofenig.
+This workshop was organized by the following individuals: Jari Arkko, Ralph Droms, Jaime Jiménez, Michael Koster, Dave Thaler, and Hannes Tschofenig.
 
 <!-- Appendix B: Workshop Material
 =============================
@@ -259,7 +368,7 @@ Appendix D: List of Participants
   * Ben Campbell, Oracle
   * Benoit Claise, Cisco
   * Alissa Cooper, Cisco
-  * Robert Cragie, ARM
+  * Robert Cragie, ARM Limited
   * Laura Daniele, TNO
   * Bryant Eastham, OpenDof
   * Christian Groves, Huawei
@@ -285,12 +394,12 @@ Appendix D: List of Participants
   * Max Senges, Google
   * Ned Smith, Intel
   * Robert Sparks, Oracle
-  * Ram Sriram, Nist
+  * Ram Sriram, NIST
   * Clarke Stevens
   * Ram Subramanian, Intel
   * Andrew Sullivan, DIN
   * Darshak Thakore, Cablelabs
   * Dave Thaler, Microsoft
-  * Hannes Tschofenig, ARM
+  * Hannes Tschofenig, ARM Limited
   * Michael Verschoor, Philips Lightning
 
