@@ -1,4 +1,4 @@
-### Jaime Jiménez - jaime.jimenez@ericsson.com
+Jaime Jiménez - jaime.jimenez@ericsson.com
 
 ----------
 
@@ -28,7 +28,7 @@
 ----------
 
 ### Internal Projects
-This year's project steams directly from the stack *I proposed* outside of last year's LEIOT project (which focused on Radio Technologies). 
+This year's project steams directly from the stack I proposed outside of last year's LEIOT project (which focused on Radio Technologies). 
 That proposal already focused on an above-IP layer solution using the standards we are now betting on: IPv6,  CoAP,  LWM2M,  IPSO.
 
 While last year's targeted only Bootstrapping,  this year's intends to offer full Lifecycle Management.  Only Mert, Adriano and I participated on the original prototype design and implementation.
