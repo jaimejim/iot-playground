@@ -429,7 +429,7 @@
   <h1 id="rfc.abstract">
   <a href="#rfc.abstract">Abstract</a>
 </h1>
-<p>This document provides a summary of found problems and possible solutions for software upgrades on the constrained space. Some of the issues are still open and should be subject of discussion. Ideally some implementation guidelines should be made when using CoAP <a href="#RFC7252">[RFC7252]</a>, HTTP <a href="#RFC7230">[RFC7230]</a> or MQTT.</p>
+<p>This document provides a summary of found problems and possible solutions for software upgrades on the constrained space. Some of the issues are still open and should be subject of discussion. Ideally some implementation guidelines should be made when using CoAP <a href="#RFC7252">[RFC7252]</a>, HTTP <a href="#RFC7230">[RFC7230]</a> or MQTT as transfer protocols.</p>
 <h1 id="rfc.status">
   <a href="#rfc.status">Status of This Memo</a>
 </h1>
@@ -505,7 +505,7 @@ D--&gt;M: 2.05 Content, Token: 0x4a, payload: 1, time: 1464520998
 <p id="rfc.section.7.p.3">A device could use a single entry point for its firmware information (e.g. &#8220;/fw&#8221;), then device would periodically perform discovery on that point and in order to discover new capabilities. Links to the new capabilities could be discoverable on demand. Only very basic semantics would be shared a-priori.</p>
 <p id="rfc.section.7.p.4">Current software upgrade mechanism do not allow for changes at runtime. There are predefined interfaces that would break whenever the API changes, making it compulsory to send new software to the device that would need to install it, reboot, etc. The device logic has to support such interfaces, no changes are possible at runtime.</p>
 <h1 id="rfc.section.8"><a href="#rfc.section.8">8.</a> <a href="#acknowledgements" id="acknowledgements">Acknowledgements</a></h1>
-<p id="rfc.section.8.p.1">Runtime Discovery ideas are inspired from Matthias Kovatsch&#8217;s presentations on HATEOAS at <a href="#IOTSIWS">[IOTSIWS]</a>.</p>
+<p id="rfc.section.8.p.1">Runtime Discovery ideas are inspired from Matthias Kovatsch&#8217;s presentations on HATEOAS at <a href="#IOTSIWS">[IOTSIWS]</a>. thanks to Carsten Bormann for the valuable feedback.</p>
 <h1 id="rfc.references"><a href="#rfc.references">9.</a> Informative References</h1>
 <table>
   <tbody>

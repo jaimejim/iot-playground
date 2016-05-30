@@ -17,7 +17,7 @@ Abstract
    solutions for software upgrades on the constrained space.  Some of
    the issues are still open and should be subject of discussion.
    Ideally some implementation guidelines should be made when using CoAP
-   [RFC7252], HTTP [RFC7230] or MQTT.
+   [RFC7252], HTTP [RFC7230] or MQTT as transfer protocols.
 
 Status of This Memo
 
@@ -195,7 +195,8 @@ Internet-Draft                    SUPEI                         May 2016
 8.  Acknowledgements
 
    Runtime Discovery ideas are inspired from Matthias Kovatsch's
-   presentations on HATEOAS at [IOTSIWS].
+   presentations on HATEOAS at [IOTSIWS]. thanks to Carsten Bormann for
+   the valuable feedback.
 
 9.  Informative References
 
@@ -217,7 +218,6 @@ Internet-Draft                    SUPEI                         May 2016
               Application Protocol (CoAP)", RFC 7252, DOI 10.17487/
               RFC7252, June 2014,
               <http://www.rfc-editor.org/info/rfc7252>.
-
 
 
 
