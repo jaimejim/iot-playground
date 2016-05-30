@@ -62,14 +62,25 @@ Table of Contents
 
    1.  Introduction  . . . . . . . . . . . . . . . . . . . . . . . .   2
    2.  Architecture  . . . . . . . . . . . . . . . . . . . . . . . .   2
-   3.  Device Initiated Communication  . . . . . . . . . . . . . . .   2
-   4.  Using Multiple Stacks . . . . . . . . . . . . . . . . . . . .   3
-   5.  Runtime Discovery . . . . . . . . . . . . . . . . . . . . . .   3
-   6.  Acknowledgements  . . . . . . . . . . . . . . . . . . . . . .   3
-   7.  Informative References  . . . . . . . . . . . . . . . . . . .   3
-   Author's Address  . . . . . . . . . . . . . . . . . . . . . . . .   4
+   3.  Dealing with Sleepy endpoints . . . . . . . . . . . . . . . .   2
+   4.  Device Initiated Communication  . . . . . . . . . . . . . . .   3
+   5.  Delegation on other nodes . . . . . . . . . . . . . . . . . .   3
+   6.  Using Multiple Stacks . . . . . . . . . . . . . . . . . . . .   3
+   7.  Runtime Discovery . . . . . . . . . . . . . . . . . . . . . .   4
+   8.  Acknowledgements  . . . . . . . . . . . . . . . . . . . . . .   4
+   9.  Informative References  . . . . . . . . . . . . . . . . . . .   4
+   Author's Address  . . . . . . . . . . . . . . . . . . . . . . . .   5
 
 1.  Introduction
+
+   In this short paper we try to raise some issues we have found when
+   dealing with software upgrades in the IoT domain.  Dealing with sleep
+   y endpoint is at {sleepy}. The case for device initiated
+   communication is on Section 4.  Delegation on gateways or other nodes
+   is in {delegation}. The use of an alternative stack for software
+   upgrades is at Section 6.  A possible long-term architecture that
+   enables to do runtime updates on the constrained device is at
+   Section 7
 
 2.  Architecture
 
@@ -87,7 +98,27 @@ Table of Contents
    This set up poses several issues when dealing with the operator
    environment.
 
-3.  Device Initiated Communication
+3.  Dealing with Sleepy endpoints
+
+   The fact that devices are sleepy poses several problems for doing
+   software updates.  Namely that you do not have a connected endpoint
+   most of the time and that therefore the device will have to contact
+   the manager or the manager will have to poll the device pretty
+   frequently.  The case for polling does not scale and therefore it is
+   hardly a solution.
+
+
+
+Jimenez                 Expires December 1, 2016                [Page 2]
+
+Internet-Draft                    SUPEI                         May 2016
+
+
+   Nevertheless it is very common to use polling on the constrained
+   space since the server has more capabilities and thus can query the
+   device providing that there are no NATs or firewalls (See Section 4)
+
+4.  Device Initiated Communication
 
    The first issue are NATs and Firewalls.  Constrained devices do not
    have the capabilities nor the inclination to punch holes through NATs
@@ -106,15 +137,14 @@ Table of Contents
    D-->M: 2.05 Content, Token: 0x4a, payload: 1, time: 1464619477
    D-->M: 2.05 Content, Token: 0x4a, payload: 1, time: 1464520998
 
+5.  Delegation on other nodes
 
+   Use of Gateways or Servers for caching and for delegating the task of
+   doing NAT traversal.
 
+   TBD
 
-Jimenez                 Expires December 1, 2016                [Page 2]
-
-Internet-Draft                    SUPEI                         May 2016
-
-
-4.  Using Multiple Stacks
+6.  Using Multiple Stacks
 
    We have seen how in some cases devices have multiple stack
    combinations and updates go through an "alternative channel".  For
@@ -130,7 +160,17 @@ Internet-Draft                    SUPEI                         May 2016
       dedicated DTLS/TLS connection.  This is too much overhead for many
       constrained devices.
 
-5.  Runtime Discovery
+
+
+
+
+
+Jimenez                 Expires December 1, 2016                [Page 3]
+
+Internet-Draft                    SUPEI                         May 2016
+
+
+7.  Runtime Discovery
 
    Instead of sending bulk binaries with several megabytes of data, a
    simpler approach would be to send partial modifications related to
@@ -152,23 +192,17 @@ Internet-Draft                    SUPEI                         May 2016
    device that would need to install it, reboot, etc.  The device logic
    has to support such interfaces, no changes are possible at runtime.
 
-6.  Acknowledgements
+8.  Acknowledgements
 
-7.  Informative References
+   Runtime Discovery ideas are inspired from Matthias Kovatsch's
+   presentations on HATEOAS at [IOTSIWS].
+
+9.  Informative References
 
    [I-D.ietf-core-resource-directory]
               Shelby, Z., Koster, M., Bormann, C., and P. Stok, "CoRE
               Resource Directory", draft-ietf-core-resource-directory-07
               (work in progress), March 2016.
-
-
-
-
-
-Jimenez                 Expires December 1, 2016                [Page 3]
-
-Internet-Draft                    SUPEI                         May 2016
-
 
    [IOTSIWS]  IAB, "IoT Workshop for Semantic Interoperability (IOTSI) -
               Main Page and Position Papers", 2016,
@@ -183,6 +217,14 @@ Internet-Draft                    SUPEI                         May 2016
               Application Protocol (CoAP)", RFC 7252, DOI 10.17487/
               RFC7252, June 2014,
               <http://www.rfc-editor.org/info/rfc7252>.
+
+
+
+
+Jimenez                 Expires December 1, 2016                [Page 4]
+
+Internet-Draft                    SUPEI                         May 2016
+
 
 Author's Address
 
@@ -221,4 +263,18 @@ Author's Address
 
 
 
-Jimenez                 Expires December 1, 2016                [Page 4]
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Jimenez                 Expires December 1, 2016                [Page 5]
