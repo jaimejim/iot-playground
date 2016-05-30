@@ -33,7 +33,7 @@ informative:
 
 
 --- abstract
-This document provides a summary of found problems and possible solutions for software upgrades on the constrained space. Some of the issues are still open and should be subject of discussion. Ideally some implementation guidelines should be made when using CoAP {{RFC7252}}, HTTP {{RFC7230}} or MQTT as transport.
+This document provides a summary of found problems and possible solutions for software upgrades on the constrained space. Some of the issues are still open and should be subject of discussion. Ideally some implementation guidelines should be made when using CoAP {{RFC7252}}, HTTP {{RFC7230}} or MQTT.
 
 --- middle
 

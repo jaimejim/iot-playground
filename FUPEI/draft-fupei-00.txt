@@ -17,7 +17,7 @@ Abstract
    solutions for software upgrades on the constrained space.  Some of
    the issues are still open and should be subject of discussion.
    Ideally some implementation guidelines should be made when using CoAP
-   [RFC7252], HTTP [RFC7230] or MQTT as transport.
+   [RFC7252], HTTP [RFC7230] or MQTT.
 
 Status of This Memo
 
