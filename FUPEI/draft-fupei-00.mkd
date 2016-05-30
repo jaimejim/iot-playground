@@ -21,7 +21,9 @@ author:
 normative:
 
 informative:
-  RFC3444:
+  RFC7252:
+  RFC7230:
+  I-D.ietf-core-resource-directory:
   IOTSIWS:
     title: IoT Workshop for Semantic Interoperability (IOTSI) - Main Page and Position Papers
     author: 
@@ -31,7 +33,7 @@ informative:
 
 
 --- abstract
-This document provides a summary of found problems and possible solutions for firmware upgrades on the constrained space. Some of the issues are still open and should be subject of discussion. Ideally some implementation guidelines should be made when using CoAP (REF), HTTP (REF) or MQTT as transport.
+This document provides a summary of found problems and possible solutions for firmware upgrades on the constrained space. Some of the issues are still open and should be subject of discussion. Ideally some implementation guidelines should be made when using CoAP {{RFC7252}}, HTTP {{RFC7230}} or MQTT as transport.
 
 --- middle
 
@@ -61,7 +63,7 @@ Device Initiated Communication
 
 The first issue are NATs and Firewalls. Constrained devices do not have the capabilities nor the inclination to punch holes through NATs and keep them open, that task has to be delegated elsewhere. 
 
-What we have done in order to overcome this obstacle is to set an observation on the device. Assuming that the device has previously registered on a Resource Directory (RD) (REF) that the manager has access to, the manager would then observe the status of the device (0:off, 1:on). Whenever the device wakes up it will send a notification to the manager. During the time the NAT is open the manager will be able to send data through the holes in the NAT.
+What we have done in order to overcome this obstacle is to set an observation on the device. Assuming that the device has previously registered on a Resource Directory (RD) {{I-D.ietf-core-resource-directory}} that the manager has access to, the manager would then observe the status of the device (0:off, 1:on). Whenever the device wakes up it will send a notification to the manager. During the time the NAT is open the manager will be able to send data through the holes in the NAT.
 
 ~~~~~~~~~~~
 D<--M: CoAP GET /Radio_link_status, Token: 0x4a, Observe: 0  
@@ -84,7 +86,7 @@ Runtime Discovery
 
 Instead of sending bulk binaries with several megabytes of data, a simpler approach would be to send partial modifications related to firmware when possible. 
 
-Similarly as it was shown in the IOTSI Workshop {IOTSIWS}, Runtime Discovery is also a very powerful mechanism to provide updated services and software to a device.
+Similarly as it was shown in the IOTSI Workshop {{IOTSIWS}}, Runtime Discovery is also a very powerful mechanism to provide updated services and software to a device.
 
 A device could use a single entry point for its firmware information (e.g. "/fw"), then device would periodically perform discovery on that point and in order to discover new capabilities. Links to the new capabilities could be discoverable on demand. Only very basic semantics would be shared a-priori.
 

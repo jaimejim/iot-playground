@@ -390,8 +390,8 @@
   <meta name="dct.creator" content="Jimenez, J." />
   <meta name="dct.identifier" content="urn:ietf:id:draft-fupei-00" />
   <meta name="dct.issued" scheme="ISO8601" content="2016-5-30" />
-  <meta name="dct.abstract" content="This document provides a summary of found problems and possible solutions for firmware upgrades on the constrained space. Some of the issues are still open and should be subject of discussion. Ideally some implementation guidelines should be made when using CoAP (REF), HTTP (REF) or MQTT as transport." />
-  <meta name="description" content="This document provides a summary of found problems and possible solutions for firmware upgrades on the constrained space. Some of the issues are still open and should be subject of discussion. Ideally some implementation guidelines should be made when using CoAP (REF), HTTP (REF) or MQTT as transport." />
+  <meta name="dct.abstract" content="This document provides a summary of found problems and possible solutions for firmware upgrades on the constrained space. Some of the issues are still open and should be subject of discussion. Ideally some implementation guidelines should be made when using CoAP " />
+  <meta name="description" content="This document provides a summary of found problems and possible solutions for firmware upgrades on the constrained space. Some of the issues are still open and should be subject of discussion. Ideally some implementation guidelines should be made when using CoAP " />
 
 </head>
 
@@ -427,7 +427,7 @@
   <h1 id="rfc.abstract">
   <a href="#rfc.abstract">Abstract</a>
 </h1>
-<p>This document provides a summary of found problems and possible solutions for firmware upgrades on the constrained space. Some of the issues are still open and should be subject of discussion. Ideally some implementation guidelines should be made when using CoAP (REF), HTTP (REF) or MQTT as transport.</p>
+<p>This document provides a summary of found problems and possible solutions for firmware upgrades on the constrained space. Some of the issues are still open and should be subject of discussion. Ideally some implementation guidelines should be made when using CoAP <a href="#RFC7252">[RFC7252]</a>, HTTP <a href="#RFC7230">[RFC7230]</a> or MQTT as transport.</p>
 <h1 id="rfc.status">
   <a href="#rfc.status">Status of This Memo</a>
 </h1>
@@ -474,7 +474,7 @@
 <p id="rfc.section.2.p.2">This set up poses several issues when dealing with the operator environment.</p>
 <h1 id="rfc.section.3"><a href="#rfc.section.3">3.</a> <a href="#device-initiated-communication" id="device-initiated-communication">Device Initiated Communication</a></h1>
 <p id="rfc.section.3.p.1">The first issue are NATs and Firewalls. Constrained devices do not have the capabilities nor the inclination to punch holes through NATs and keep them open, that task has to be delegated elsewhere.</p>
-<p id="rfc.section.3.p.2">What we have done in order to overcome this obstacle is to set an observation on the device. Assuming that the device has previously registered on a Resource Directory (RD) (REF) that the manager has access to, the manager would then observe the status of the device (0:off, 1:on). Whenever the device wakes up it will send a notification to the manager. During the time the NAT is open the manager will be able to send data through the holes in the NAT.</p>
+<p id="rfc.section.3.p.2">What we have done in order to overcome this obstacle is to set an observation on the device. Assuming that the device has previously registered on a Resource Directory (RD) <a href="#I-D.ietf-core-resource-directory">[I-D.ietf-core-resource-directory]</a> that the manager has access to, the manager would then observe the status of the device (0:off, 1:on). Whenever the device wakes up it will send a notification to the manager. During the time the NAT is open the manager will be able to send data through the holes in the NAT.</p>
 <pre>
 D&lt;--M: CoAP GET /Radio_link_status, Token: 0x4a, Observe: 0  
 D--&gt;M: 2.05 Content, Token: 0x4a, payload: 1, time: 1464619477
@@ -490,7 +490,7 @@ D--&gt;M: 2.05 Content, Token: 0x4a, payload: 1, time: 1464520998
 </dl>
 <h1 id="rfc.section.5"><a href="#rfc.section.5">5.</a> <a href="#runtime-discovery" id="runtime-discovery">Runtime Discovery</a></h1>
 <p id="rfc.section.5.p.1">Instead of sending bulk binaries with several megabytes of data, a simpler approach would be to send partial modifications related to firmware when possible.</p>
-<p id="rfc.section.5.p.2">Similarly as it was shown in the IOTSI Workshop {IOTSIWS}, Runtime Discovery is also a very powerful mechanism to provide updated services and software to a device.</p>
+<p id="rfc.section.5.p.2">Similarly as it was shown in the IOTSI Workshop <a href="#IOTSIWS">[IOTSIWS]</a>, Runtime Discovery is also a very powerful mechanism to provide updated services and software to a device.</p>
 <p id="rfc.section.5.p.3">A device could use a single entry point for its firmware information (e.g. &#8220;/fw&#8221;), then device would periodically perform discovery on that point and in order to discover new capabilities. Links to the new capabilities could be discoverable on demand. Only very basic semantics would be shared a-priori.</p>
 <p id="rfc.section.5.p.4">Current firmware upgrade mechanism do not allow for changes at runtime. There are predefined interfaces that would break whenever the API changes, making it compulsory to send new software to the device that would need to install it, reboot, etc. The device logic has to support such interfaces, no changes are possible at runtime.</p>
 <h1 id="rfc.section.6"><a href="#rfc.section.6">6.</a> <a href="#acknowledgements" id="acknowledgements">Acknowledgements</a></h1>
@@ -499,15 +499,27 @@ D--&gt;M: 2.05 Content, Token: 0x4a, payload: 1, time: 1464520998
   <tbody>
     <tr>
       <td class="reference">
+        <b id="I-D.ietf-core-resource-directory">[I-D.ietf-core-resource-directory]</b>
+      </td>
+      <td class="top"><a>Shelby, Z.</a>, <a>Koster, M.</a>, <a>Bormann, C.</a> and <a>P. Stok</a>, "<a href="http://tools.ietf.org/html/draft-ietf-core-resource-directory-07">CoRE Resource Directory</a>", Internet-Draft draft-ietf-core-resource-directory-07, March 2016.</td>
+    </tr>
+    <tr>
+      <td class="reference">
         <b id="IOTSIWS">[IOTSIWS]</b>
       </td>
       <td class="top"><a>IAB</a>, "<a href="https://www.iab.org/activities/workshops/iotsi/">IoT Workshop for Semantic Interoperability (IOTSI) - Main Page and Position Papers</a>", 2016.</td>
     </tr>
     <tr>
       <td class="reference">
-        <b id="RFC3444">[RFC3444]</b>
+        <b id="RFC7230">[RFC7230]</b>
       </td>
-      <td class="top"><a>Pras, A.</a> and <a>J. Schoenwaelder</a>, "<a href="http://tools.ietf.org/html/rfc3444">On the Difference between Information Models and Data Models</a>", RFC 3444, DOI 10.17487/RFC3444, January 2003.</td>
+      <td class="top"><a>Fielding, R.</a> and <a>J. Reschke</a>, "<a href="http://tools.ietf.org/html/rfc7230">Hypertext Transfer Protocol (HTTP/1.1): Message Syntax and Routing</a>", RFC 7230, DOI 10.17487/RFC7230, June 2014.</td>
+    </tr>
+    <tr>
+      <td class="reference">
+        <b id="RFC7252">[RFC7252]</b>
+      </td>
+      <td class="top"><a>Shelby, Z.</a>, <a>Hartke, K.</a> and <a>C. Bormann</a>, "<a href="http://tools.ietf.org/html/rfc7252">The Constrained Application Protocol (CoAP)</a>", RFC 7252, DOI 10.17487/RFC7252, June 2014.</td>
     </tr>
   </tbody>
 </table>
