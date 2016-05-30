@@ -75,9 +75,9 @@ Table of Contents
 
    In this short paper we try to raise some issues we have found when
    dealing with software upgrades in the IoT domain.  Dealing with sleep
-   y endpoint is at {sleepy}. The case for device initiated
+   y endpoint is at Section 3.  The case for device initiated
    communication is on Section 4.  Delegation on gateways or other nodes
-   is in {delegation}. The use of an alternative stack for software
+   is in Section 5.  The use of an alternative stack for software
    upgrades is at Section 6.  A possible long-term architecture that
    enables to do runtime updates on the constrained device is at
    Section 7
