@@ -5,7 +5,7 @@
 <head profile="http://www.w3.org/2006/03/hcard http://dublincore.org/documents/2008/08/04/dc-html/">
   <meta http-equiv="Content-Type" content="text/html; charset=us-ascii" />
 
-  <title>Firmware Upgrade Experiences for IoT</title>
+  <title>Software Upgrade Experiences for IoT</title>
 
   <style type="text/css" title="Xml2Rfc (sans serif)">
   /*<![CDATA[*/
@@ -388,10 +388,10 @@
   <link rel="schema.dct" href="http://purl.org/dc/terms/" />
 
   <meta name="dct.creator" content="Jimenez, J." />
-  <meta name="dct.identifier" content="urn:ietf:id:draft-fupei-00" />
+  <meta name="dct.identifier" content="urn:ietf:id:draft-supei-00" />
   <meta name="dct.issued" scheme="ISO8601" content="2016-5-30" />
-  <meta name="dct.abstract" content="This document provides a summary of found problems and possible solutions for firmware upgrades on the constrained space. Some of the issues are still open and should be subject of discussion. Ideally some implementation guidelines should be made when using CoAP " />
-  <meta name="description" content="This document provides a summary of found problems and possible solutions for firmware upgrades on the constrained space. Some of the issues are still open and should be subject of discussion. Ideally some implementation guidelines should be made when using CoAP " />
+  <meta name="dct.abstract" content="This document provides a summary of found problems and possible solutions for software upgrades on the constrained space. Some of the issues are still open and should be subject of discussion. Ideally some implementation guidelines should be made when using CoAP " />
+  <meta name="description" content="This document provides a summary of found problems and possible solutions for software upgrades on the constrained space. Some of the issues are still open and should be subject of discussion. Ideally some implementation guidelines should be made when using CoAP " />
 
 </head>
 
@@ -421,13 +421,13 @@
     </tbody>
   </table>
 
-  <p class="title">Firmware Upgrade Experiences for IoT<br />
-  <span class="filename">draft-fupei-00</span></p>
+  <p class="title">Software Upgrade Experiences for IoT<br />
+  <span class="filename">draft-supei-00</span></p>
   
   <h1 id="rfc.abstract">
   <a href="#rfc.abstract">Abstract</a>
 </h1>
-<p>This document provides a summary of found problems and possible solutions for firmware upgrades on the constrained space. Some of the issues are still open and should be subject of discussion. Ideally some implementation guidelines should be made when using CoAP <a href="#RFC7252">[RFC7252]</a>, HTTP <a href="#RFC7230">[RFC7230]</a> or MQTT as transport.</p>
+<p>This document provides a summary of found problems and possible solutions for software upgrades on the constrained space. Some of the issues are still open and should be subject of discussion. Ideally some implementation guidelines should be made when using CoAP <a href="#RFC7252">[RFC7252]</a>, HTTP <a href="#RFC7230">[RFC7230]</a> or MQTT as transport.</p>
 <h1 id="rfc.status">
   <a href="#rfc.status">Status of This Memo</a>
 </h1>
@@ -481,7 +481,7 @@ D--&gt;M: 2.05 Content, Token: 0x4a, payload: 1, time: 1464619477
 D--&gt;M: 2.05 Content, Token: 0x4a, payload: 1, time: 1464520998
 </pre>
 <h1 id="rfc.section.4"><a href="#rfc.section.4">4.</a> <a href="#using-multiple-stacks" id="using-multiple-stacks">Using Multiple Stacks</a></h1>
-<p id="rfc.section.4.p.1">We have seen how in some cases devices have multiple stack combinations and firmware software goes through an &#8220;alternative channel&#8221;. For example:</p>
+<p id="rfc.section.4.p.1">We have seen how in some cases devices have multiple stack combinations and updates go through an &#8220;alternative channel&#8221;. For example:</p>
 <p/>
 
 <dl>
@@ -489,10 +489,10 @@ D--&gt;M: 2.05 Content, Token: 0x4a, payload: 1, time: 1464520998
   <dd style="margin-left: 8">in this scenario MQTT is used as the base protocol for communication. Having publish/subscribe architecture simplifies the (1:n) and (n:1) communication use cases that are very common for reporting sensor data. For firmware upgrades a command is sent to the device with the URL where the new binaries are (i.e. https://company/devicetype/version00.zip), the device then sets a whole different communication channel just for that, as well as a dedicated DTLS/TLS connection. This is too much overhead for many constrained devices.</dd>
 </dl>
 <h1 id="rfc.section.5"><a href="#rfc.section.5">5.</a> <a href="#runtime-discovery" id="runtime-discovery">Runtime Discovery</a></h1>
-<p id="rfc.section.5.p.1">Instead of sending bulk binaries with several megabytes of data, a simpler approach would be to send partial modifications related to firmware when possible.</p>
+<p id="rfc.section.5.p.1">Instead of sending bulk binaries with several megabytes of data, a simpler approach would be to send partial modifications related to the software update when possible.</p>
 <p id="rfc.section.5.p.2">Similarly as it was shown in the IOTSI Workshop <a href="#IOTSIWS">[IOTSIWS]</a>, Runtime Discovery is also a very powerful mechanism to provide updated services and software to a device.</p>
 <p id="rfc.section.5.p.3">A device could use a single entry point for its firmware information (e.g. &#8220;/fw&#8221;), then device would periodically perform discovery on that point and in order to discover new capabilities. Links to the new capabilities could be discoverable on demand. Only very basic semantics would be shared a-priori.</p>
-<p id="rfc.section.5.p.4">Current firmware upgrade mechanism do not allow for changes at runtime. There are predefined interfaces that would break whenever the API changes, making it compulsory to send new software to the device that would need to install it, reboot, etc. The device logic has to support such interfaces, no changes are possible at runtime.</p>
+<p id="rfc.section.5.p.4">Current software upgrade mechanism do not allow for changes at runtime. There are predefined interfaces that would break whenever the API changes, making it compulsory to send new software to the device that would need to install it, reboot, etc. The device logic has to support such interfaces, no changes are possible at runtime.</p>
 <h1 id="rfc.section.6"><a href="#rfc.section.6">6.</a> <a href="#acknowledgements" id="acknowledgements">Acknowledgements</a></h1>
 <h1 id="rfc.references"><a href="#rfc.references">7.</a> Informative References</h1>
 <table>
