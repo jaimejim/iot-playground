@@ -1,0 +1,71 @@
+---
+title: Firmware Upgrade Experiences for IoT
+abbrev: FUPEI
+docname: draft-fupei-00
+date: 2016-05-30
+category: info
+
+ipr: trust200902
+area:
+
+stand_alone: yes
+pi: [toc, sortrefs, symrefs]
+
+author:
+ -
+    ins: J. Jimenez
+    name: Jaime Jimenez
+    organization: Ericsson
+    email: jaime.jimenez@ericsson.com
+
+normative:
+
+informative:
+  RFC3444:
+  IOTSIGIT:
+    title: Github Collaborative Repository
+    author: 
+      org: IOTSI
+    date: 2016
+    target: https://github.com/iotsi
+  IOTSIWS:
+    title: IoT Workshop for Semantic Interoperability (IOTSI) - Main Page and Position Papers
+    author: 
+      org: IAB
+    date: 2016
+    target: https://www.iab.org/activities/workshops/iotsi/
+  IOTSIAG:
+    title: IoT Workshop for Semantic Interoperability (IOTSI) - Agenda and Slides
+    author: 
+      org: IAB
+    date: 2016
+    target: https://www.iab.org/activities/workshops/iotsi/agenda/
+
+--- abstract
+This document provides a summary of found problems and possible solutions for firmware upgrades on the constrained space. Some of the issues are still open and should be subject of discussion. Ideally some implementation guidelines should be made when using CoAP (REF), HTTP (REF) or MQTT as transport.
+
+--- middle
+
+Architecture
+============
+
+Stack (CoAP)
+
+Device Initiated Communication
+==============================
+
+Using Multiple Stacks
+=====================
+
+Partial Upgrades
+================
+
+
+Architecture
+============
+Acknowledgements
+=================
+
+
+Appendix A: X
+=============================

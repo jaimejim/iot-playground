@@ -1,7 +1,7 @@
 ---
 title: Report from the Internet of Things (IoT) Semantic Interoperability (IOTSI) Workshop 2016
 abbrev: IOTSI
-docname: draft-iab-iotsi-workshop-00.tx
+docname: draft-iab-iotsi-workshop-00.txt
 date: 2016-05-24
 category: info
 
