@@ -378,19 +378,21 @@
 <link href="#rfc.section.2" rel="Chapter" title="2 Architecture"/>
 <link href="#rfc.section.3" rel="Chapter" title="3 Dealing with Sleepy endpoints"/>
 <link href="#rfc.section.4" rel="Chapter" title="4 Device Initiated Communication"/>
-<link href="#rfc.section.5" rel="Chapter" title="5 Delegation on other nodes"/>
-<link href="#rfc.section.6" rel="Chapter" title="6 Using Multiple Stacks"/>
-<link href="#rfc.section.7" rel="Chapter" title="7 Runtime Discovery"/>
-<link href="#rfc.section.8" rel="Chapter" title="8 Acknowledgements"/>
-<link href="#rfc.references" rel="Chapter" title="9 Informative References"/>
+<link href="#rfc.section.5" rel="Chapter" title="5 Manager Initiated Communication"/>
+<link href="#rfc.section.6" rel="Chapter" title="6 Delegation on other nodes"/>
+<link href="#rfc.section.7" rel="Chapter" title="7 Using Multiple Stacks"/>
+<link href="#rfc.section.8" rel="Chapter" title="8 Possible DDOS"/>
+<link href="#rfc.section.9" rel="Chapter" title="9 Runtime Discovery"/>
+<link href="#rfc.section.10" rel="Chapter" title="10 Acknowledgements"/>
+<link href="#rfc.references" rel="Chapter" title="11 Informative References"/>
 <link href="#rfc.authors" rel="Chapter"/>
 
 
   <meta name="generator" content="xml2rfc version 2.4.8 - http://tools.ietf.org/tools/xml2rfc" />
   <link rel="schema.dct" href="http://purl.org/dc/terms/" />
 
-  <meta name="dct.creator" content="Jimenez, J." />
-  <meta name="dct.identifier" content="urn:ietf:id:draft-supei-00" />
+  <meta name="dct.creator" content="Jimenez, J. and M. Ocak" />
+  <meta name="dct.identifier" content="urn:ietf:id:draft-jimenez-supei-00" />
   <meta name="dct.issued" scheme="ISO8601" content="2016-5-30" />
   <meta name="dct.abstract" content="This document provides a summary of found problems and possible solutions for software upgrades on the constrained space. Some of the issues are still open and should be subject of discussion. Ideally some implementation guidelines should be made when using CoAP " />
   <meta name="description" content="This document provides a summary of found problems and possible solutions for software upgrades on the constrained space. Some of the issues are still open and should be subject of discussion. Ideally some implementation guidelines should be made when using CoAP " />
@@ -408,15 +410,15 @@
 </tr>
 <tr>
   <td class="left">Internet-Draft</td>
-  <td class="right">Ericsson</td>
+  <td class="right">M. Ocak</td>
 </tr>
 <tr>
   <td class="left">Intended status: Informational</td>
-  <td class="right">May 30, 2016</td>
+  <td class="right">Ericsson</td>
 </tr>
 <tr>
   <td class="left">Expires: December 1, 2016</td>
-  <td class="right"></td>
+  <td class="right">May 30, 2016</td>
 </tr>
 
     	
@@ -424,7 +426,7 @@
   </table>
 
   <p class="title">Software Upgrade Experiences for IoT<br />
-  <span class="filename">draft-supei-00</span></p>
+  <span class="filename">draft-jimenez-supei-00</span></p>
   
   <h1 id="rfc.abstract">
   <a href="#rfc.abstract">Abstract</a>
@@ -452,18 +454,20 @@
 <li>2.   <a href="#rfc.section.2">Architecture</a></li>
 <li>3.   <a href="#rfc.section.3">Dealing with Sleepy endpoints</a></li>
 <li>4.   <a href="#rfc.section.4">Device Initiated Communication</a></li>
-<li>5.   <a href="#rfc.section.5">Delegation on other nodes</a></li>
-<li>6.   <a href="#rfc.section.6">Using Multiple Stacks</a></li>
-<li>7.   <a href="#rfc.section.7">Runtime Discovery</a></li>
-<li>8.   <a href="#rfc.section.8">Acknowledgements</a></li>
-<li>9.   <a href="#rfc.references">Informative References</a></li>
-<li><a href="#rfc.authors">Author's Address</a></li>
+<li>5.   <a href="#rfc.section.5">Manager Initiated Communication</a></li>
+<li>6.   <a href="#rfc.section.6">Delegation on other nodes</a></li>
+<li>7.   <a href="#rfc.section.7">Using Multiple Stacks</a></li>
+<li>8.   <a href="#rfc.section.8">Possible DDOS</a></li>
+<li>9.   <a href="#rfc.section.9">Runtime Discovery</a></li>
+<li>10.   <a href="#rfc.section.10">Acknowledgements</a></li>
+<li>11.   <a href="#rfc.references">Informative References</a></li>
+<li><a href="#rfc.authors">Authors' Addresses</a></li>
 
 
   </ul>
 
   <h1 id="rfc.section.1"><a href="#rfc.section.1">1.</a> <a href="#introduction" id="introduction">Introduction</a></h1>
-<p id="rfc.section.1.p.1">In this short paper we try to raise some issues we have found when dealing with software upgrades in the IoT domain. Dealing with sleep y endpoint is at <a href="#sleepy">Section 3</a>. The case for device initiated communication is on <a href="#devini">Section 4</a>. Delegation on gateways or other nodes is in <a href="#delegation">Section 5</a>. The use of an alternative stack for software upgrades is at <a href="#many">Section 6</a>. A possible long-term architecture that enables to do runtime updates on the constrained device is at <a href="#run">Section 7</a></p>
+<p id="rfc.section.1.p.1">In this short paper we try to raise some issues we have found when dealing with software upgrades in the IoT domain. Dealing with sleepy endpoint is at <a href="#sleepy">Section 3</a>. The case for device initiated communication is on <a href="#devini">Section 4</a> and manager initiated on <a href="#serverini">Section 5</a>. Delegation on gateways or other nodes is in <a href="#delegation">Section 6</a>. The use of an alternative stack for software upgrades is at <a href="#many">Section 7</a>. A possible long-term architecture that enables to do runtime updates on the constrained device is at <a href="#run">Section 9</a></p>
 <h1 id="rfc.section.2"><a href="#rfc.section.2">2.</a> <a href="#architecture" id="architecture">Architecture</a></h1>
 <p id="rfc.section.2.p.1">Ideally our target CoAP stack is the following:</p>
 <pre>
@@ -477,6 +481,7 @@
  +-------------------+                      +-------------------+
 </pre>
 <p id="rfc.section.2.p.2">This set up poses several issues when dealing with the operator environment.</p>
+<p><strong>JAIME:</strong> Could the image be improved somehow? Is it sufficient?</p>
 <h1 id="rfc.section.3"><a href="#rfc.section.3">3.</a> <a href="#sleepy" id="sleepy">Dealing with Sleepy endpoints</a></h1>
 <p id="rfc.section.3.p.1">The fact that devices are sleepy poses several problems for doing software updates. Namely that you do not have a connected endpoint most of the time and that therefore the device will have to contact the manager or the manager will have to poll the device pretty frequently. The case for polling does not scale and therefore it is hardly a solution.</p>
 <p id="rfc.section.3.p.2">Nevertheless it is very common to use polling on the constrained space since the server has more capabilities and thus can query the device providing that there are no NATs or firewalls (See <a href="#devini">Section 4</a>)</p>
@@ -488,25 +493,36 @@ D&lt;--M: CoAP GET /Radio_link_status, Token: 0x4a, Observe: 0
 D--&gt;M: 2.05 Content, Token: 0x4a, payload: 1, time: 1464619477
 D--&gt;M: 2.05 Content, Token: 0x4a, payload: 1, time: 1464520998
 </pre>
-<h1 id="rfc.section.5"><a href="#rfc.section.5">5.</a> <a href="#delegation" id="delegation">Delegation on other nodes</a></h1>
-<p id="rfc.section.5.p.1">Use of Gateways or Servers for caching and for delegating the task of doing NAT traversal.</p>
-<p id="rfc.section.5.p.2">TBD</p>
-<h1 id="rfc.section.6"><a href="#rfc.section.6">6.</a> <a href="#many" id="many">Using Multiple Stacks</a></h1>
-<p id="rfc.section.6.p.1">We have seen how in some cases devices have multiple stack combinations and updates go through an &#8220;alternative channel&#8221;. For example:</p>
+<h1 id="rfc.section.5"><a href="#rfc.section.5">5.</a> <a href="#serverini" id="serverini">Manager Initiated Communication</a></h1>
+<p id="rfc.section.5.p.1">NATs and Firewalls are persistent issues to resolve also in manager initiated communication. However, we could re-use the capabilities of CoAP to overcome this issue.</p>
+<p id="rfc.section.5.p.2">In this approach, there is no need to set a separate observation on the status of the device as defined in <a href="#devini">Section 4</a>. When the device sends a notification to any existing observation on any resource, the manager can initiate the software update during the established connection through NAT. This approach requires the manager to implement the logic of linking observation of any resource to send software update to the device.</p>
+<h1 id="rfc.section.6"><a href="#rfc.section.6">6.</a> <a href="#delegation" id="delegation">Delegation on other nodes</a></h1>
+<p id="rfc.section.6.p.1">Many of the IoT devices may not have connectivity to the manager and gateways are used to provide such connectivity to the manager in the e.g. core network. Gateways used in this use case are more capable to perform complex operations and to support different protocol stacks together, which can be used to update the device software.</p>
+<p id="rfc.section.6.p.2">For our implementation we assumed that the gateway supports, at least, both CoAP and HTTP stacks. The communication between the device and the gateway is performed using CoAP. Gateways can retrieve the software update from the manager through HTTP without NAT issues and cache the package. When the device wakes up and connects to the gateway, the gateway can push the software update to the device.</p>
+<p id="rfc.section.6.p.3">However, this approach requires the Gateway to have the required credentials to perform such software update operation. This can be achieved e.g. by having a CoAP proxy on the Gateway.</p>
+<p><strong>JAIME:</strong> Could you add an example here? Some sequence diagram as in <a href="#devini">Section 4</a>, code sniplet&#8230;</p>
+<h1 id="rfc.section.7"><a href="#rfc.section.7">7.</a> <a href="#many" id="many">Using Multiple Stacks</a></h1>
+<p id="rfc.section.7.p.1">We have seen how in some cases devices have multiple stack combinations and updates go through an &#8220;alternative channel&#8221;. For example:</p>
 <p/>
 
 <dl>
   <dt>MQTT+HTTP</dt>
   <dd style="margin-left: 8">in this scenario MQTT is used as the base protocol for communication. Having publish/subscribe architecture simplifies the (1:n) and (n:1) communication use cases that are very common for reporting sensor data. For firmware upgrades a command is sent to the device with the URL where the new binaries are (i.e. https://company/devicetype/version00.zip), the device then sets a whole different communication channel just for that, as well as a dedicated DTLS/TLS connection. This is too much overhead for many constrained devices.</dd>
 </dl>
-<h1 id="rfc.section.7"><a href="#rfc.section.7">7.</a> <a href="#run" id="run">Runtime Discovery</a></h1>
-<p id="rfc.section.7.p.1">Instead of sending bulk binaries with several megabytes of data, a simpler approach would be to send partial modifications related to the software update when possible.</p>
-<p id="rfc.section.7.p.2">Similarly as it was shown in the IOTSI Workshop <a href="#IOTSIWS">[IOTSIWS]</a>, Runtime Discovery is also a very powerful mechanism to provide updated services and software to a device.</p>
-<p id="rfc.section.7.p.3">A device could use a single entry point for its firmware information (e.g. &#8220;/fw&#8221;), then device would periodically perform discovery on that point and in order to discover new capabilities. Links to the new capabilities could be discoverable on demand. Only very basic semantics would be shared a-priori.</p>
-<p id="rfc.section.7.p.4">Current software upgrade mechanism do not allow for changes at runtime. There are predefined interfaces that would break whenever the API changes, making it compulsory to send new software to the device that would need to install it, reboot, etc. The device logic has to support such interfaces, no changes are possible at runtime.</p>
-<h1 id="rfc.section.8"><a href="#rfc.section.8">8.</a> <a href="#acknowledgements" id="acknowledgements">Acknowledgements</a></h1>
-<p id="rfc.section.8.p.1">Runtime Discovery ideas are inspired from Matthias Kovatsch&#8217;s presentations on HATEOAS at <a href="#IOTSIWS">[IOTSIWS]</a>. thanks to Carsten Bormann for the valuable feedback.</p>
-<h1 id="rfc.references"><a href="#rfc.references">9.</a> Informative References</h1>
+<p><strong>JAIME:</strong> We need another example here, any ideas?.</p>
+<h1 id="rfc.section.8"><a href="#rfc.section.8">8.</a> <a href="#possible-ddos" id="possible-ddos">Possible DDOS</a></h1>
+<p id="rfc.section.8.p.1">TBD</p>
+<p><strong>JAIME:</strong> When I thought of software update issues, I firstly thought of DDoS generated by the billions of devices on the CDN hosting the updates. So I am wondering if that is a non issue?</p>
+<p><strong>MERT:</strong> Isn&#8217;t software update server controlled i.e. how would DDOS work if server already controls the update process? I mean, e.g. can a device request its software to be updated from the server?</p>
+<p><strong>JAIME:</strong> I guess the point here is if there are some issues with updating ALL devices at once, specially if there are billions of them&#8230; anyway we could remove this part cause I am not sure about its usefullness.</p>
+<h1 id="rfc.section.9"><a href="#rfc.section.9">9.</a> <a href="#run" id="run">Runtime Discovery</a></h1>
+<p id="rfc.section.9.p.1">Instead of sending bulk binaries with several megabytes of data, a simpler approach would be to send partial modifications related to the software update when possible.</p>
+<p id="rfc.section.9.p.2">Similarly as it was shown in the IOTSI Workshop <a href="#IOTSIWS">[IOTSIWS]</a>, Runtime Discovery is also a very powerful mechanism to provide updated services and software to a device.</p>
+<p id="rfc.section.9.p.3">A device could use a single entry point for its firmware information (e.g. &#8220;/fw&#8221;), then device would periodically perform discovery on that point and in order to discover new capabilities. Links to the new capabilities could be discoverable on demand. Only very basic semantics would be shared a-priori.</p>
+<p id="rfc.section.9.p.4">Current software upgrade mechanism do not allow for changes at runtime. There are predefined interfaces that would break whenever the API changes, making it compulsory to send new software to the device that would need to install it, reboot, etc. The device logic has to support such interfaces, no changes are possible at runtime.</p>
+<h1 id="rfc.section.10"><a href="#rfc.section.10">10.</a> <a href="#acknowledgements" id="acknowledgements">Acknowledgements</a></h1>
+<p id="rfc.section.10.p.1">Runtime Discovery ideas are inspired from Matthias Kovatsch&#8217;s presentations on HATEOAS at <a href="#IOTSIWS">[IOTSIWS]</a>. Thanks to Carsten Bormann for the valuable feedback.</p>
+<h1 id="rfc.references"><a href="#rfc.references">11.</a> Informative References</h1>
 <table>
   <tbody>
     <tr>
@@ -536,7 +552,7 @@ D--&gt;M: 2.05 Content, Token: 0x4a, payload: 1, time: 1464520998
   </tbody>
 </table>
 <h1 id="rfc.authors">
-  <a href="#rfc.authors">Author's Address</a>
+  <a href="#rfc.authors">Authors' Addresses</a>
 </h1>
 <div class="avoidbreak">
   <address class="vcard">
@@ -557,6 +573,27 @@ D--&gt;M: 2.05 Content, Token: 0x4a, payload: 1, time: 1464520998
 	  <span class="country-name vcardline"></span>
 	</span>
 	<span class="vcardline">EMail: <a href="mailto:jaime.jimenez@ericsson.com">jaime.jimenez@ericsson.com</a></span>
+
+  </address>
+</div><div class="avoidbreak">
+  <address class="vcard">
+	<span class="vcardline">
+	  <span class="fn">Mert Ocak</span> 
+	  <span class="n hidden">
+		<span class="family-name">Ocak</span>
+	  </span>
+	</span>
+	<span class="org vcardline">Ericsson</span>
+	<span class="adr">
+	  
+	  <span class="vcardline">
+		<span class="locality"></span> 
+		<span class="region"></span>
+		<span class="code"></span>
+	  </span>
+	  <span class="country-name vcardline"></span>
+	</span>
+	<span class="vcardline">EMail: <a href="mailto:mert.ocak@ericsson.com">mert.ocak@ericsson.com</a></span>
 
   </address>
 </div>

@@ -1,7 +1,7 @@
 ---
 title: Software Upgrade Experiences for IoT
 abbrev: SUPEI
-docname: draft-supei-00
+docname: draft-jimenez-supei-00
 date: 2016-05-30
 category: info
 
@@ -17,6 +17,12 @@ author:
     name: Jaime Jimenez
     organization: Ericsson
     email: jaime.jimenez@ericsson.com
+ -
+    ins: M. Ocak
+    name: Mert Ocak
+    organization: Ericsson
+    email: mert.ocak@ericsson.com
+
 
 normative:
 
@@ -40,7 +46,7 @@ This document provides a summary of found problems and possible solutions for so
 Introduction
 ============
 
-In this short paper we try to raise some issues we have found when dealing with software upgrades in the IoT domain. Dealing with sleepy endpoint is at {{sleepy}}. The case for device initiated communication is on {{devini}}. Delegation on gateways or other nodes is in {{delegation}}. The use of an alternative stack for software upgrades is at {{many}}. A possible long-term architecture that enables to do runtime updates on the constrained device is at {{run}} 
+In this short paper we try to raise some issues we have found when dealing with software upgrades in the IoT domain. Dealing with sleepy endpoint is at {{sleepy}}. The case for device initiated communication is on {{devini}} and manager initiated on {{serverini}}. Delegation on gateways or other nodes is in {{delegation}}. The use of an alternative stack for software upgrades is at {{many}}. A possible long-term architecture that enables to do runtime updates on the constrained device is at {{run}} 
 
 Architecture
 ============
@@ -59,6 +65,8 @@ Ideally our target CoAP stack is the following:
 
 This set up poses several issues when dealing with the operator environment.
 
+
+**JAIME:** Could the image be improved somehow? Is it sufficient?
 
 Dealing with Sleepy endpoints {#sleepy}
 =============================
@@ -85,22 +93,18 @@ Manager Initiated Communication {#serverini}
 ==============================
 NATs and Firewalls are persistent issues to resolve also in manager initiated communication. However, we could re-use the capabilities of CoAP to overcome this issue.
 
-In this approach, there is no need to set a seperate observation on the status of the device as defined in {{devini}}. When the device sends a notification to any existing observation on any resource, the manager can initiate the software update during the established connection through NAT. This approach requires the manager to implement the logic of linking observation of any resource to send software update to the device.
-
+In this approach, there is no need to set a separate observation on the status of the device as defined in {{devini}}. When the device sends a notification to any existing observation on any resource, the manager can initiate the software update during the established connection through NAT. This approach requires the manager to implement the logic of linking observation of any resource to send software update to the device.
 
 Delegation on other nodes {#delegation}
 =========================
 
-Use of Gateways or Servers for caching and for delegating the task of doing NAT traversal.  
-
-TBD - SOME CONTENT TO REVIEW
-// ACTUALLY, THIS PART MIGHT GO TO MULTI STACK PART TOO
 Many of the IoT devices may not have connectivity to the manager and gateways are used to provide such connectivity to the manager in the e.g. core network. Gateways used in this use case are more capable to perform complex operations and to support different protocol stacks together, which can be used to update the device software. 
 
-We assume that the gateway supports, at least, both CoAP and HTTP stacks. The communication between the device and the gateway is performed using CoAP. Gateway can retrieve the software update from the manager through HTTP without NAT issues and cache the package. When the device wakes up and connects to the gateway, the gateway can push the software update to the device.
+For our implementation we assumed that the gateway supports, at least, both CoAP and HTTP stacks. The communication between the device and the gateway is performed using CoAP. Gateways can retrieve the software update from the manager through HTTP without NAT issues and cache the package. When the device wakes up and connects to the gateway, the gateway can push the software update to the device.
 
-// SECURITY IS THE TRICKY PART HERE, HANNES WOULD OPPOSE THIS IMHO
-However, this approach requires the gateway to have the required credentials to perform such software update operation. This can be achieved e.g. by having a LWM2M proxy on the gateway.
+However, this approach requires the Gateway to have the required credentials to perform such software update operation. This can be achieved e.g. by having a CoAP proxy on the Gateway.
+
+**JAIME:** Could you add an example here? Some sequence diagram as in {{devini}}, code sniplet...
 
 Using Multiple Stacks {#many}
 =====================
@@ -110,13 +114,18 @@ We have seen how in some cases devices have multiple stack combinations and upda
 MQTT+HTTP
 : in this scenario MQTT is used as the base protocol for communication. Having publish/subscribe architecture simplifies the (1:n) and (n:1) communication use cases that are very common for reporting sensor data. For firmware upgrades a command is sent to the device with the URL where the new binaries are (i.e. https://company/devicetype/version00.zip), the device then sets a whole different communication channel just for that, as well as a dedicated DTLS/TLS connection. This is too much overhead for many constrained devices. 
 
+**JAIME:** We need another example here, any ideas?. 
+
 Possible DDOS
 ==============
 
 TBD
 
-When I thought of software update issues, I firstly thought of DDoS generated by the billions of devices on the CDN hosting the updates. So I am wondering if that is a non issue? 
-MERT: Isn't software update server controlled i.e. how would DDOS work if server already controls the update proces? I mean, e.g. can a device request its software to be updated from the server? 
+**JAIME:** When I thought of software update issues, I firstly thought of DDoS generated by the billions of devices on the CDN hosting the updates. So I am wondering if that is a non issue? 
+
+**MERT:** Isn't software update server controlled i.e. how would DDOS work if server already controls the update process? I mean, e.g. can a device request its software to be updated from the server? 
+
+**JAIME:** I guess the point here is if there are some issues with updating ALL devices at once, specially if there are billions of them... anyway we could remove this part cause I am not sure about its usefullness.
 
 Runtime Discovery {#run}
 =================
@@ -133,5 +142,5 @@ Current software upgrade mechanism do not allow for changes at runtime. There ar
 Acknowledgements
 =================
 
-Runtime Discovery ideas are inspired from Matthias Kovatsch's presentations on HATEOAS at {{IOTSIWS}}. thanks to Carsten Bormann for the valuable feedback.
+Runtime Discovery ideas are inspired from Matthias Kovatsch's presentations on HATEOAS at {{IOTSIWS}}. Thanks to Carsten Bormann for the valuable feedback.
 

@@ -3,13 +3,13 @@
 
 
 Network Working Group                                         J. Jimenez
-Internet-Draft                                                  Ericsson
-Intended status: Informational                              May 30, 2016
-Expires: December 1, 2016
+Internet-Draft                                                   M. Ocak
+Intended status: Informational                                  Ericsson
+Expires: December 1, 2016                                   May 30, 2016
 
 
                   Software Upgrade Experiences for IoT
-                             draft-supei-00
+                         draft-jimenez-supei-00
 
 Abstract
 
@@ -53,7 +53,7 @@ Copyright Notice
 
 
 
-Jimenez                 Expires December 1, 2016                [Page 1]
+Jimenez & Ocak          Expires December 1, 2016                [Page 1]
 
 Internet-Draft                    SUPEI                         May 2016
 
@@ -62,25 +62,27 @@ Table of Contents
 
    1.  Introduction  . . . . . . . . . . . . . . . . . . . . . . . .   2
    2.  Architecture  . . . . . . . . . . . . . . . . . . . . . . . .   2
-   3.  Dealing with Sleepy endpoints . . . . . . . . . . . . . . . .   2
+   3.  Dealing with Sleepy endpoints . . . . . . . . . . . . . . . .   3
    4.  Device Initiated Communication  . . . . . . . . . . . . . . .   3
-   5.  Delegation on other nodes . . . . . . . . . . . . . . . . . .   3
-   6.  Using Multiple Stacks . . . . . . . . . . . . . . . . . . . .   3
-   7.  Runtime Discovery . . . . . . . . . . . . . . . . . . . . . .   4
-   8.  Acknowledgements  . . . . . . . . . . . . . . . . . . . . . .   4
-   9.  Informative References  . . . . . . . . . . . . . . . . . . .   4
-   Author's Address  . . . . . . . . . . . . . . . . . . . . . . . .   5
+   5.  Manager Initiated Communication . . . . . . . . . . . . . . .   3
+   6.  Delegation on other nodes . . . . . . . . . . . . . . . . . .   4
+   7.  Using Multiple Stacks . . . . . . . . . . . . . . . . . . . .   4
+   8.  Possible DDOS . . . . . . . . . . . . . . . . . . . . . . . .   4
+   9.  Runtime Discovery . . . . . . . . . . . . . . . . . . . . . .   5
+   10. Acknowledgements  . . . . . . . . . . . . . . . . . . . . . .   5
+   11. Informative References  . . . . . . . . . . . . . . . . . . .   5
+   Authors' Addresses  . . . . . . . . . . . . . . . . . . . . . . .   6
 
 1.  Introduction
 
    In this short paper we try to raise some issues we have found when
-   dealing with software upgrades in the IoT domain.  Dealing with sleep
-   y endpoint is at Section 3.  The case for device initiated
-   communication is on Section 4.  Delegation on gateways or other nodes
-   is in Section 5.  The use of an alternative stack for software
-   upgrades is at Section 6.  A possible long-term architecture that
-   enables to do runtime updates on the constrained device is at
-   Section 7
+   dealing with software upgrades in the IoT domain.  Dealing with
+   sleepy endpoint is at Section 3.  The case for device initiated
+   communication is on Section 4 and manager initiated on Section 5.
+   Delegation on gateways or other nodes is in Section 6.  The use of an
+   alternative stack for software upgrades is at Section 7.  A possible
+   long-term architecture that enables to do runtime updates on the
+   constrained device is at Section 9
 
 2.  Architecture
 
@@ -98,6 +100,20 @@ Table of Contents
    This set up poses several issues when dealing with the operator
    environment.
 
+   *JAIME:* Could the image be improved somehow?  Is it sufficient?
+
+
+
+
+
+
+
+
+Jimenez & Ocak          Expires December 1, 2016                [Page 2]
+
+Internet-Draft                    SUPEI                         May 2016
+
+
 3.  Dealing with Sleepy endpoints
 
    The fact that devices are sleepy poses several problems for doing
@@ -106,13 +122,6 @@ Table of Contents
    the manager or the manager will have to poll the device pretty
    frequently.  The case for polling does not scale and therefore it is
    hardly a solution.
-
-
-
-Jimenez                 Expires December 1, 2016                [Page 2]
-
-Internet-Draft                    SUPEI                         May 2016
-
 
    Nevertheless it is very common to use polling on the constrained
    space since the server has more capabilities and thus can query the
@@ -137,14 +146,54 @@ Internet-Draft                    SUPEI                         May 2016
    D-->M: 2.05 Content, Token: 0x4a, payload: 1, time: 1464619477
    D-->M: 2.05 Content, Token: 0x4a, payload: 1, time: 1464520998
 
-5.  Delegation on other nodes
+5.  Manager Initiated Communication
 
-   Use of Gateways or Servers for caching and for delegating the task of
-   doing NAT traversal.
+   NATs and Firewalls are persistent issues to resolve also in manager
+   initiated communication.  However, we could re-use the capabilities
+   of CoAP to overcome this issue.
 
-   TBD
+   In this approach, there is no need to set a separate observation on
+   the status of the device as defined in Section 4.  When the device
+   sends a notification to any existing observation on any resource, the
+   manager can initiate the software update during the established
+   connection through NAT.  This approach requires the manager to
+   implement the logic of linking observation of any resource to send
+   software update to the device.
 
-6.  Using Multiple Stacks
+
+
+
+
+
+Jimenez & Ocak          Expires December 1, 2016                [Page 3]
+
+Internet-Draft                    SUPEI                         May 2016
+
+
+6.  Delegation on other nodes
+
+   Many of the IoT devices may not have connectivity to the manager and
+   gateways are used to provide such connectivity to the manager in the
+   e.g. core network.  Gateways used in this use case are more capable
+   to perform complex operations and to support different protocol
+   stacks together, which can be used to update the device software.
+
+   For our implementation we assumed that the gateway supports, at
+   least, both CoAP and HTTP stacks.  The communication between the
+   device and the gateway is performed using CoAP.  Gateways can
+   retrieve the software update from the manager through HTTP without
+   NAT issues and cache the package.  When the device wakes up and
+   connects to the gateway, the gateway can push the software update to
+   the device.
+
+   However, this approach requires the Gateway to have the required
+   credentials to perform such software update operation.  This can be
+   achieved e.g. by having a CoAP proxy on the Gateway.
+
+   *JAIME:* Could you add an example here?  Some sequence diagram as in
+   Section 4, code sniplet...
+
+7.  Using Multiple Stacks
 
    We have seen how in some cases devices have multiple stack
    combinations and updates go through an "alternative channel".  For
@@ -160,17 +209,33 @@ Internet-Draft                    SUPEI                         May 2016
       dedicated DTLS/TLS connection.  This is too much overhead for many
       constrained devices.
 
+   *JAIME:* We need another example here, any ideas?.
+
+8.  Possible DDOS
+
+   TBD
+
+   *JAIME:* When I thought of software update issues, I firstly thought
+   of DDoS generated by the billions of devices on the CDN hosting the
+   updates.  So I am wondering if that is a non issue?
 
 
 
-
-
-Jimenez                 Expires December 1, 2016                [Page 3]
+Jimenez & Ocak          Expires December 1, 2016                [Page 4]
 
 Internet-Draft                    SUPEI                         May 2016
 
 
-7.  Runtime Discovery
+   *MERT:* Isn't software update server controlled i.e. how would DDOS
+   work if server already controls the update process?  I mean, e.g. can
+   a device request its software to be updated from the server?
+
+   *JAIME:* I guess the point here is if there are some issues with
+   updating ALL devices at once, specially if there are billions of
+   them... anyway we could remove this part cause I am not sure about
+   its usefullness.
+
+9.  Runtime Discovery
 
    Instead of sending bulk binaries with several megabytes of data, a
    simpler approach would be to send partial modifications related to
@@ -192,13 +257,13 @@ Internet-Draft                    SUPEI                         May 2016
    device that would need to install it, reboot, etc.  The device logic
    has to support such interfaces, no changes are possible at runtime.
 
-8.  Acknowledgements
+10.  Acknowledgements
 
    Runtime Discovery ideas are inspired from Matthias Kovatsch's
-   presentations on HATEOAS at [IOTSIWS]. thanks to Carsten Bormann for
+   presentations on HATEOAS at [IOTSIWS].  Thanks to Carsten Bormann for
    the valuable feedback.
 
-9.  Informative References
+11.  Informative References
 
    [I-D.ietf-core-resource-directory]
               Shelby, Z., Koster, M., Bormann, C., and P. Stok, "CoRE
@@ -208,6 +273,14 @@ Internet-Draft                    SUPEI                         May 2016
    [IOTSIWS]  IAB, "IoT Workshop for Semantic Interoperability (IOTSI) -
               Main Page and Position Papers", 2016,
               <https://www.iab.org/activities/workshops/iotsi/>.
+
+
+
+
+Jimenez & Ocak          Expires December 1, 2016                [Page 5]
+
+Internet-Draft                    SUPEI                         May 2016
+
 
    [RFC7230]  Fielding, R., Ed. and J. Reschke, Ed., "Hypertext Transfer
               Protocol (HTTP/1.1): Message Syntax and Routing", RFC
@@ -219,14 +292,7 @@ Internet-Draft                    SUPEI                         May 2016
               RFC7252, June 2014,
               <http://www.rfc-editor.org/info/rfc7252>.
 
-
-
-Jimenez                 Expires December 1, 2016                [Page 4]
-
-Internet-Draft                    SUPEI                         May 2016
-
-
-Author's Address
+Authors' Addresses
 
    Jaime Jimenez
    Ericsson
@@ -234,6 +300,10 @@ Author's Address
    Email: jaime.jimenez@ericsson.com
 
 
+   Mert Ocak
+   Ericsson
+
+   Email: mert.ocak@ericsson.com
 
 
 
@@ -263,18 +333,4 @@ Author's Address
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-Jimenez                 Expires December 1, 2016                [Page 5]
+Jimenez & Ocak          Expires December 1, 2016                [Page 6]
