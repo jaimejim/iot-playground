@@ -131,10 +131,12 @@ MQTT+HTTP
 
 
 MQTT+CoAP
-: similar as the above scenario.... 
+: similar to previous scenario, MQTT is the base protocol for communication and firmware upgrade command is sent to the device in an MQTT message, which includes the CoAP URL to the binary to be downloaded. The device opens a UDP connection to the CoAP endpoint and downloads the binary with e.g. CoAP blockwise transfer. This scenario may occur when the node serving the software package supports only CoAP. 
 
 
 **JAIME:** Could you write something on this example? Any others?
+
+**MERT:** I wrote something for MQTT+CoAP part but sounds a bit weak I guess. Please have a look at it. And moreover, would CoAP+HTTP make sense to add here?
 
 
 Runtime Discovery {#run}
