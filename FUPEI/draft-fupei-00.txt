@@ -88,15 +88,15 @@ Table of Contents
    Ideally our target CoAP stack is the following:
 
    Device                                      Manager
-   +-------------------+                      +-------------------+
-   |CoAP Server/Client |                      |CoAP Server/Client |
-   +-------------------+                      +-------------------+
-   |        UDP        | +----------------->  |       UDP         |
-   +-------------------+                      +-------------------+
-   |    IPv4/IPv6      | <-----------------+  |    IPv4/IPv6      |
-   +-------------------+                      +-------------------+
-   |       GSM/3G      |                      |       ANY         |
-   +-------------------+                      +-------------------+
+   +--------------------+                      +--------------------+
+   | CoAP Server/Client |                      | CoAP Server/Client |
+   +--------------------+                      +--------------------+
+   |        UDP         | +----------------->  |        UDP         |
+   +--------------------+                      +--------------------+
+   |     IPv4/IPv6      | <-----------------+  |     IPv4/IPv6      |
+   +--------------------+                      +--------------------+
+   |       GSM/3G       |                      |        ANY         |
+   +--------------------+                      +--------------------+
 
    This set up poses several issues, specially when dealing with the
    operator environment.
@@ -214,10 +214,10 @@ Internet-Draft                    SUPEI                        June 2016
       dedicated DTLS/TLS connection.  This is too much overhead for many
       constrained devices.
 
-   MQTT+CoAP  similar as the above scenario....
-
-   *JAIME:* Could you write something on this example?  Any others?
-
+   MQTT+CoAP  similar to previous scenario, MQTT is the base protocol
+      for communication and firmware upgrade command is sent to the
+      device in an MQTT message, which includes the CoAP URL to the
+      binary to be downloaded.  The device opens a UDP connection to the
 
 
 
@@ -225,6 +225,10 @@ Jimenez & Ocak          Expires December 3, 2016                [Page 4]
 
 Internet-Draft                    SUPEI                        June 2016
 
+
+      CoAP endpoint and downloads the binary with e.g.  CoAP blockwise
+      transfer.  This scenario may occur when the node serving the
+      software package supports only CoAP.
 
 8.  Runtime Discovery
 
@@ -251,8 +255,8 @@ Internet-Draft                    SUPEI                        June 2016
 9.  Acknowledgements
 
    Runtime Discovery ideas are inspired from Matthias Kovatsch's
-   presentations on HATEOAS at [IOTSIWS].  Thanks to Carsten Bormann for
-   the valuable feedback.
+   presentations on HATEOAS at [IOTSIWS].  Thanks to Carsten Bormann and
+   Jari Arkko for the valuable feedback.
 
 10.  Informative References
 
@@ -270,10 +274,6 @@ Internet-Draft                    SUPEI                        June 2016
               7230, DOI 10.17487/RFC7230, June 2014,
               <http://www.rfc-editor.org/info/rfc7230>.
 
-   [RFC7252]  Shelby, Z., Hartke, K., and C. Bormann, "The Constrained
-              Application Protocol (CoAP)", RFC 7252, DOI 10.17487/
-              RFC7252, June 2014,
-              <http://www.rfc-editor.org/info/rfc7252>.
 
 
 
@@ -281,6 +281,11 @@ Jimenez & Ocak          Expires December 3, 2016                [Page 5]
 
 Internet-Draft                    SUPEI                        June 2016
 
+
+   [RFC7252]  Shelby, Z., Hartke, K., and C. Bormann, "The Constrained
+              Application Protocol (CoAP)", RFC 7252, DOI 10.17487/
+              RFC7252, June 2014,
+              <http://www.rfc-editor.org/info/rfc7252>.
 
 Authors' Addresses
 
@@ -294,11 +299,6 @@ Authors' Addresses
    Ericsson
 
    Email: mert.ocak@ericsson.com
-
-
-
-
-
 
 
 

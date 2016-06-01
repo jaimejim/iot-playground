@@ -55,15 +55,15 @@ Ideally our target CoAP stack is the following:
 
 
     Device                                      Manager
-    +-------------------+                      +-------------------+
-    |CoAP Server/Client |                      |CoAP Server/Client |
-    +-------------------+                      +-------------------+
-    |        UDP        | +----------------->  |       UDP         |
-    +-------------------+                      +-------------------+
-    |    IPv4/IPv6      | <-----------------+  |    IPv4/IPv6      |
-    +-------------------+                      +-------------------+
-    |       GSM/3G      |                      |       ANY         |
-    +-------------------+                      +-------------------+
+    +--------------------+                      +--------------------+
+    | CoAP Server/Client |                      | CoAP Server/Client |
+    +--------------------+                      +--------------------+
+    |        UDP         | +----------------->  |        UDP         |
+    +--------------------+                      +--------------------+
+    |     IPv4/IPv6      | <-----------------+  |     IPv4/IPv6      |
+    +--------------------+                      +--------------------+
+    |       GSM/3G       |                      |        ANY         |
+    +--------------------+                      +--------------------+
 
 
 This set up poses several issues, specially when dealing with the operator environment.
@@ -134,11 +134,6 @@ MQTT+CoAP
 : similar to previous scenario, MQTT is the base protocol for communication and firmware upgrade command is sent to the device in an MQTT message, which includes the CoAP URL to the binary to be downloaded. The device opens a UDP connection to the CoAP endpoint and downloads the binary with e.g. CoAP blockwise transfer. This scenario may occur when the node serving the software package supports only CoAP. 
 
 
-**JAIME:** Could you write something on this example? Any others?
-
-**MERT:** I wrote something for MQTT+CoAP part but sounds a bit weak I guess. Please have a look at it. And moreover, would CoAP+HTTP make sense to add here?
-
-
 Runtime Discovery {#run}
 =================
 
@@ -150,9 +145,8 @@ A device could use a single entry point for its firmware information (e.g. "/fw"
 
 Current software upgrade mechanism do not allow for changes at runtime. There are predefined interfaces that would break whenever the API changes, making it compulsory to send new software to the device that would need to install it, reboot, etc. The device logic has to support such interfaces, no changes are possible at runtime. 
 
-
 Acknowledgements
 =================
 
-Runtime Discovery ideas are inspired from Matthias Kovatsch's presentations on HATEOAS at {{IOTSIWS}}. Thanks to Carsten Bormann for the valuable feedback.
+Runtime Discovery ideas are inspired from Matthias Kovatsch's presentations on HATEOAS at {{IOTSIWS}}. Thanks to Carsten Bormann and Jari Arkko for the valuable feedback.
 

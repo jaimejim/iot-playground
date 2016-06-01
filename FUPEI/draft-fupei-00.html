@@ -470,15 +470,15 @@
 <p id="rfc.section.2.p.1">Ideally our target CoAP stack is the following:</p>
 <pre>
 Device                                      Manager
-+-------------------+                      +-------------------+
-|CoAP Server/Client |                      |CoAP Server/Client |
-+-------------------+                      +-------------------+
-|        UDP        | +-----------------&gt;  |       UDP         |
-+-------------------+                      +-------------------+
-|    IPv4/IPv6      | &lt;-----------------+  |    IPv4/IPv6      |
-+-------------------+                      +-------------------+
-|       GSM/3G      |                      |       ANY         |
-+-------------------+                      +-------------------+
++--------------------+                      +--------------------+
+| CoAP Server/Client |                      | CoAP Server/Client |
++--------------------+                      +--------------------+
+|        UDP         | +-----------------&gt;  |        UDP         |
++--------------------+                      +--------------------+
+|     IPv4/IPv6      | &lt;-----------------+  |     IPv4/IPv6      |
++--------------------+                      +--------------------+
+|       GSM/3G       |                      |        ANY         |
++--------------------+                      +--------------------+
 </pre>
 <p id="rfc.section.2.p.2">This set up poses several issues, specially when dealing with the operator environment.</p>
 <h1 id="rfc.section.3"><a href="#rfc.section.3">3.</a> <a href="#sleepy" id="sleepy">Dealing with Sleepy endpoints</a></h1>
@@ -519,16 +519,15 @@ D&lt;--G: COAP POST /sw, Token: 0xbb, payload: swpackage
   <dt>MQTT+HTTP</dt>
   <dd style="margin-left: 8">in this scenario MQTT is used as the base protocol for communication. Having publish/subscribe architecture simplifies the (1:n) and (n:1) communication use cases that are very common for reporting sensor data. For firmware upgrades a command is sent to the device with the URL where the new binaries are (i.e. https://company/devicetype/version00.zip), the device then sets a whole different communication channel just for that, as well as a dedicated DTLS/TLS connection. This is too much overhead for many constrained devices.</dd>
   <dt>MQTT+CoAP</dt>
-  <dd style="margin-left: 8">similar as the above scenario&#8230;.</dd>
+  <dd style="margin-left: 8">similar to previous scenario, MQTT is the base protocol for communication and firmware upgrade command is sent to the device in an MQTT message, which includes the CoAP URL to the binary to be downloaded. The device opens a UDP connection to the CoAP endpoint and downloads the binary with e.g. CoAP blockwise transfer. This scenario may occur when the node serving the software package supports only CoAP.</dd>
 </dl>
-<p><strong>JAIME:</strong> Could you write something on this example? Any others?</p>
 <h1 id="rfc.section.8"><a href="#rfc.section.8">8.</a> <a href="#run" id="run">Runtime Discovery</a></h1>
 <p id="rfc.section.8.p.1">Instead of sending bulk binaries with several megabytes of data, a simpler approach would be to send partial modifications related to the software update when possible.</p>
 <p id="rfc.section.8.p.2">Similarly as it was shown in the IOTSI Workshop <a href="#IOTSIWS">[IOTSIWS]</a>, Runtime Discovery is also a very powerful mechanism to provide updated services and software to a device.</p>
 <p id="rfc.section.8.p.3">A device could use a single entry point for its firmware information (e.g. &#8220;/fw&#8221;), then device would periodically perform discovery on that point and in order to discover new capabilities. Links to the new capabilities could be discoverable on demand. Only very basic semantics would be shared a-priori.</p>
 <p id="rfc.section.8.p.4">Current software upgrade mechanism do not allow for changes at runtime. There are predefined interfaces that would break whenever the API changes, making it compulsory to send new software to the device that would need to install it, reboot, etc. The device logic has to support such interfaces, no changes are possible at runtime.</p>
 <h1 id="rfc.section.9"><a href="#rfc.section.9">9.</a> <a href="#acknowledgements" id="acknowledgements">Acknowledgements</a></h1>
-<p id="rfc.section.9.p.1">Runtime Discovery ideas are inspired from Matthias Kovatsch&#8217;s presentations on HATEOAS at <a href="#IOTSIWS">[IOTSIWS]</a>. Thanks to Carsten Bormann for the valuable feedback.</p>
+<p id="rfc.section.9.p.1">Runtime Discovery ideas are inspired from Matthias Kovatsch&#8217;s presentations on HATEOAS at <a href="#IOTSIWS">[IOTSIWS]</a>. Thanks to Carsten Bormann and Jari Arkko for the valuable feedback.</p>
 <h1 id="rfc.references"><a href="#rfc.references">10.</a> Informative References</h1>
 <table>
   <tbody>
