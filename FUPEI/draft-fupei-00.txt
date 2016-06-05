@@ -95,7 +95,7 @@ Table of Contents
    +--------------------+                      +--------------------+
    |     IPv4/IPv6      | <-----------------+  |     IPv4/IPv6      |
    +--------------------+                      +--------------------+
-   |       GSM/3G       |                      |        ANY         |
+   |     4G/NB-IoT      |                      |        ANY         |
    +--------------------+                      +--------------------+
 
    This set up poses several issues, specially when dealing with the
