@@ -467,7 +467,7 @@
   <h1 id="rfc.section.1"><a href="#rfc.section.1">1.</a> <a href="#introduction" id="introduction">Introduction</a></h1>
 <p id="rfc.section.1.p.1">In this short paper we try to raise some issues we have found when dealing with software upgrades in the IoT domain. Dealing with sleepy endpoint is at <a href="#sleepy">Section 3</a>. The case for device initiated communication is on <a href="#devini">Section 4</a> and manager initiated on <a href="#serverini">Section 5</a>. Delegation on gateways or other nodes is in <a href="#delegation">Section 6</a>. The use of an alternative stack for software upgrades is at <a href="#many">Section 7</a>. A possible long-term architecture that enables to do runtime updates on the constrained device is at <a href="#run">Section 8</a></p>
 <h1 id="rfc.section.2"><a href="#rfc.section.2">2.</a> <a href="#architecture" id="architecture">Architecture</a></h1>
-<p id="rfc.section.2.p.1">Ideally our target CoAP stack is the following:</p>
+<p id="rfc.section.2.p.1">We start with the assumption of the followign CoAP-based stack:</p>
 <pre>
 Device                                      Manager
 +--------------------+                      +--------------------+
@@ -477,10 +477,10 @@ Device                                      Manager
 +--------------------+                      +--------------------+
 |     IPv4/IPv6      | &lt;-----------------+  |     IPv4/IPv6      |
 +--------------------+                      +--------------------+
-|       GSM/3G       |                      |        ANY         |
+|     4G/NB-IoT      |                      |        ANY         |
 +--------------------+                      +--------------------+
 </pre>
-<p id="rfc.section.2.p.2">This set up poses several issues, specially when dealing with the operator environment.</p>
+<p id="rfc.section.2.p.2">This simple, generic set up already presents several problems, specially when dealing with the operator environment.</p>
 <h1 id="rfc.section.3"><a href="#rfc.section.3">3.</a> <a href="#sleepy" id="sleepy">Dealing with Sleepy endpoints</a></h1>
 <p id="rfc.section.3.p.1">The fact that devices are sleepy poses several problems for doing software updates. Namely that you do not have a connected endpoint most of the time and that therefore the device will have to contact the manager or the manager will have to poll the device pretty frequently. The case for polling does not scale and therefore it is hardly a solution.</p>
 <p id="rfc.section.3.p.2">Nevertheless it is very common to use polling on the constrained space since the server has more capabilities and thus can query the device providing that there are no NATs or firewalls (See <a href="#devini">Section 4</a>)</p>

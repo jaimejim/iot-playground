@@ -85,7 +85,7 @@ Table of Contents
 
 2.  Architecture
 
-   Ideally our target CoAP stack is the following:
+   We start with the assumption of the followign CoAP-based stack:
 
    Device                                      Manager
    +--------------------+                      +--------------------+
@@ -98,8 +98,8 @@ Table of Contents
    |     4G/NB-IoT      |                      |        ANY         |
    +--------------------+                      +--------------------+
 
-   This set up poses several issues, specially when dealing with the
-   operator environment.
+   This simple, generic set up already presents several problems,
+   specially when dealing with the operator environment.
 
 3.  Dealing with Sleepy endpoints
 

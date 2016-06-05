@@ -51,7 +51,7 @@ In this short paper we try to raise some issues we have found when dealing with 
 Architecture
 ============
 
-Ideally our target CoAP stack is the following:
+We start with the assumption of the followign CoAP-based stack:
 
 
     Device                                      Manager
@@ -62,11 +62,11 @@ Ideally our target CoAP stack is the following:
     +--------------------+                      +--------------------+
     |     IPv4/IPv6      | <-----------------+  |     IPv4/IPv6      |
     +--------------------+                      +--------------------+
-    |       GSM/3G       |                      |        ANY         |
+    |     4G/NB-IoT      |                      |        ANY         |
     +--------------------+                      +--------------------+
 
 
-This set up poses several issues, specially when dealing with the operator environment.
+This simple, generic set up already presents several problems, specially when dealing with the operator environment.
 
 Dealing with Sleepy endpoints {#sleepy}
 =============================
