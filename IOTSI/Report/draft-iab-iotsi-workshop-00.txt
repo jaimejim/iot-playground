@@ -13,7 +13,7 @@ Expires: November 25, 2016
 
    Report from the Internet of Things (IoT) Semantic Interoperability
                          (IOTSI) Workshop 2016
-                     draft-iab-iotsi-workshop-00.tx
+                    draft-iab-iotsi-workshop-00.txt
 
 Abstract
 
@@ -75,7 +75,7 @@ Table of Contents
    3.  Architecture  . . . . . . . . . . . . . . . . . . . . . . . .   4
    4.  What Problems to Solve  . . . . . . . . . . . . . . . . . . .   5
    5.  Translation . . . . . . . . . . . . . . . . . . . . . . . . .   6
-   6.  Runtime Discovery . . . . . . . . . . . . . . . . . . . . . .   6
+   6.  Runtime Discovery (work in progres section) . . . . . . . . .   6
    7.  Acknowledgements  . . . . . . . . . . . . . . . . . . . . . .   9
    8.  Appendix A: Program Committee . . . . . . . . . . . . . . . .   9
    9.  Appendix B: Accepted Position Papers  . . . . . . . . . . . .   9
@@ -285,7 +285,7 @@ Internet-Draft                    IOTSI                         May 2016
    Allow IoT devices to exchange information, potentially along with the
    data exchange, to discover meta-data about the data and, potentially,
    even a self-describing interaction model.  An example of such an
-   approach has been shown with HATEOS [HATEOS].
+   approach has been shown with HATEOAS [HATEOAS].
 
 5.  Translation
 
@@ -324,7 +324,7 @@ Internet-Draft                    IOTSI                         May 2016
    serialized data, on a hub in order to normalize it to other data
    model.
 
-6.  Runtime Discovery
+6.  Runtime Discovery (work in progres section)
 
    Runtime changes are doing after design and at compile time.
    Discovery, is it devices or data items on devices.  A lot of people
@@ -437,10 +437,10 @@ Internet-Draft                    IOTSI                         May 2016
    There are also discovery mechanisms where anything related to the
    state of a thing can be discovered.
 
+   - To be edited -
+
    You have to know the vocabulary used a priori, basic assumptions for
    discovery, there is a handle that will point.
-
-
 
 
 
@@ -461,17 +461,16 @@ Internet-Draft                    IOTSI                         May 2016
    refers to the data type.  A generic client could understand some of
    the characteristics.  The interaction model is not something to be
    easily reconstructed.  With HATEOAS and OCF's approach, it seems that
-   you can learn how to interact with the device with that metadata.
-   Let's say that we don't need that crap, it is not useful.  If someone
-   wants a device he can just download some software and use it. for
-   some of the use cases it is needed. if I buy a heart rate monitor. i
-   can do that as a developer i dont want to use that.  It is also
-   needed to keep the support the prior features.  Also if I want to
-   change vendor.  The notion is that after discovery I know how to use
-   it eve if I don't know what it is.
+   you can learn how to interact with the device with that metadata.  If
+   someone wants a device he can just download some software and use it.
+   for some of the use cases it is needed. if I buy a heart rate
+   monitor. i can do that as a developer i dont want to use that.  It is
+   also needed to keep the support the prior features.  Also if I want
+   to change vendor.  The notion is that after discovery I know how to
+   use it eve if I don't know what it is.
 
    It depends also on how do you see the programming environment.
-   translation from one data model to another. gw sucks the code and
+   translation from one data model to another. gw takes the code and
    does the translation. ar esome of the language so powerful to do
    that? prototype to do something
 
@@ -498,6 +497,7 @@ Internet-Draft                    IOTSI                         May 2016
         space"
 
    4.   Robert Cragie, "The ZigBee Cluster Library over IP"
+
 
 
 
@@ -743,7 +743,7 @@ Internet-Draft                    IOTSI                         May 2016
               https://channel9.msdn.com/Blogs/Internet-of-Things-Blog/
               Using-the-AllJoyn--Studio-Extension , 2016.
 
-   [HATEOS]   Kovatsch, M., "Semantic Interoperability Requires
+   [HATEOAS]  Kovatsch, M., "Semantic Interoperability Requires
               Self&#173;describing Interaction Models - HATEOAS for the
               Internet of Things", Proceedings of the IoT Semantic
               Interoperability Workshop 2016, 2016.

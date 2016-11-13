@@ -139,7 +139,7 @@ IoT domain is currently missing insights into what user actually expect.</t>
   <t>Runtime Discovery</t>
 </list></t>
 
-<t>Allow IoT devices to exchange information, potentially along with the data exchange, to discover meta-data about the data and, potentially, even a self-describing interaction model. An example of such an approach has been shown with HATEOS <xref target="HATEOS"/>.</t>
+<t>Allow IoT devices to exchange information, potentially along with the data exchange, to discover meta-data about the data and, potentially, even a self-describing interaction model. An example of such an approach has been shown with HATEOAS <xref target="HATEOAS"/>.</t>
 
 </section>
 <section anchor="translation" title="Translation">
@@ -156,7 +156,7 @@ IoT domain is currently missing insights into what user actually expect.</t>
 Translation of serialized data, on a hub  in order to normalize it to other data model.</t>
 
 </section>
-<section anchor="runtime-discovery" title="Runtime Discovery">
+<section anchor="runtime-discovery-work-in-progres-section" title="Runtime Discovery (work in progres section)">
 
 <t>Runtime changes are doing after design and at compile time. 
 Discovery, is it devices or data items on devices. 
@@ -210,6 +210,8 @@ Matthias: these are complementary approaches. It is to point out that it is also
 
 <t>Data models have common elements that have the property of composition. Often alliances provide repositories for data models, static definitions of “things” and how to composed them. With links and composition, you can create more dynamic interactions and describe the environment so that it is discovered in runtime. On top of that there can be annotations with the notion of interfaces. There are also discovery mechanisms where anything related to the state of a thing can be discovered.</t>
 
+<t>– To be edited –</t>
+
 <t>You have to know the vocabulary used a priori, basic assumptions for discovery, there is a handle that will point.</t>
 
 <t>The challenge is to have the features that are exposed and modeled (DM and IM) and to keep the backwards compatibility. As well as having the capability to provide new features in the future.</t>
@@ -217,10 +219,10 @@ Matthias: these are complementary approaches. It is to point out that it is also
 <t>All of this is done in the case that we want to have something better than just having firmware updates every time.</t>
 
 <t>BLE they have an additional discovery services and some metadata that refers to the data type. A generic client could understand some of the characteristics. The interaction model is not something to be easily reconstructed. With HATEOAS and OCF’s approach, it seems that you can learn how to interact with the device with that metadata.
-Let’s say that we don’t need that crap, it is not useful. If someone wants a device he can just download some software and use it. for some of the use cases it is needed. if I buy a heart rate monitor. i can do that as a developer i dont want to use that. It is also needed to keep the support the prior features. Also if I want to change vendor. The notion is that after discovery I know how to use it eve if I don’t know what it is.</t>
+If someone wants a device he can just download some software and use it. for some of the use cases it is needed. if I buy a heart rate monitor. i can do that as a developer i dont want to use that. It is also needed to keep the support the prior features. Also if I want to change vendor. The notion is that after discovery I know how to use it eve if I don’t know what it is.</t>
 
 <t>It depends also on how do you see the programming environment. 
-translation from one data model to another. gw sucks the code and does the translation. ar esome of the language so powerful to do that? prototype to do something</t>
+translation from one data model to another. gw takes the code and does the translation. ar esome of the language so powerful to do that? prototype to do something</t>
 
 </section>
 <section anchor="acknowledgements" title="Acknowledgements">
@@ -402,7 +404,7 @@ Collaborative Github Repository
   </front>
   <seriesInfo name="Proceedings" value="of the IoT Workshop for Semantic Interoperability (IOTSI)"/>
 </reference>
-<reference anchor="HATEOS" >
+<reference anchor="HATEOAS" >
   <front>
     <title>Semantic Interoperability Requires Self­describing Interaction Models - HATEOAS for the Internet of Things</title>
     <author initials="M." surname="Kovatsch" fullname="Matthias Kovatsch">
