@@ -5,3 +5,9 @@ Makefile
 IOTSI/Report/draft-iotsi-jaime-00_original.mkd
 
 IOTSI/Report/.refcache/reference.RFC.3444.xml
+
+IOTSI/Report/Makefile
+
+IOTSI/Report/draft-iab-iotsi-workshop-01.mkd
+
+IOTSI/Report/draft-iab-iotsi-workshop-00.mkd
