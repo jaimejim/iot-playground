@@ -379,7 +379,7 @@
 <link href="#rfc.section.3" rel="Chapter" title="3 Architecture"/>
 <link href="#rfc.section.4" rel="Chapter" title="4 What Problems to Solve"/>
 <link href="#rfc.section.5" rel="Chapter" title="5 Translation"/>
-<link href="#rfc.section.6" rel="Chapter" title="6 Runtime Discovery (work in progres section)"/>
+<link href="#rfc.section.6" rel="Chapter" title="6 Dealing with change"/>
 <link href="#rfc.section.7" rel="Chapter" title="7 Acknowledgements"/>
 <link href="#rfc.section.8" rel="Chapter" title="8 Appendix A: Program Committee"/>
 <link href="#rfc.section.9" rel="Chapter" title="9 Appendix B: Accepted Position Papers"/>
@@ -410,7 +410,7 @@
 </tr>
 <tr>
   <td class="left">Internet-Draft</td>
-  <td class="right"></td>
+  <td class="right">Ericsson</td>
 </tr>
 <tr>
   <td class="left">Intended status: Informational</td>
@@ -418,7 +418,7 @@
 </tr>
 <tr>
   <td class="left">Expires: May 18, 2017</td>
-  <td class="right"></td>
+  <td class="right">ARM</td>
 </tr>
 <tr>
   <td class="left"></td>
@@ -426,7 +426,7 @@
 </tr>
 <tr>
   <td class="left"></td>
-  <td class="right"></td>
+  <td class="right">Microsoft</td>
 </tr>
 <tr>
   <td class="left"></td>
@@ -443,7 +443,7 @@
   <h1 id="rfc.abstract">
   <a href="#rfc.abstract">Abstract</a>
 </h1>
-<p>This document provides a summary of the &#8216;Workshop on Internet of Things (IoT) Semantic Interoperability (IOTSI)&#8217; <a href="#IOTSIWS">[IOTSIWS]</a>, which took place in Santa Clara, CA, on March 17-18, 2016.  The main goal of the workshop was to foster a discussion on the different approaches used by companies and standards developing organizations to accomplish interoperability at the application layer.  This report summarizes the discussions and lists recommendations to the standards community. The views and positions in this report are those of the workshop participants and do not necessarily reflect those of the authors and the Internet Architecture Board (IAB), which organized the workshop.</p>
+<p>This document provides a summary of the &#8216;Workshop on Internet of Things (IoT) Semantic Interoperability (IOTSI)&#8217; <a href="#IOTSIAG">[IOTSIAG]</a>, <a href="#IOTSIWS">[IOTSIWS]</a>, which took place in Santa Clara, CA, on March 17-18, 2016.  The main goal of the workshop was to foster a discussion on the different approaches used by companies and standards developing organizations to accomplish interoperability at the application layer.  This report summarizes the discussions and lists recommendations to the standards community. The views and positions in this report are those of the workshop participants and do not necessarily reflect those of the authors and the Internet Architecture Board (IAB), which organized the workshop.</p>
 <h1 id="rfc.status">
   <a href="#rfc.status">Status of This Memo</a>
 </h1>
@@ -467,7 +467,7 @@
 <li>3.   <a href="#rfc.section.3">Architecture</a></li>
 <li>4.   <a href="#rfc.section.4">What Problems to Solve</a></li>
 <li>5.   <a href="#rfc.section.5">Translation</a></li>
-<li>6.   <a href="#rfc.section.6">Runtime Discovery (work in progres section)</a></li>
+<li>6.   <a href="#rfc.section.6">Dealing with change</a></li>
 <li>7.   <a href="#rfc.section.7">Acknowledgements</a></li>
 <li>8.   <a href="#rfc.section.8">Appendix A: Program Committee</a></li>
 <li>9.   <a href="#rfc.section.9">Appendix B: Accepted Position Papers</a></li>
@@ -555,47 +555,15 @@
 <p id="rfc.section.5.p.1">One of the targets of interoperability is to create translators between the data models. There are analogies with gateways back in 1985 when they were used to translate between network protocols, eventually IP took over providing interoperability, however we lost some of the features provided by those other protocols. The creation of an equivalent &#8220;hub/s&#8221; that offer translation between the different data models or data semantics seems one of the ways forward. Some lose of expressiveness due to the translation between models seems also unavoidable.</p>
 <p id="rfc.section.5.p.2">When it comes to translation two different distinctions appear: translating data between data models and translating data models. The first one implies doing the translation at runtime while the second performs one translation between the data models one time, like translating a YANG model to a RAML/JSON one. Indeed, for every IM multiple DMs could be translated.</p>
 <p id="rfc.section.5.p.3">In a sense these distinctions affect as to when the translation is performed. It can be done at &#8220;design time&#8221; when the information model is done, it can be done at runtime for a concrete data model and it can be done depending n the actual serialization.</p>
-<p id="rfc.section.5.p.4">Yet another distinction will appear depending on the requirements from the application protocols, RPC-style ones might require a slightly different DM than REST ones for similar operations, for example SNMP-traps could be similar to CoAP-Observations but not quite the same. It is easier to translate between systems that follow the same architecture/design pattern than across architectures, full translation might not even be possible (e.g. stateless vs stateful systems).</p>
+<p id="rfc.section.5.p.4">Yet another distinction will appear depending on the requirements from the application protocols, RPC-style ones might require a slightly different DM than REST ones for similar operations, for example SNMP-traps could be similar to CoAP-Observations but not quite the same. It is easier to translate between systems that follow the same architecture/design pattern than across architectures, full translation might not even be possible (e.g. stateless vsstateful systems).</p>
 <p id="rfc.section.5.p.5">Translation of models script to translate XML to YANG Translation of serialized data, on a hub  in order to normalize it to other data model.</p>
-<h1 id="rfc.section.6"><a href="#rfc.section.6">6.</a> <a href="#runtime-discovery-work-in-progres-section" id="runtime-discovery-work-in-progres-section">Runtime Discovery (work in progres section)</a></h1>
-<p id="rfc.section.6.p.1">Runtime changes are doing after design and at compile time.  Discovery, is it devices or data items on devices.  A lot of people think about devices but also abstract entities.  To do discovery one question is &#8220;how much must &#8220;be shared before time.  The meta-data has also two possible notions, is it instance specific (e.g. location of the thing) or does it have to do with the model itself?</p>
-<p id="rfc.section.6.p.2">Need to handle change in the environment. Replace things without manual configuration, change control flow, etc. at runtime.  Few things (vocabulary) is shared a priori.  Drives the application runtime, &#8220;Engine of application state&#8221;, we needs self-describing interaction models.  Ravi: nothing prevents HATEOAS + data model Ari: And OMA LwM2M uses SenML Matthias: these are complementary approaches. It is to point out that it is also about Interaction Models. Of course DM are needed to convey data.</p>
-<p id="rfc.section.6.p.3">Interaction model</p>
-<p id="rfc.section.6.p.4">You get one entry point (in CoAP it is the RD) and the client tries to perform discovery in order to find and follow links in order to discover capabilities. You submit forms to interact with them. This way you can create processes that span over multiple devices involved in the process. If later one you find that you need something else, you can add new functionality at runtime, next client that comes along will have the same logic but see different capabilities of functionality and therefore use it.</p>
-<p id="rfc.section.6.p.5">Parts of the information have to be shared a priori. The process is incremental, but once discovered, you don&#8217;t need to perform the same operation every time, you can go to the bookmark.</p>
-<p id="rfc.section.6.p.6">The following are examples of all those in HTML.</p>
-<pre>
-// Links (Anchors) with human-readable information
-&lt;a href="about.html"&gt;More information&lt;/a&gt;
-&lt;link rel="stylesheet" href="style.css"&gt;
-
-// Templated Links to perform a query with a parameter.
-&lt;form method="get" action="search.php"&gt;
-  &lt;input id="query" type="text"&gt;
-&lt;/form&gt;
-
-// Embedded Links which are used to embed other resources.
-&lt;img src="logo.png"&gt;
-&lt;audio src="audio.ogg"&gt;
-&lt;video src="video.mp4"&gt;
-
-// Forms with the concrete method to be used and the
-&lt;form method="post" action=""&gt;
-  &lt;input id="name" type="text"&gt;
-  &lt;input id="age" type="text"&gt;
-  &lt;input id="homepage" type="text"&gt;
-&lt;/form&gt;
-</pre>
-<p id="rfc.section.6.p.7">The challenge is to define the human-readable parts as machine-readable. For that a vocabulary is necessary to give meaning to the tags. Such information needs to be share beforehand.</p>
-<p id="rfc.section.6.p.8">In some models everything has to be shared from the beginning, therefore any change would involve changing the whole &#8220;framework&#8221;. By forcing to share only the bare minimum, you avoid such problem.</p>
-<p id="rfc.section.6.p.9">Some organizations have created predefined interfaces, all of them are predefined and described, they even provide code generation. The device logic has to support such interfaces, no changes are possible at runtime.</p>
-<p id="rfc.section.6.p.10">Data models have common elements that have the property of composition. Often alliances provide repositories for data models, static definitions of &#8220;things&#8221; and how to composed them. With links and composition, you can create more dynamic interactions and describe the environment so that it is discovered in runtime. On top of that there can be annotations with the notion of interfaces. There are also discovery mechanisms where anything related to the state of a thing can be discovered.</p>
-<p id="rfc.section.6.p.11">&#8211; To be edited &#8211;</p>
-<p id="rfc.section.6.p.12">You have to know the vocabulary used a priori, basic assumptions for discovery, there is a handle that will point.</p>
-<p id="rfc.section.6.p.13">The challenge is to have the features that are exposed and modeled (DM and IM) and to keep the backwards compatibility. As well as having the capability to provide new features in the future.</p>
-<p id="rfc.section.6.p.14">All of this is done in the case that we want to have something better than just having firmware updates every time.</p>
-<p id="rfc.section.6.p.15">BLE they have an additional discovery services and some metadata that refers to the data type. A generic client could understand some of the characteristics. The interaction model is not something to be easily reconstructed. With HATEOAS and OCF&#8217;s approach, it seems that you can learn how to interact with the device with that metadata.  If someone wants a device he can just download some software and use it. for some of the use cases it is needed. if I buy a heart rate monitor. i can do that as a developer i dont want to use that. It is also needed to keep the support the prior features. Also if I want to change vendor. The notion is that after discovery I know how to use it eve if I don&#8217;t know what it is.</p>
-<p id="rfc.section.6.p.16">It depends also on how do you see the programming environment.  translation from one data model to another. gw takes the code and does the translation. ar esome of the language so powerful to do that? prototype to do something</p>
+<h1 id="rfc.section.6"><a href="#rfc.section.6">6.</a> <a href="#dealing-with-change" id="dealing-with-change">Dealing with change</a></h1>
+<p id="rfc.section.6.p.1">A large part of the workshop was dedicated to the evolution of devices and server side applications. Multiple of the participating groups have defined data formats for data representation, however interactions between devices and services and how their relationship evolves over time is more related to the interaction model.</p>
+<p id="rfc.section.6.p.2">There are various approaches to it. In the most primitive case, a developer will use a description of an API and implement whichever are the protocol steps. In some cases the information model itself can be used to generate some of the code stubs. Changes of an API imply changes on the clients to upgrade to the new version, which requires some development of new code to satisfy the needs of the new API.</p>
+<p id="rfc.section.6.p.3">New, approaches imply that the whole interaction could be machine-understandable on the first place with changes happening at runtime. In it, a machine client can discover the possible interactions with a service, adapting to changes as they occur without specific code being developed to adapt to them.</p>
+<p id="rfc.section.6.p.4">The challenge seems to be to define the human-readable parts as machine-readable. Machine-readable require a shared vocabulary to give meaning to the tags.</p>
+<p id="rfc.section.6.p.5">These type of interactions are based on the The REST architectural style. the principle is that the device or the endpoint, just needs a single entry point, the server would provide descriptions of the API inband by means of web links and forms.</p>
+<p id="rfc.section.6.p.6">By defining IoT&#173; specific link relation types, it is possible to drive interactions through links instead of hardcoding URIs into the client, thus making the system flexible enough for later changes. The definition of the basic hypermedia formats for IoT is still work in progress, however some of the existing mechanism can be reused, such as resource discovery, forms or links.</p>
 <h1 id="rfc.section.7"><a href="#rfc.section.7">7.</a> <a href="#acknowledgements" id="acknowledgements">Acknowledgements</a></h1>
 <p id="rfc.section.7.p.1">We would like to thank all paper authors and participants for their contributions. Due to the large number of position paper submissions we were unfortunately unable to invite every author; we would like to apologize to those that could not attend the workshop.</p>
 <h1 id="rfc.section.8"><a href="#rfc.section.8">8.</a> <a href="#appendix-a-program-committee" id="appendix-a-program-committee">Appendix A: Program Committee</a></h1>
@@ -780,7 +748,7 @@
 		<span class="family-name">Jimenez</span>
 	  </span>
 	</span>
-	<span class="org vcardline"></span>
+	<span class="org vcardline">Ericsson</span>
 	<span class="adr">
 	  
 	  <span class="vcardline">
@@ -801,7 +769,7 @@
 		<span class="family-name">Tschofenig</span>
 	  </span>
 	</span>
-	<span class="org vcardline"></span>
+	<span class="org vcardline">ARM</span>
 	<span class="adr">
 	  
 	  <span class="vcardline">
@@ -822,7 +790,7 @@
 		<span class="family-name">Thaler</span>
 	  </span>
 	</span>
-	<span class="org vcardline"></span>
+	<span class="org vcardline">Microsoft</span>
 	<span class="adr">
 	  
 	  <span class="vcardline">

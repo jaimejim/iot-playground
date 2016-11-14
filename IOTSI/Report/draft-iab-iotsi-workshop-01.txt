@@ -369,8 +369,8 @@ Internet-Draft          draft-iab-iotsi-workshop           November 2016
    single entry point, the server would provide descriptions of the API
    inband by means of web links and forms.
 
-   By defining IoT&#173; specific link relation types, it is possible to
-   drive interactions through links instead of hardcoding URIs into the
+   By defining IoT specific relation types, it is possible to drive
+   interactions through links instead of hardcoding URIs into the
    client, thus making the system flexible enough for later changes.
    The definition of the basic hypermedia formats for IoT is still work
    in progress, however some of the existing mechanism can be reused,
@@ -464,7 +464,7 @@ Internet-Draft          draft-iab-iotsi-workshop           November 2016
    18.  Michael Koster, "Model-Based Hypertext Language"
 
    19.  Matthias Kovatsch, Yassin N.  Hassan, Klaus Hartke, "Semantic
-        Interoperability Requires Self-describing Interaction Models"
+        Interoperability Requires self describing Interaction Models"
 
    20.  Kai Kreuzer, "A Pragmatic Approach to Interoperability in the
         Internet of Things"
